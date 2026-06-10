@@ -13,13 +13,38 @@
 <body>
   <header class="site-header">
     <nav class="nav container">
-      <a class="brand" href="#home">PV</a>
+      <div class="profile-menu-wrap">
+        <button class="brand brand-photo profile-menu-trigger" type="button" aria-label="Open profile menu" aria-expanded="false">
+          <img src="assets/images/profile-headshot.jpg" alt="Pathik Viramgama" />
+        </button>
+        <div class="profile-dropdown" aria-hidden="true">
+          <a href="#home">Back to intro</a>
+          <button type="button" class="add-cat-btn">Add cat to navbar 🐾</button>
+        </div>
+      </div>
+      <div class="cat-playground cat-hidden" aria-label="Clickable animated cat widget">
+        <button class="nav-cat" type="button" aria-label="Click the cat to make it purr" title="Click me for a purr">
+          <span class="cat-tail"></span>
+          <span class="cat-body">
+            <span class="cat-ear cat-ear-left"></span>
+            <span class="cat-ear cat-ear-right"></span>
+            <span class="cat-face">
+              <span class="cat-eye left"></span>
+              <span class="cat-eye right"></span>
+              <span class="cat-nose"></span>
+              <span class="cat-mouth">ω</span>
+            </span>
+          </span>
+          <span class="purr-bubble">purr!</span>
+        </button>
+      </div>
       <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
+        <a href="#certifications">Certifications</a>
         <a href="#contact" class="nav-cta">Contact</a>
       </div>
     </nav>
@@ -29,9 +54,13 @@
     <section id="home" class="hero container">
       <div class="hero-copy">
         <p class="eyebrow">Software Engineer • AI/ML • Data Engineering</p>
-        <h1>Hi, I’m <span>Pathik Viramgama</span>.</h1>
-        <p class="hero-text">
-          I build full-stack products, data platforms, and AI-powered systems that are fast, reliable, and useful in real-world environments.
+        <h1>Hi, I’m <span class="hero-name" aria-label="Pathik Viramgama"><span class="hero-word"><span class="hero-letter" style="--i:0">P</span><span class="hero-letter" style="--i:1">a</span><span class="hero-letter" style="--i:2">t</span><span class="hero-letter" style="--i:3">h</span><span class="hero-letter" style="--i:4">i</span><span class="hero-letter" style="--i:5">k</span></span><span class="hero-space">&nbsp;</span><span class="hero-word"><span class="hero-letter" style="--i:6">V</span><span class="hero-letter" style="--i:7">i</span><span class="hero-letter" style="--i:8">r</span><span class="hero-letter" style="--i:9">a</span><span class="hero-letter" style="--i:10">m</span><span class="hero-letter" style="--i:11">g</span><span class="hero-letter" style="--i:12">a</span><span class="hero-letter" style="--i:13">m</span><span class="hero-letter" style="--i:14">a</span></span></span>.</h1>
+        <div class="role-rotator" aria-live="polite">
+          <span class="role-prefix">I build</span>
+          <span class="role-text">Full-stack products</span>
+        </div>
+        <p class="hero-text hero-text-fluid" aria-label="I build full-stack products, data platforms, and AI-powered systems that are fast, reliable, and useful in real-world environments.">
+          <span class="fluid-word" style="--i:0">I</span> <span class="fluid-word" style="--i:1">build</span> <span class="fluid-word" style="--i:2">full-stack</span> <span class="fluid-word" style="--i:3">products,</span> <span class="fluid-word" style="--i:4">data</span> <span class="fluid-word" style="--i:5">platforms,</span> <span class="fluid-word" style="--i:6">and</span> <span class="fluid-word" style="--i:7">AI-powered</span> <span class="fluid-word" style="--i:8">systems</span> <span class="fluid-word" style="--i:9">that</span> <span class="fluid-word" style="--i:10">are</span> <span class="fluid-word" style="--i:11">fast,</span> <span class="fluid-word" style="--i:12">reliable,</span> <span class="fluid-word" style="--i:13">and</span> <span class="fluid-word" style="--i:14">useful</span> <span class="fluid-word" style="--i:15">in</span> <span class="fluid-word" style="--i:16">real-world</span> <span class="fluid-word" style="--i:17">environments.</span>
         </p>
         <div class="hero-actions">
           <a class="btn primary" href="mailto:pathikcodes@gmail.com">Email Me</a>
@@ -39,8 +68,8 @@
           <a class="btn secondary" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
         </div>
       </div>
-      <div class="hero-card">
-        <div class="avatar">PV</div>
+      <div class="hero-card hero-tilt-card" data-tilt-card>
+        <div class="avatar avatar-photo"><img src="assets/images/profile-headshot.jpg" alt="Portrait of Pathik Viramgama" /></div>
         <h2>Full-stack engineer with a product mindset.</h2>
         <p>USC MSCS graduate building across backend, cloud, frontend, AI/ML, and modern data workflows.</p>
         <div class="quick-stats">
@@ -54,15 +83,106 @@
     <section id="about" class="section container">
       <div class="section-heading">
         <p class="eyebrow">About</p>
-        <h2>Engineer who enjoys turning messy ideas into working systems.</h2>
+        <h2><span class="engineer-word">Engineer<span class="steam-puff steam-1"></span><span class="steam-puff steam-2"></span></span> who enjoys turning <span class="messy-word">messy ideas</span> into <span class="systems-word">working systems<span class="gear gear-one">⚙</span><span class="gear gear-two">⚙</span></span>.</h2>
       </div>
-      <div class="about-grid">
-        <p>
-          I’m a software engineer with experience across full-stack development, AI/ML systems, data engineering, and cloud deployments. My work spans scalable backend services, production dashboards, ML-powered applications, and data pipelines using tools like Snowflake, Databricks, Azure, AWS, GCP, React, Django, Node.js, and FastAPI.
-        </p>
-        <p>
-          I like environments where I can own the problem end-to-end: understand user needs, design practical architecture, write clean code, test deeply, and ship products that create measurable impact.
-        </p>
+      <div class="about-grid about-intro-grid">
+        <div class="about-photo-card glass-card">
+          <img src="assets/images/about-intro.jpg" alt="Pathik standing outdoors in a red USC hoodie with a scenic mountain background" class="about-photo" />
+        </div>
+        <div class="about-copy-stack interactive-about-copy simple-about-copy">
+          <div class="about-line-group">
+            <p class="about-main-line">
+              I’m Pathik — a software engineer who builds practical products across
+              
+<span class="about-keyword about-keyword-popup" tabindex="0">
+  <span class="about-keyword-label">full-stack development</span>
+  <span class="about-keyword-panel" role="tooltip" aria-label="Full-stack development skills">
+    <span class="about-popup-title">Full-Stack Development</span>
+    <span class="about-popup-chips">
+      <span class="skill-mini-chip" data-skill-tooltip="Frontend UI library">React</span>
+      <span class="skill-mini-chip" data-skill-tooltip="React framework for production web apps">Next.js</span>
+      <span class="skill-mini-chip" data-skill-tooltip="JavaScript runtime for backend services">Node.js</span>
+      <span class="skill-mini-chip" data-skill-tooltip="Python web framework">Django</span>
+      <span class="skill-mini-chip" data-skill-tooltip="Python API framework">FastAPI</span>
+      <span class="skill-mini-chip" data-skill-tooltip="Web page structure">HTML</span>
+      <span class="skill-mini-chip" data-skill-tooltip="Web styling and layouts">CSS</span>
+      <span class="skill-mini-chip" data-skill-tooltip="Typed JavaScript for scalable apps">TypeScript</span>
+    </span>
+  </span>
+</span>,
+              
+<span class="about-keyword about-keyword-popup" tabindex="0">
+  <span class="about-keyword-label">AI/ML systems</span>
+  <span class="about-keyword-panel" role="tooltip" aria-label="AI and ML skills">
+    <span class="about-popup-title">AI / ML Systems</span>
+    <span class="about-popup-chips">
+      <span class="skill-mini-chip" data-skill-tooltip="LLM APIs and AI workflows">OpenAI</span>
+      <span class="skill-mini-chip" data-skill-tooltip="Deep learning framework">PyTorch</span>
+      <span class="skill-mini-chip" data-skill-tooltip="Machine learning framework">TensorFlow</span>
+      <span class="skill-mini-chip" data-skill-tooltip="High-level neural network API">Keras</span>
+      <span class="skill-mini-chip" data-skill-tooltip="Classical ML toolkit">Scikit-learn</span>
+      <span class="skill-mini-chip" data-skill-tooltip="Models, datasets, and transformers">Hugging Face</span>
+      <span class="skill-mini-chip" data-skill-tooltip="Transformer model for NLP">BERT</span>
+      <span class="skill-mini-chip" data-skill-tooltip="Computer vision library">OpenCV</span>
+    </span>
+  </span>
+</span>,
+              
+<span class="about-keyword about-keyword-popup" tabindex="0">
+  <span class="about-keyword-label">data engineering</span>
+  <span class="about-keyword-panel" role="tooltip" aria-label="Data engineering skills">
+    <span class="about-popup-title">Data Engineering</span>
+    <span class="about-popup-chips">
+      <span class="skill-mini-chip" data-skill-tooltip="Cloud data warehouse">Snowflake</span>
+      <span class="skill-mini-chip" data-skill-tooltip="Lakehouse + Spark workflows">Databricks</span>
+      <span class="skill-mini-chip" data-skill-tooltip="Microsoft cloud platform">Azure</span>
+      <span class="skill-mini-chip" data-skill-tooltip="Querying and modeling relational data">SQL</span>
+      <span class="skill-mini-chip" data-skill-tooltip="SQL Server Management Studio">SSMS</span>
+      <span class="skill-mini-chip" data-skill-tooltip="ETL Pipelines skill">ETL Pipelines</span>
+      <span class="skill-mini-chip" data-skill-tooltip="Business intelligence dashboards">Power BI</span>
+      <span class="skill-mini-chip" data-skill-tooltip="Low-code business applications">Power Apps</span>
+    </span>
+  </span>
+</span>,
+              and 
+<span class="about-keyword about-keyword-popup" tabindex="0">
+  <span class="about-keyword-label">cloud infrastructure</span>
+  <span class="about-keyword-panel" role="tooltip" aria-label="Cloud infrastructure skills">
+    <span class="about-popup-title">Cloud Infrastructure</span>
+    <span class="about-popup-chips">
+      <span class="skill-mini-chip" data-skill-tooltip="Cloud services and infrastructure">AWS</span>
+      <span class="skill-mini-chip" data-skill-tooltip="Microsoft cloud platform">Azure</span>
+      <span class="skill-mini-chip" data-skill-tooltip="Google Cloud Platform">GCP</span>
+      <span class="skill-mini-chip" data-skill-tooltip="Containerization platform">Docker</span>
+      <span class="skill-mini-chip" data-skill-tooltip="Container orchestration">Kubernetes</span>
+      <span class="skill-mini-chip" data-skill-tooltip="Automated build and deployment">CI/CD</span>
+      <span class="skill-mini-chip" data-skill-tooltip="Backend platform for apps">Firebase</span>
+      <span class="skill-mini-chip" data-skill-tooltip="Version control system">Git</span>
+    </span>
+  </span>
+</span>.
+            </p>
+
+            <p>
+              I enjoy taking ideas from rough concept to polished product — designing the architecture, writing clean code, testing deeply, and shipping something people can actually use.
+            </p>
+          </div>
+
+<div class="simple-build-grid">
+            <article>
+              <span>AI</span>
+              <p>RAG workflows, model APIs, prompt systems, and practical guardrails.</p>
+            </article>
+            <article>
+              <span>Data</span>
+              <p>Reliable pipelines, lakehouse layers, analytics tables, and dashboards.</p>
+            </article>
+            <article>
+              <span>Apps</span>
+              <p>Clean interfaces, scalable APIs, authentication, and cloud deployment.</p>
+            </article>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -70,31 +190,44 @@
       <div class="section-heading">
         <p class="eyebrow">Skills</p>
         <h2>Technical toolkit</h2>
+        <p class="section-subtitle">Core technologies I work with most often.</p>
       </div>
       <div class="skill-grid">
-        <div class="skill-card">
-          <h3>Languages</h3>
-          <p>Python, JavaScript, TypeScript, Kotlin/Java, Dart, SQL, C, C++, C#</p>
+        <div class="skill-card skill-card-enhanced">
+          <h3><span class="skill-category-icon icon-code" aria-hidden="true">&lt;/&gt;</span><span>Languages</span></h3>
+          <div class="skill-mini-list">
+            <span class="skill-mini-chip" data-skill-tooltip="General-purpose programming and ML language">Python</span><span class="skill-mini-chip" data-skill-tooltip="Web scripting and frontend logic">JavaScript</span><span class="skill-mini-chip" data-skill-tooltip="Typed JavaScript for scalable apps">TypeScript</span><span class="skill-mini-chip" data-skill-tooltip="Android and backend development">Kotlin/Java</span><span class="skill-mini-chip" data-skill-tooltip="Flutter app development">Dart</span><span class="skill-mini-chip" data-skill-tooltip="Querying and modeling relational data">SQL</span><span class="skill-mini-chip" data-skill-tooltip="Systems-level programming fundamentals">C</span><span class="skill-mini-chip" data-skill-tooltip="Performance-oriented programming">C++</span><span class="skill-mini-chip" data-skill-tooltip=".NET and application development">C#</span>
+          </div>
         </div>
-        <div class="skill-card">
-          <h3>Frontend & Product</h3>
-          <p>React, Next.js, Tailwind, HTML, CSS, Flutter, Vercel, Figma-to-code workflows</p>
+        <div class="skill-card skill-card-enhanced">
+          <h3><span class="skill-category-icon icon-screen" aria-hidden="true">▣</span><span>Frontend & Product</span></h3>
+          <div class="skill-mini-list">
+            <span class="skill-mini-chip" data-skill-tooltip="Frontend UI library">React</span><span class="skill-mini-chip" data-skill-tooltip="React framework for production web apps">Next.js</span><span class="skill-mini-chip" data-skill-tooltip="Utility-first CSS styling">Tailwind</span><span class="skill-mini-chip" data-skill-tooltip="Web page structure">HTML</span><span class="skill-mini-chip" data-skill-tooltip="Web styling and layouts">CSS</span><span class="skill-mini-chip" data-skill-tooltip="Cross-platform mobile app framework">Flutter</span><span class="skill-mini-chip" data-skill-tooltip="Frontend deployment and hosting">Vercel</span><span class="skill-mini-chip" data-skill-tooltip="Translating designs into UI">Figma-to-code</span>
+          </div>
         </div>
-        <div class="skill-card">
-          <h3>Backend</h3>
-          <p>Node.js, Django, FastAPI, Flask, REST APIs, OpenAPI, PostgreSQL, MongoDB, MySQL</p>
+        <div class="skill-card skill-card-enhanced">
+          <h3><span class="skill-category-icon icon-server" aria-hidden="true">▤</span><span>Backend</span></h3>
+          <div class="skill-mini-list">
+            <span class="skill-mini-chip" data-skill-tooltip="JavaScript runtime for backend services">Node.js</span><span class="skill-mini-chip" data-skill-tooltip="Python web framework">Django</span><span class="skill-mini-chip" data-skill-tooltip="Python API framework">FastAPI</span><span class="skill-mini-chip" data-skill-tooltip="Lightweight Python web framework">Flask</span><span class="skill-mini-chip" data-skill-tooltip="HTTP-based service interfaces">REST APIs</span><span class="skill-mini-chip" data-skill-tooltip="API documentation and contract standard">OpenAPI</span><span class="skill-mini-chip" data-skill-tooltip="Relational database system">PostgreSQL</span><span class="skill-mini-chip" data-skill-tooltip="NoSQL document database">MongoDB</span><span class="skill-mini-chip" data-skill-tooltip="Relational database system">MySQL</span>
+          </div>
         </div>
-        <div class="skill-card">
-          <h3>AI / ML</h3>
-          <p>PyTorch, TensorFlow, Keras, Scikit-learn, OpenAI, Hugging Face, BERT, OpenCV</p>
+        <div class="skill-card skill-card-enhanced">
+          <h3><span class="skill-category-icon icon-brain" aria-hidden="true">🧠</span><span>AI / ML</span></h3>
+          <div class="skill-mini-list">
+            <span class="skill-mini-chip" data-skill-tooltip="Deep learning framework">PyTorch</span><span class="skill-mini-chip" data-skill-tooltip="Machine learning framework">TensorFlow</span><span class="skill-mini-chip" data-skill-tooltip="High-level neural network API">Keras</span><span class="skill-mini-chip" data-skill-tooltip="Classical ML toolkit">Scikit-learn</span><span class="skill-mini-chip" data-skill-tooltip="LLM APIs and AI workflows">OpenAI</span><span class="skill-mini-chip" data-skill-tooltip="Models, datasets, and transformers">Hugging Face</span><span class="skill-mini-chip" data-skill-tooltip="Transformer model for NLP">BERT</span><span class="skill-mini-chip" data-skill-tooltip="Computer vision library">OpenCV</span>
+          </div>
         </div>
-        <div class="skill-card">
-          <h3>Cloud & DevOps</h3>
-          <p>AWS, GCP, Azure, Docker, Kubernetes, Firebase, Git, Jira, CI/CD</p>
+        <div class="skill-card skill-card-enhanced">
+          <h3><span class="skill-category-icon icon-cloud" aria-hidden="true">☁</span><span>Cloud & DevOps</span></h3>
+          <div class="skill-mini-list">
+            <span class="skill-mini-chip" data-skill-tooltip="Cloud services and infrastructure">AWS</span><span class="skill-mini-chip" data-skill-tooltip="Google Cloud Platform">GCP</span><span class="skill-mini-chip" data-skill-tooltip="Microsoft cloud platform">Azure</span><span class="skill-mini-chip" data-skill-tooltip="Containerization platform">Docker</span><span class="skill-mini-chip" data-skill-tooltip="Container orchestration">Kubernetes</span><span class="skill-mini-chip" data-skill-tooltip="Backend platform for apps">Firebase</span><span class="skill-mini-chip" data-skill-tooltip="Version control system">Git</span><span class="skill-mini-chip" data-skill-tooltip="Agile project tracking">Jira</span><span class="skill-mini-chip" data-skill-tooltip="Automated build and deployment">CI/CD</span>
+          </div>
         </div>
-        <div class="skill-card">
-          <h3>Data Engineering</h3>
-          <p>Snowflake, Databricks, Azure, SQL, SSMS, ETL pipelines, Power BI, Power Apps</p>
+        <div class="skill-card skill-card-enhanced">
+          <h3><span class="skill-category-icon icon-database" aria-hidden="true">◉</span><span>Data Engineering</span></h3>
+          <div class="skill-mini-list">
+            <span class="skill-mini-chip" data-skill-tooltip="Cloud data warehouse">Snowflake</span><span class="skill-mini-chip" data-skill-tooltip="Lakehouse + Spark workflows">Databricks</span><span class="skill-mini-chip" data-skill-tooltip="Microsoft cloud platform">Azure</span><span class="skill-mini-chip" data-skill-tooltip="Querying and modeling relational data">SQL</span><span class="skill-mini-chip" data-skill-tooltip="SQL Server Management Studio">SSMS</span><span class="skill-mini-chip" data-skill-tooltip="Extract, transform, load workflows">ETL pipelines</span><span class="skill-mini-chip" data-skill-tooltip="Business intelligence dashboards">Power BI</span><span class="skill-mini-chip" data-skill-tooltip="Low-code business applications">Power Apps</span>
+          </div>
         </div>
       </div>
     </section>
@@ -105,9 +238,9 @@
         <h2>Recent work</h2>
       </div>
       <div class="timeline">
-        <article class="timeline-item">
+        <article class="timeline-item work-clickable" data-work-url="https://ccsglobaltech.com/" tabindex="0" role="link" aria-label="Open California Creative Solutions website">
           <span class="date">Mar 2026 — Present</span>
-          <h3>Database Engineer · California Creative Solutions</h3>
+          <h3><a href="https://ccsglobaltech.com/" target="_blank" rel="noreferrer">Database Engineer · California Creative Solutions</a><span class="work-link-arrow">↗</span></h3>
           <p>Built end-to-end data engineering pipelines using Snowflake, Databricks, Azure, and SQL. Automated ingestion, transformation, and reporting workflows, improving processing efficiency by 35%.</p>
           <ul>
             <li>Optimized SQL, stored procedures, SSMS workflows, and Snowflake ETL logic.</li>
@@ -115,9 +248,9 @@
             <li>Built Power BI and Power Apps solutions for real-time visibility and self-service reporting.</li>
           </ul>
         </article>
-        <article class="timeline-item">
+        <article class="timeline-item work-clickable" data-work-url="https://www.vibesea.com/" tabindex="0" role="link" aria-label="Open VibeSea website">
           <span class="date">Sept 2025 — Mar 2026</span>
-          <h3>Software Developer · VibeSea</h3>
+          <h3><a href="https://www.vibesea.com/" target="_blank" rel="noreferrer">Software Developer · VibeSea</a><span class="work-link-arrow">↗</span></h3>
           <p>Designed backend architecture, database schemas, and production APIs for a fast-moving startup building anti-cheat and proctoring workflows.</p>
           <ul>
             <li>Built scalable detection systems using Node.js, Django, DynamoDB, PostgreSQL, and Amazon S3.</li>
@@ -125,9 +258,9 @@
             <li>Deployed a Next.js website through Vercel CI/CD, improving load times by 20%.</li>
           </ul>
         </article>
-        <article class="timeline-item">
+        <article class="timeline-item work-clickable" data-work-url="https://joinworkup.com/" tabindex="0" role="link" aria-label="Open WorkUp website">
           <span class="date">May 2024 — Jul 2024</span>
-          <h3>Software Developer Intern · WorkUp</h3>
+          <h3><a href="https://joinworkup.com/" target="_blank" rel="noreferrer">Software Developer Intern · WorkUp</a><span class="work-link-arrow">↗</span></h3>
           <p>Improved Kotlin mobile app reliability and backend integration while working closely with a 7-member team and company leadership.</p>
           <ul>
             <li>Reduced crash rates by 30% through Kotlin, JetBrains, and Retrofit optimizations.</li>
@@ -142,59 +275,168 @@
       <div class="section-heading">
         <p class="eyebrow">Projects</p>
         <h2>Selected projects</h2>
-        <p class="section-subtitle">AI systems, backend platforms, Azure data engineering pipelines, and analytics dashboards.</p>
+        <p class="section-subtitle">Grouped by focus area, with each project card linked for GitHub, live demos, or case studies.</p>
       </div>
-            <div class="project-grid">
-        <article class="project-card">
-          <h3>Self-Correcting Agentic RAG System</h3>
-          <p>Built an agentic RAG workflow that validates retrieval quality, grades documents, rewrites weak queries, retries retrieval, and generates grounded answers with observability.</p>
-          <div class="tags"><span>Python</span><span>LangChain</span><span>LangGraph</span><span>FAISS</span><span>FastAPI</span><span>Docker</span></div>
-        </article>
-        <article class="project-card">
-          <h3>VibeCheck Anti-Cheat Interview Backend</h3>
-          <p>Developed backend APIs for a remote interview integrity platform with secure onboarding, scheduled interviews, media uploads, AI vision analysis, alerts, review flows, and Stripe credits.</p>
-          <div class="tags"><span>Python</span><span>Django</span><span>FastAPI</span><span>AWS S3</span><span>Cognito</span><span>Stripe</span></div>
-        </article>
-        <article class="project-card">
-          <h3>Azure Healthcare Lakehouse Pipeline</h3>
-          <p>Designed a healthcare revenue-cycle data pipeline that ingests SQL, files, and public APIs, applies Medallion architecture, validates data quality, and builds Gold fact/dimension tables.</p>
-          <div class="tags"><span>ADF</span><span>ADLS Gen2</span><span>Databricks</span><span>Delta Lake</span><span>PySpark</span><span>SQL</span></div>
-        </article>
-        <article class="project-card">
-          <h3>Netflix Azure Lakehouse Project</h3>
-          <p>Built an end-to-end Azure data engineering pipeline for Netflix-style analytics using ADF, Databricks, Delta Live Tables, Unity Catalog, and Power BI-ready Gold tables.</p>
-          <div class="tags"><span>ADF</span><span>Databricks</span><span>PySpark</span><span>Delta Live Tables</span><span>Unity Catalog</span><span>CI/CD</span></div>
-        </article>
-        <article class="project-card">
-          <h3>Real-Time Azure Streaming Pipeline</h3>
-          <p>Created a live weather streaming pipeline with dual ingestion through Databricks and Azure Functions, Event Hubs, Fabric Eventstream, Eventhouse/KQL, Power BI, and alerting.</p>
-          <div class="tags"><span>Event Hubs</span><span>Azure Functions</span><span>Fabric</span><span>KQL</span><span>Power BI</span><span>Data Activator</span></div>
-        </article>
-        <article class="project-card">
-          <h3>MDOTSA Azure Data Pipeline</h3>
-          <p>Implemented a metadata-driven transit data pipeline ingesting REST APIs, CSV drops, and on-prem SQL Server through SHIR into ADLS Gen2 and Azure SQL Bronze/Bronze_Hist layers.</p>
-          <div class="tags"><span>ADF</span><span>SHIR</span><span>Azure SQL</span><span>REST APIs</span><span>Stored Procedures</span><span>Logging</span></div>
-        </article>
-        <article class="project-card">
-          <h3>Azure Databricks Incremental Lakehouse</h3>
-          <p>Built a Databricks Lakehouse pipeline for batch, incremental, and streaming data with Auto Loader, Structured Streaming, Bronze/Silver/Gold Delta tables, and workflow orchestration.</p>
-          <div class="tags"><span>Databricks</span><span>Spark</span><span>PySpark</span><span>Auto Loader</span><span>Delta Lake</span><span>Workflows</span></div>
-        </article>
-        <article class="project-card">
-          <h3>Customer Rating ML System</h3>
-          <p>Developed a machine-learning prototype to predict customer quality scores from order activity, category spend, pricing, labor charges, and commercial metrics for prioritization decisions.</p>
-          <div class="tags"><span>Python</span><span>Jupyter</span><span>pandas</span><span>scikit-learn</span><span>SVR</span><span>Random Forest</span></div>
-        </article>
-        <article class="project-card">
-          <h3>India Election Results Power BI Dashboard</h3>
-          <p>Designed an interactive Power BI dashboard for election analytics covering party performance, alliances, state-level results, vote share, seat distribution, maps, drill-throughs, and KPIs.</p>
-          <div class="tags"><span>Power BI</span><span>Power Query</span><span>DAX</span><span>Data Modeling</span><span>Maps</span><span>Drill-through</span></div>
-        </article>
-        <article class="project-card">
-          <h3>Hospital Analytics Power BI Dashboard</h3>
-          <p>Built an end-to-end analytics dashboard with data cleaning, modeling, DAX measures, KPI cards, slicers, filters, and polished report design for healthcare/business reporting workflows.</p>
-          <div class="tags"><span>Power BI</span><span>DAX</span><span>Power Query</span><span>KPIs</span><span>Slicers</span><span>Visualization</span></div>
-        </article>
+      <div class="project-sections">
+        <div class="project-category">
+          <div class="project-category-heading">
+            <h3><span>AI / ML</span></h3>
+          </div>
+          <div class="project-grid">
+          <a class="project-card project-link" href="#" data-project-link="PROJECT_LINK_SELF_CORRECTING_RAG" target="_blank" rel="noreferrer" aria-label="Open Self-Correcting Agentic RAG System project link">
+            <h3>Self-Correcting Agentic RAG System</h3>
+            <p>Built an agentic RAG workflow that validates retrieval quality, grades documents, rewrites weak queries, retries retrieval, and generates grounded answers with observability.</p>
+            <div class="tags"><span>Python</span><span>LangChain</span><span>LangGraph</span><span>FAISS</span><span>FastAPI</span><span>Docker</span></div>
+            <span class="project-cta">View project →</span>
+          </a>
+          <a class="project-card project-link" href="#" data-project-link="PROJECT_LINK_VIDEO_SENTIMENT_ANALYSIS" target="_blank" rel="noreferrer" aria-label="Open Video Sentiment Analysis SaaS project link">
+            <h3>Video Sentiment Analysis SaaS</h3>
+            <p>Multimodal SaaS integrating video, audio, text, Whisper transcription, BERT, AWS SageMaker, and a secure Next.js platform.</p>
+            <div class="tags"><span>PyTorch</span><span>OpenAI</span><span>AWS</span><span>Next.js</span><span>Tailwind</span></div>
+            <span class="project-cta">View project →</span>
+          </a>
+          <a class="project-card project-link" href="#" data-project-link="PROJECT_LINK_OPTIGO_ML_PLATFORM" target="_blank" rel="noreferrer" aria-label="Open Optigo Apps ML Platform project link">
+            <h3>Optigo Apps ML Platform</h3>
+            <p>Dockerized ML models on GCP with real-time REST APIs, customer value scoring, and high-uptime MERN integration.</p>
+            <div class="tags"><span>GCP</span><span>Docker</span><span>OpenCV</span><span>Keras</span><span>React</span></div>
+            <span class="project-cta">View project →</span>
+          </a>
+          <a class="project-card project-link" href="#" data-project-link="PROJECT_LINK_CUSTOMER_RATING_SYSTEM" target="_blank" rel="noreferrer" aria-label="Open Customer Rating ML System project link">
+            <h3>Customer Rating ML System</h3>
+            <p>Developed a machine-learning prototype to predict customer quality scores from order activity, category spend, pricing, labor charges, and commercial metrics for prioritization decisions.</p>
+            <div class="tags"><span>Python</span><span>Jupyter</span><span>pandas</span><span>scikit-learn</span><span>SVR</span><span>Random Forest</span></div>
+            <span class="project-cta">View project →</span>
+          </a>
+          </div>
+        </div>
+        <div class="project-category">
+          <div class="project-category-heading">
+            <h3><span>Web & Backend</span></h3>
+          </div>
+          <div class="project-grid">
+          <a class="project-card project-link" href="#" data-project-link="PROJECT_LINK_VIBECHECK_BACKEND" target="_blank" rel="noreferrer" aria-label="Open VibeCheck Anti-Cheat Interview Backend project link">
+            <h3>VibeCheck Anti-Cheat Interview Backend</h3>
+            <p>Developed backend APIs for a remote interview integrity platform with secure onboarding, scheduled interviews, media uploads, AI vision analysis, alerts, review flows, and Stripe credits.</p>
+            <div class="tags"><span>Python</span><span>Django</span><span>FastAPI</span><span>AWS S3</span><span>Cognito</span><span>Stripe</span></div>
+            <span class="project-cta">View project →</span>
+          </a>
+          </div>
+        </div>
+        <div class="project-category">
+          <div class="project-category-heading">
+            <h3><span>App Development</span></h3>
+          </div>
+          <div class="project-grid">
+          <a class="project-card project-link" href="#" data-project-link="PROJECT_LINK_STOCK_TRADING_PLATFORM" target="_blank" rel="noreferrer" aria-label="Open Stock Trading Platform project link">
+            <h3>Stock Trading Platform</h3>
+            <p>Cross-platform Kotlin Android + MERN web platform simulating real-time NASDAQ trading with virtual currency.</p>
+            <div class="tags"><span>Node.js</span><span>MongoDB</span><span>GCP</span><span>React</span><span>Kotlin</span></div>
+            <span class="project-cta">View project →</span>
+          </a>
+          </div>
+        </div>
+        <div class="project-category">
+          <div class="project-category-heading">
+            <h3><span>Data Engineering</span></h3>
+          </div>
+          <div class="project-grid">
+          <a class="project-card project-link" href="#" data-project-link="PROJECT_LINK_AZURE_HEALTHCARE_LAKEHOUSE" target="_blank" rel="noreferrer" aria-label="Open Azure Healthcare Lakehouse Pipeline project link">
+            <h3>Azure Healthcare Lakehouse Pipeline</h3>
+            <p>Designed a healthcare revenue-cycle data pipeline that ingests SQL, files, and public APIs, applies Medallion architecture, validates data quality, and builds Gold fact/dimension tables.</p>
+            <div class="tags"><span>ADF</span><span>ADLS Gen2</span><span>Databricks</span><span>Delta Lake</span><span>PySpark</span><span>SQL</span></div>
+            <span class="project-cta">View project →</span>
+          </a>
+          <a class="project-card project-link" href="#" data-project-link="PROJECT_LINK_NETFLIX_AZURE_LAKEHOUSE" target="_blank" rel="noreferrer" aria-label="Open Netflix Azure Lakehouse Project project link">
+            <h3>Netflix Azure Lakehouse Project</h3>
+            <p>Built an end-to-end Azure data engineering pipeline for Netflix-style analytics using ADF, Databricks, Delta Live Tables, Unity Catalog, and Power BI-ready Gold tables.</p>
+            <div class="tags"><span>ADF</span><span>Databricks</span><span>PySpark</span><span>Delta Live Tables</span><span>Unity Catalog</span><span>CI/CD</span></div>
+            <span class="project-cta">View project →</span>
+          </a>
+          <a class="project-card project-link" href="#" data-project-link="PROJECT_LINK_REAL_TIME_AZURE_STREAMING" target="_blank" rel="noreferrer" aria-label="Open Real-Time Azure Streaming Pipeline project link">
+            <h3>Real-Time Azure Streaming Pipeline</h3>
+            <p>Created a live weather streaming pipeline with dual ingestion through Databricks and Azure Functions, Event Hubs, Fabric Eventstream, Eventhouse/KQL, Power BI, and alerting.</p>
+            <div class="tags"><span>Event Hubs</span><span>Azure Functions</span><span>Fabric</span><span>KQL</span><span>Power BI</span><span>Data Activator</span></div>
+            <span class="project-cta">View project →</span>
+          </a>
+          <a class="project-card project-link" href="#" data-project-link="PROJECT_LINK_MDOTSA_AZURE_PIPELINE" target="_blank" rel="noreferrer" aria-label="Open MDOTSA Azure Data Pipeline project link">
+            <h3>MDOTSA Azure Data Pipeline</h3>
+            <p>Implemented a metadata-driven transit data pipeline ingesting REST APIs, CSV drops, and on-prem SQL Server through SHIR into ADLS Gen2 and Azure SQL Bronze/Bronze_Hist layers.</p>
+            <div class="tags"><span>ADF</span><span>SHIR</span><span>Azure SQL</span><span>REST APIs</span><span>Stored Procedures</span><span>Logging</span></div>
+            <span class="project-cta">View project →</span>
+          </a>
+          <a class="project-card project-link" href="#" data-project-link="PROJECT_LINK_DATABRICKS_INCREMENTAL_LAKEHOUSE" target="_blank" rel="noreferrer" aria-label="Open Azure Databricks Incremental Lakehouse project link">
+            <h3>Azure Databricks Incremental Lakehouse</h3>
+            <p>Built a Databricks Lakehouse pipeline for batch, incremental, and streaming data with Auto Loader, Structured Streaming, Bronze/Silver/Gold Delta tables, and workflow orchestration.</p>
+            <div class="tags"><span>Databricks</span><span>Spark</span><span>PySpark</span><span>Auto Loader</span><span>Delta Lake</span><span>Workflows</span></div>
+            <span class="project-cta">View project →</span>
+          </a>
+          <a class="project-card project-link" href="#" data-project-link="PROJECT_LINK_WEB_SCRAPING_PIPELINE" target="_blank" rel="noreferrer" aria-label="Open Web Scraping Pipeline project link">
+            <h3>Web Scraping Pipeline</h3>
+            <p>Scalable Python scraping system extracting data from 100+ domains and automating cleaning workflows to reduce processing time by 40%.</p>
+            <div class="tags"><span>Python</span><span>BeautifulSoup</span><span>Selenium</span><span>Pandas</span></div>
+            <span class="project-cta">View project →</span>
+          </a>
+          </div>
+        </div>
+        <div class="project-category">
+          <div class="project-category-heading">
+            <h3><span>Analytics & BI</span></h3>
+          </div>
+          <div class="project-grid">
+          <a class="project-card project-link" href="#" data-project-link="PROJECT_LINK_INDIA_ELECTION_POWERBI" target="_blank" rel="noreferrer" aria-label="Open India Election Results Power BI Dashboard project link">
+            <h3>India Election Results Power BI Dashboard</h3>
+            <p>Designed an interactive Power BI dashboard for election analytics covering party performance, alliances, state-level results, vote share, seat distribution, maps, drill-throughs, and KPIs.</p>
+            <div class="tags"><span>Power BI</span><span>Power Query</span><span>DAX</span><span>Data Modeling</span><span>Maps</span><span>Drill-through</span></div>
+            <span class="project-cta">View project →</span>
+          </a>
+          <a class="project-card project-link" href="#" data-project-link="PROJECT_LINK_HOSPITAL_ANALYTICS_POWERBI" target="_blank" rel="noreferrer" aria-label="Open Hospital Analytics Power BI Dashboard project link">
+            <h3>Hospital Analytics Power BI Dashboard</h3>
+            <p>Built an end-to-end analytics dashboard with data cleaning, modeling, DAX measures, KPI cards, slicers, filters, and polished report design for healthcare/business reporting workflows.</p>
+            <div class="tags"><span>Power BI</span><span>DAX</span><span>Power Query</span><span>KPIs</span><span>Slicers</span><span>Visualization</span></div>
+            <span class="project-cta">View project →</span>
+          </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="certifications" class="section container certifications-section">
+      <div class="section-heading">
+        <p class="eyebrow">Certifications & Papers</p>
+        <h2>Proof of learning, practice, and technical depth.</h2>
+        <p class="section-subtitle">A growing collection of verified certifications, public profiles, and papers.</p>
+      </div>
+
+      <div class="cert-grid">
+        <a class="cert-card glass-card" href="https://www.skills.google/public_profiles/2cd011a6-f4ee-46ab-b302-a36b29777dc6" target="_blank" rel="noreferrer">
+          <div class="cert-icon">G</div>
+          <div>
+            <span class="cert-type">Public Profile</span>
+            <h3>Google Skills Profile</h3>
+            <p>Verified Google Skills public profile showcasing completed learning paths and cloud/data skill development.</p>
+          </div>
+          <span class="cert-arrow">↗</span>
+        </a>
+
+        <a class="cert-card glass-card" href="https://www.hackerrank.com/certificates/6ed103da4ff3" target="_blank" rel="noreferrer">
+          <div class="cert-icon">HR</div>
+          <div>
+            <span class="cert-type">Certificate</span>
+            <h3>HackerRank Certification</h3>
+            <p>Verified HackerRank certificate demonstrating practical coding and problem-solving ability.</p>
+          </div>
+          <span class="cert-arrow">↗</span>
+        </a>
+
+        <div class="cert-card glass-card cert-placeholder">
+          <div class="cert-icon">P</div>
+          <div>
+            <span class="cert-type">Coming Soon</span>
+            <h3>Research Papers</h3>
+            <p>Add published papers, preprints, technical blogs, or case studies here as the portfolio grows.</p>
+          </div>
+          <span class="cert-arrow muted-arrow">＋</span>
+        </div>
       </div>
     </section>
 
@@ -202,30 +444,71 @@
       <div class="section-heading">
         <p class="eyebrow">Education</p>
         <h2>Academic background</h2>
+        <p class="section-subtitle">A computer science foundation shaped by product engineering, AI systems, and data-focused problem solving.</p>
       </div>
-      <div class="education-grid">
-        <div class="education-card">
+
+      <div class="education-showcase">
+        <article class="education-card education-feature education-clickable" data-edu-message="Fight on!!" data-edu-theme="usc" tabindex="0" role="button" aria-label="Click USC education card">
+          <div class="education-topline">
+            <span class="school-mark school-logo-wrap"><img src="assets/images/usc-logo.png" alt="USC logo" class="school-logo school-logo-usc" /></span>
+            <span class="edu-chip">Master’s</span>
+          </div>
           <h3>University of Southern California</h3>
           <p>Master’s in Computer Science · GPA 3.7/4.0</p>
-          <span>Aug 2023 — May 2025</span>
-        </div>
-        <div class="education-card">
+          <div class="edu-meta">
+            <span>Los Angeles, CA</span>
+            <span>Aug 2023 — May 2025</span>
+          </div>
+          <div class="edu-focus">
+            <span>Software Engineering</span>
+            <span>AI / ML</span>
+            <span>Cloud Systems</span>
+          </div>
+          <div class="education-pop-message" aria-hidden="true"></div>
+        </article>
+
+        <article class="education-card education-feature education-clickable" data-edu-message="A reservoir of Knowledge" data-edu-theme="pdeu" tabindex="0" role="button" aria-label="Click PDEU education card">
+          <div class="education-topline">
+            <span class="school-mark school-logo-wrap"><img src="assets/images/pdeu-logo.png" alt="Pandit Deendayal Energy University logo" class="school-logo school-logo-pdeu" /></span>
+            <span class="edu-chip">B.Tech</span>
+          </div>
           <h3>Pandit Deendayal Energy University</h3>
           <p>B.Tech in Computer Science & Engineering · GPA 3.85/4.0</p>
-          <span>Aug 2019 — May 2023</span>
-        </div>
+          <div class="edu-meta">
+            <span>Gandhinagar, India</span>
+            <span>Aug 2019 — May 2023</span>
+          </div>
+          <div class="edu-focus">
+            <span>Data Structures</span>
+            <span>Backend Systems</span>
+            <span>Databases</span>
+          </div>
+          <div class="education-pop-message" aria-hidden="true"></div>
+        </article>
       </div>
     </section>
 
-    <section id="contact" class="section container contact-section">
-      <div>
+    <section id="contact" class="section container contact-section contact-upgraded">
+      <div class="contact-copy">
         <p class="eyebrow">Contact</p>
         <h2>Let’s build something useful.</h2>
         <p>Open to software engineering, AI/ML, data engineering, and full-stack product roles.</p>
+        <div class="contact-highlights">
+          <span>Available for full-time roles</span>
+          <span>Remote / hybrid friendly</span>
+          <span>Open to relocation</span>
+        </div>
       </div>
-      <div class="contact-actions">
-        <a class="btn primary" href="mailto:pathikcodes@gmail.com">pathikcodes@gmail.com</a>
-        <a class="btn secondary" href="https://www.linkedin.com/in/pathikviramgama15/" target="_blank" rel="noreferrer">LinkedIn</a>
+
+      <div class="contact-panel">
+        <div class="contact-mini-card">
+          <span class="mini-label">Best way to reach me</span>
+          <strong>pathikcodes@gmail.com</strong>
+        </div>
+        <div class="contact-actions">
+          <a class="btn primary" href="mailto:pathikcodes@gmail.com">Email Me</a>
+          <a class="btn secondary" href="https://www.linkedin.com/in/pathikviramgama15/" target="_blank" rel="noreferrer">LinkedIn</a>
+        </div>
       </div>
     </section>
   </main>
