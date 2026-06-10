@@ -192,7 +192,7 @@ body::before {
 }
 
 @media (pointer: fine) {
-  body { cursor: none; }
+  body {  }
   body a, body button { cursor: none; }
   .cursor-dot, .cursor-ring { display: block; }
   body.cursor-hover .cursor-ring {
@@ -338,4 +338,100 @@ body::before {
   body { cursor: auto; }
   body a, body button { cursor: pointer; }
   .cursor-dot, .cursor-ring { display: none !important; }
+}
+
+
+/* Project section refinements */
+.section-subtitle {
+  color: var(--muted);
+  font-size: 1.02rem;
+  max-width: 720px;
+  margin-top: -12px;
+}
+
+.project-card {
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card p {
+  flex: 1;
+}
+
+.project-card h3 {
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 1100px) {
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 680px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* Cursor visibility fix */
+body {
+  cursor: auto;
+}
+
+.cursor-dot,
+.cursor-outline,
+.custom-cursor,
+.cursor,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 2147483647;
+  opacity: 1;
+  visibility: visible;
+  mix-blend-mode: difference;
+  transform: translate(-50%, -50%);
+}
+
+.cursor-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #ffffff;
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.9);
+}
+
+.cursor-outline,
+.cursor-ring {
+  width: 34px;
+  height: 34px;
+  border: 2px solid rgba(255, 255, 255, 0.95);
+  border-radius: 999px;
+  transition: width 0.18s ease, height 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+
+.cursor-outline.hover,
+.cursor-ring.hover {
+  width: 56px;
+  height: 56px;
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 1);
+}
+
+@media (hover: none), (pointer: coarse) {
+  .cursor-dot,
+  .cursor-outline,
+  .custom-cursor,
+  .cursor,
+  .cursor-ring {
+    display: none !important;
+  }
+
+  body {
+    cursor: auto;
+  }
 }

@@ -62,3 +62,50 @@ window.addEventListener('mousemove', (event) => {
     bubble.style.setProperty('--my', `${yRatio * strength}px`);
   });
 });
+
+
+// Cursor visibility fix: safely create and update the custom cursor.
+(() => {
+  const isTouch = window.matchMedia("(hover: none), (pointer: coarse)").matches;
+  if (isTouch) return;
+
+  let dot = document.querySelector(".cursor-dot");
+  let outline = document.querySelector(".cursor-outline") || document.querySelector(".cursor-ring");
+
+  if (!dot) {
+    dot = document.createElement("div");
+    dot.className = "cursor-dot";
+    document.body.appendChild(dot);
+  }
+
+  if (!outline) {
+    outline = document.createElement("div");
+    outline.className = "cursor-outline";
+    document.body.appendChild(outline);
+  }
+
+  let mouseX = window.innerWidth / 2;
+  let mouseY = window.innerHeight / 2;
+  let outlineX = mouseX;
+  let outlineY = mouseY;
+
+  window.addEventListener("mousemove", (event) => {
+    mouseX = event.clientX;
+    mouseY = event.clientY;
+    dot.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
+  });
+
+  const animateCursor = () => {
+    outlineX += (mouseX - outlineX) * 0.18;
+    outlineY += (mouseY - outlineY) * 0.18;
+    outline.style.transform = `translate(${outlineX}px, ${outlineY}px) translate(-50%, -50%)`;
+    requestAnimationFrame(animateCursor);
+  };
+  animateCursor();
+
+  const hoverTargets = "a, button, .project-card, .skill-card, .experience-card, .btn, .tag, .tags span";
+  document.querySelectorAll(hoverTargets).forEach((el) => {
+    el.addEventListener("mouseenter", () => outline.classList.add("hover"));
+    el.addEventListener("mouseleave", () => outline.classList.remove("hover"));
+  });
+})();

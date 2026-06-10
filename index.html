@@ -11,11 +11,6 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="cursor-dot" aria-hidden="true"></div>
-  <div class="cursor-ring" aria-hidden="true"></div>
-  <div class="background-bubbles" aria-hidden="true">
-    <span></span><span></span><span></span><span></span><span></span><span></span>
-  </div>
   <header class="site-header">
     <nav class="nav container">
       <a class="brand" href="#home">PV</a>
@@ -147,27 +142,58 @@
       <div class="section-heading">
         <p class="eyebrow">Projects</p>
         <h2>Selected projects</h2>
+        <p class="section-subtitle">AI systems, backend platforms, Azure data engineering pipelines, and analytics dashboards.</p>
       </div>
-      <div class="project-grid">
+            <div class="project-grid">
         <article class="project-card">
-          <h3>Stock Trading Platform</h3>
-          <p>Cross-platform Kotlin Android + MERN web platform simulating real-time NASDAQ trading with virtual currency.</p>
-          <div class="tags"><span>Node.js</span><span>MongoDB</span><span>GCP</span><span>React</span><span>Kotlin</span></div>
+          <h3>Self-Correcting Agentic RAG System</h3>
+          <p>Built an agentic RAG workflow that validates retrieval quality, grades documents, rewrites weak queries, retries retrieval, and generates grounded answers with observability.</p>
+          <div class="tags"><span>Python</span><span>LangChain</span><span>LangGraph</span><span>FAISS</span><span>FastAPI</span><span>Docker</span></div>
         </article>
         <article class="project-card">
-          <h3>Video Sentiment Analysis SaaS</h3>
-          <p>Multimodal SaaS integrating video, audio, text, Whisper transcription, BERT, AWS SageMaker, and a secure Next.js platform.</p>
-          <div class="tags"><span>PyTorch</span><span>OpenAI</span><span>AWS</span><span>Next.js</span><span>Tailwind</span></div>
+          <h3>VibeCheck Anti-Cheat Interview Backend</h3>
+          <p>Developed backend APIs for a remote interview integrity platform with secure onboarding, scheduled interviews, media uploads, AI vision analysis, alerts, review flows, and Stripe credits.</p>
+          <div class="tags"><span>Python</span><span>Django</span><span>FastAPI</span><span>AWS S3</span><span>Cognito</span><span>Stripe</span></div>
         </article>
         <article class="project-card">
-          <h3>Optigo Apps ML Platform</h3>
-          <p>Dockerized ML models on GCP with real-time REST APIs, customer value scoring, and high-uptime MERN integration.</p>
-          <div class="tags"><span>GCP</span><span>Docker</span><span>OpenCV</span><span>Keras</span><span>React</span></div>
+          <h3>Azure Healthcare Lakehouse Pipeline</h3>
+          <p>Designed a healthcare revenue-cycle data pipeline that ingests SQL, files, and public APIs, applies Medallion architecture, validates data quality, and builds Gold fact/dimension tables.</p>
+          <div class="tags"><span>ADF</span><span>ADLS Gen2</span><span>Databricks</span><span>Delta Lake</span><span>PySpark</span><span>SQL</span></div>
         </article>
         <article class="project-card">
-          <h3>Web Scraping Pipeline</h3>
-          <p>Scalable Python scraping system extracting data from 100+ domains and automating cleaning workflows to reduce processing time by 40%.</p>
-          <div class="tags"><span>Python</span><span>BeautifulSoup</span><span>Selenium</span><span>Pandas</span></div>
+          <h3>Netflix Azure Lakehouse Project</h3>
+          <p>Built an end-to-end Azure data engineering pipeline for Netflix-style analytics using ADF, Databricks, Delta Live Tables, Unity Catalog, and Power BI-ready Gold tables.</p>
+          <div class="tags"><span>ADF</span><span>Databricks</span><span>PySpark</span><span>Delta Live Tables</span><span>Unity Catalog</span><span>CI/CD</span></div>
+        </article>
+        <article class="project-card">
+          <h3>Real-Time Azure Streaming Pipeline</h3>
+          <p>Created a live weather streaming pipeline with dual ingestion through Databricks and Azure Functions, Event Hubs, Fabric Eventstream, Eventhouse/KQL, Power BI, and alerting.</p>
+          <div class="tags"><span>Event Hubs</span><span>Azure Functions</span><span>Fabric</span><span>KQL</span><span>Power BI</span><span>Data Activator</span></div>
+        </article>
+        <article class="project-card">
+          <h3>MDOTSA Azure Data Pipeline</h3>
+          <p>Implemented a metadata-driven transit data pipeline ingesting REST APIs, CSV drops, and on-prem SQL Server through SHIR into ADLS Gen2 and Azure SQL Bronze/Bronze_Hist layers.</p>
+          <div class="tags"><span>ADF</span><span>SHIR</span><span>Azure SQL</span><span>REST APIs</span><span>Stored Procedures</span><span>Logging</span></div>
+        </article>
+        <article class="project-card">
+          <h3>Azure Databricks Incremental Lakehouse</h3>
+          <p>Built a Databricks Lakehouse pipeline for batch, incremental, and streaming data with Auto Loader, Structured Streaming, Bronze/Silver/Gold Delta tables, and workflow orchestration.</p>
+          <div class="tags"><span>Databricks</span><span>Spark</span><span>PySpark</span><span>Auto Loader</span><span>Delta Lake</span><span>Workflows</span></div>
+        </article>
+        <article class="project-card">
+          <h3>Customer Rating ML System</h3>
+          <p>Developed a machine-learning prototype to predict customer quality scores from order activity, category spend, pricing, labor charges, and commercial metrics for prioritization decisions.</p>
+          <div class="tags"><span>Python</span><span>Jupyter</span><span>pandas</span><span>scikit-learn</span><span>SVR</span><span>Random Forest</span></div>
+        </article>
+        <article class="project-card">
+          <h3>India Election Results Power BI Dashboard</h3>
+          <p>Designed an interactive Power BI dashboard for election analytics covering party performance, alliances, state-level results, vote share, seat distribution, maps, drill-throughs, and KPIs.</p>
+          <div class="tags"><span>Power BI</span><span>Power Query</span><span>DAX</span><span>Data Modeling</span><span>Maps</span><span>Drill-through</span></div>
+        </article>
+        <article class="project-card">
+          <h3>Hospital Analytics Power BI Dashboard</h3>
+          <p>Built an end-to-end analytics dashboard with data cleaning, modeling, DAX measures, KPI cards, slicers, filters, and polished report design for healthcare/business reporting workflows.</p>
+          <div class="tags"><span>Power BI</span><span>DAX</span><span>Power Query</span><span>KPIs</span><span>Slicers</span><span>Visualization</span></div>
         </article>
       </div>
     </section>
