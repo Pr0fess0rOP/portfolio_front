@@ -651,3 +651,350 @@ window.addEventListener('mousemove', (event) => {
     });
   });
 })();
+
+
+// Ask Pathik AI — local portfolio assistant (no internet, no API key)
+(() => {
+  const knowledge = Array.isArray(window.PORTFOLIO_KNOWLEDGE) ? window.PORTFOLIO_KNOWLEDGE : [];
+  const toggle = document.querySelector(".portfolio-ai-toggle");
+  const panel = document.querySelector(".portfolio-ai-panel");
+  const closeButton = document.querySelector(".portfolio-ai-close");
+  const form = document.querySelector(".portfolio-ai-form");
+  const input = document.querySelector(".portfolio-ai-input");
+  const messages = document.querySelector(".portfolio-ai-messages");
+  const suggestions = document.querySelector(".portfolio-ai-suggestions");
+  const suggestionButtons = document.querySelectorAll(".portfolio-ai-suggestions button");
+
+  if (!toggle || !panel || !form || !input || !messages || !knowledge.length) return;
+
+  const stopWords = new Set([
+    "what", "which", "did", "does", "do", "the", "and", "for", "with", "about", "pathik",
+    "his", "him", "he", "in", "on", "of", "to", "a", "an", "is", "are", "was", "were",
+    "show", "shows", "tell", "me", "explain", "exactly", "project", "projects", "work",
+    "experience", "skills", "skill", "use", "uses", "using", "strongest"
+  ]);
+
+  const aliasMap = {
+    "rag": ["retrieval", "agentic", "langchain", "langgraph", "faiss"],
+    "backend": ["api", "apis", "django", "fastapi", "node", "express", "postgresql", "dynamodb"],
+    "api": ["backend", "fastapi", "django", "openapi", "rest"],
+    "data": ["pipeline", "pipelines", "databricks", "snowflake", "azure", "lakehouse", "power", "sql"],
+    "ai": ["ml", "machine", "learning", "rag", "model", "classification", "deep", "opencv", "bert"],
+    "ml": ["ai", "machine", "learning", "model", "classification", "lstm", "bert", "xgboost"],
+    "cloud": ["aws", "azure", "gcp", "s3", "vercel"],
+    "mobile": ["android", "kotlin", "flutter", "app"],
+    "website": ["web", "frontend", "react", "next", "saas"],
+    "reverse": ["image", "search", "clip", "resnet", "opencv"],
+    "vibesea": ["anti", "cheat", "proctoring", "backend"],
+    "orail": ["face", "recognition", "reverse", "image", "mern"],
+    "imd": ["weather", "climate", "forecasting", "satellite", "isro"],
+    "certification": ["certificate", "hackerrank", "google", "skills"],
+    "certifications": ["certificate", "hackerrank", "google", "skills"]
+  };
+
+  const normalize = (text) =>
+    String(text || "")
+      .toLowerCase()
+      .replace(/[^a-z0-9+#.]+/g, " ")
+      .trim();
+
+  const getItemText = (item) => {
+    return normalize([
+      item.type,
+      item.title,
+      item.date,
+      item.summary,
+      ...(item.details || []),
+      ...(item.skills || []),
+      item.source
+    ].join(" "));
+  };
+
+  const tokenize = (question) => {
+    const baseTokens = normalize(question)
+      .split(/\s+/)
+      .filter((token) => token && token.length > 1 && !stopWords.has(token));
+
+    const expanded = new Set(baseTokens);
+    baseTokens.forEach((token) => {
+      (aliasMap[token] || []).forEach((alias) => expanded.add(alias));
+    });
+
+    return [...expanded];
+  };
+
+  const scoreItem = (item, tokens, rawQuestion) => {
+    const text = getItemText(item);
+    const title = normalize(item.title);
+    const source = normalize(item.source);
+    let score = 0;
+
+    tokens.forEach((token) => {
+      if (title.includes(token)) score += 8;
+      if (source.includes(token)) score += 3;
+      if (text.includes(token)) score += 2;
+      (item.skills || []).forEach((skill) => {
+        if (normalize(skill).includes(token)) score += 4;
+      });
+    });
+
+    const q = normalize(rawQuestion);
+    if (q.includes(title) || title.split(" ").some((word) => word.length > 5 && q.includes(word))) {
+      score += 12;
+    }
+
+    if (q.includes("backend") && item.skills?.some((skill) => /api|django|fastapi|node|express|postgres|dynamo/i.test(skill))) score += 7;
+    if ((q.includes("data") || q.includes("pipeline")) && item.skills?.some((skill) => /data|sql|azure|databricks|snowflake|pipeline|power bi|spark/i.test(skill))) score += 7;
+    if ((q.includes("ai") || q.includes("ml") || q.includes("machine learning")) && item.skills?.some((skill) => /ai|ml|bert|lstm|rag|opencv|tensorflow|pytorch|xgboost|classification|learning/i.test(skill))) score += 7;
+    if ((q.includes("web") || q.includes("website") || q.includes("frontend")) && item.skills?.some((skill) => /react|next|tailwind|web|frontend|saas/i.test(skill))) score += 7;
+    if ((q.includes("app") || q.includes("mobile") || q.includes("android")) && item.skills?.some((skill) => /android|kotlin|flutter|app/i.test(skill))) score += 7;
+
+    return score;
+  };
+
+  const retrieve = (question, limit = 4) => {
+    const tokens = tokenize(question);
+    return knowledge
+      .map((item) => ({ item, score: scoreItem(item, tokens, question) }))
+      .filter((entry) => entry.score > 0)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, limit)
+      .map((entry) => entry.item);
+  };
+
+  const escapeHTML = (value) =>
+    String(value)
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
+
+  const formatItemAnswer = (item, detailed = true) => {
+    const details = (item.details || []).slice(0, detailed ? 3 : 2);
+    const skills = (item.skills || []).slice(0, 8).join(" · ");
+
+    return `
+      <p><strong>${escapeHTML(item.title)}</strong>${item.date ? ` <span class="ai-date">(${escapeHTML(item.date)})</span>` : ""}</p>
+      <p>${escapeHTML(item.summary)}</p>
+      ${details.length ? `<ul>${details.map((detail) => `<li>${escapeHTML(detail)}</li>`).join("")}</ul>` : ""}
+      ${skills ? `<p><strong>Stack / skills:</strong> ${escapeHTML(skills)}</p>` : ""}
+    `;
+  };
+
+  const makeAnswer = (question) => {
+    const q = normalize(question);
+    const matches = retrieve(question, q.includes("which") || q.includes("show") ? 5 : 3);
+
+    if (!matches.length) {
+      return {
+        html: `<p>I don’t have that information in Pathik’s local portfolio context. Try asking about a listed project, experience, skill, certification, or education item.</p>`,
+        sources: []
+      };
+    }
+
+    let html = "";
+
+    if (q.includes("strongest") && (q.includes("ai") || q.includes("ml"))) {
+      const preferred = matches.filter((item) => /rag|reverse image|video sentiment|imd|orail/i.test(item.title));
+      const selected = preferred.length ? preferred.slice(0, 3) : matches.slice(0, 3);
+      html = `<p>Based on the portfolio context, these are strong AI/ML examples:</p>` +
+        selected.map((item) => formatItemAnswer(item, false)).join("");
+      return { html, sources: selected };
+    }
+
+    if (q.includes("which") || q.includes("show") || q.includes("list")) {
+      html = `<p>Here are the most relevant portfolio items I found:</p>` +
+        matches.map((item) => formatItemAnswer(item, false)).join("");
+      return { html, sources: matches };
+    }
+
+    const primary = matches[0];
+    html = formatItemAnswer(primary, true);
+
+    if (matches.length > 1 && !q.includes(normalize(primary.title))) {
+      html += `<p>Related context also appears in ${matches.slice(1).map((item) => `<strong>${escapeHTML(item.title)}</strong>`).join(", ")}.</p>`;
+    }
+
+    return { html, sources: matches };
+  };
+
+  const addMessage = (html, sender = "assistant", sources = []) => {
+    const message = document.createElement("div");
+    message.className = `ai-message ${sender === "user" ? "user-message" : "assistant-message"}`;
+    message.innerHTML = html;
+
+    if (sender === "assistant" && sources.length) {
+      const sourceList = document.createElement("div");
+      sourceList.className = "ai-source-list";
+      sources.slice(0, 4).forEach((item) => {
+        const chip = document.createElement("span");
+        chip.className = "ai-source-chip";
+        chip.textContent = item.source || item.title;
+        sourceList.appendChild(chip);
+      });
+      message.appendChild(sourceList);
+    }
+
+    messages.appendChild(message);
+    messages.scrollTop = messages.scrollHeight;
+  };
+
+  const hideSuggestions = () => {
+    suggestions?.classList.add("suggestions-hidden");
+  };
+
+  const askQuestion = (question) => {
+    const cleanQuestion = question.trim();
+    if (!cleanQuestion) return;
+
+    hideSuggestions();
+    addMessage(`<p>${escapeHTML(cleanQuestion)}</p>`, "user");
+    input.value = "";
+
+    const typing = document.createElement("div");
+    typing.className = "ai-message assistant-message ai-thinking";
+    typing.innerHTML = "<p>Searching local portfolio context...</p>";
+    messages.appendChild(typing);
+    messages.scrollTop = messages.scrollHeight;
+
+    window.setTimeout(() => {
+      typing.remove();
+      const answer = makeAnswer(cleanQuestion);
+      addMessage(answer.html, "assistant", answer.sources);
+    }, 260);
+  };
+
+  const openPanel = () => {
+    panel.classList.add("open");
+    panel.setAttribute("aria-hidden", "false");
+    toggle.setAttribute("aria-expanded", "true");
+    window.setTimeout(() => input.focus(), 80);
+  };
+
+  const closePanel = () => {
+    panel.classList.remove("open");
+    panel.setAttribute("aria-hidden", "true");
+    toggle.setAttribute("aria-expanded", "false");
+  };
+
+  toggle.addEventListener("click", () => {
+    panel.classList.contains("open") ? closePanel() : openPanel();
+  });
+
+  closeButton?.addEventListener("click", closePanel);
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    askQuestion(input.value);
+  });
+
+  suggestionButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      openPanel();
+      askQuestion(button.textContent || "");
+    });
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && panel.classList.contains("open")) closePanel();
+  });
+})();
+
+
+// Contact copy email action
+(() => {
+  const copyButtons = document.querySelectorAll("[data-copy-email]");
+  if (!copyButtons.length) return;
+
+  copyButtons.forEach((button) => {
+    const label = button.querySelector("span:last-child");
+    const originalText = label?.textContent || "Copy Email";
+
+    button.addEventListener("click", async () => {
+      const email = button.dataset.copyEmail || "pathikcodes@gmail.com";
+
+      try {
+        if (navigator.clipboard?.writeText) {
+          await navigator.clipboard.writeText(email);
+        } else {
+          const tempInput = document.createElement("input");
+          tempInput.value = email;
+          document.body.appendChild(tempInput);
+          tempInput.select();
+          document.execCommand("copy");
+          tempInput.remove();
+        }
+
+        button.classList.add("copied");
+        if (label) label.textContent = "Copied!";
+        window.setTimeout(() => {
+          button.classList.remove("copied");
+          if (label) label.textContent = originalText;
+        }, 1600);
+      } catch (error) {
+        if (label) label.textContent = "Copy failed";
+        window.setTimeout(() => {
+          if (label) label.textContent = originalText;
+        }, 1600);
+      }
+    });
+  });
+})();
+
+
+// Scroll-reactive 3D background
+(() => {
+  const background = document.querySelector(".scroll-3d-background");
+  if (!background) return;
+
+  const sections = [
+    { id: "home", key: "home" },
+    { id: "skills", key: "skills" },
+    { id: "experience", key: "experience" },
+    { id: "projects", key: "projects" },
+    { id: "contact", key: "contact" }
+  ];
+
+  let ticking = false;
+
+  const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+
+  const updateScene = () => {
+    const maxScroll = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+    const progress = clamp(window.scrollY / maxScroll, 0, 1);
+
+    background.style.setProperty("--scroll-progress", progress.toFixed(4));
+    background.style.setProperty("--scroll-shift", `${(progress * 260).toFixed(2)}vh`);
+    background.style.setProperty("--scroll-rotate", `${((progress - 0.5) * 7).toFixed(2)}deg`);
+    background.style.setProperty("--scroll-depth", `${(progress * 70).toFixed(2)}px`);
+
+    const probe = window.scrollY + window.innerHeight * 0.42;
+    let active = "home";
+
+    sections.forEach(({ id, key }) => {
+      const section = document.getElementById(id);
+      if (!section) return;
+      if (section.offsetTop <= probe) active = key;
+    });
+
+    background.dataset.activeSection = active;
+    ticking = false;
+  };
+
+  const requestSceneUpdate = () => {
+    if (!ticking) {
+      ticking = true;
+      window.requestAnimationFrame(updateScene);
+    }
+  };
+
+  window.addEventListener("scroll", requestSceneUpdate, { passive: true });
+  window.addEventListener("resize", requestSceneUpdate);
+  requestSceneUpdate();
+
+  window.addEventListener("pointermove", (event) => {
+    background.style.setProperty("--cursor-x", `${(event.clientX / window.innerWidth) * 100}%`);
+    background.style.setProperty("--cursor-y", `${(event.clientY / window.innerHeight) * 100}%`);
+  }, { passive: true });
+})();

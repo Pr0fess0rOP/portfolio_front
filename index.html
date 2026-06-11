@@ -11,6 +11,50 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="scroll-3d-background coding-scroll-background" aria-hidden="true">
+    <div class="coding-depth-scene">
+      <span class="coding-grid-plane"></span>
+      <span class="coding-rail coding-rail-left"></span>
+      <span class="coding-rail coding-rail-right"></span>
+
+      <span class="code-panel code-panel-one">
+        <em>const portfolio = &#123;</em>
+        <em>&nbsp;&nbsp;ai: "RAG + ML",</em>
+        <em>&nbsp;&nbsp;backend: "APIs",</em>
+        <em>&nbsp;&nbsp;data: "pipelines"</em>
+        <em>&#125;;</em>
+      </span>
+
+      <span class="code-panel code-panel-two">
+        <em>async function build()</em>
+        <em>&#123;</em>
+        <em>&nbsp;&nbsp;await ship(product);</em>
+        <em>&nbsp;&nbsp;return impact;</em>
+        <em>&#125;</em>
+      </span>
+
+      <span class="code-panel code-panel-three">
+        <em>SELECT skills</em>
+        <em>FROM projects</em>
+        <em>WHERE proof = true;</em>
+      </span>
+
+      <span class="code-token token-one">&lt;/&gt;</span>
+      <span class="code-token token-two">&#123; &#125;</span>
+      <span class="code-token token-three">fn()</span>
+      <span class="code-token token-four">API</span>
+      <span class="code-token token-five">SQL</span>
+
+      <span class="scroll-stage stage-home"><i></i><strong>Intro</strong></span>
+      <span class="scroll-stage stage-toolkit"><i></i><strong>Toolkit</strong></span>
+      <span class="scroll-stage stage-work"><i></i><strong>Work</strong></span>
+      <span class="scroll-stage stage-projects"><i></i><strong>Projects</strong></span>
+      <span class="scroll-stage stage-contact"><i></i><strong>Contact</strong></span>
+
+      <span class="scroll-cursor-glow"></span>
+    </div>
+  </div>
+
   <header class="site-header">
     <nav class="nav container">
       <div class="profile-menu-wrap">
@@ -1113,9 +1157,12 @@
           <a class="btn primary contact-email-btn" href="mailto:pathikcodes@gmail.com">
             <span class="btn-icon envelope-icon" aria-hidden="true"></span><span>Email Me</span>
           </a>
-          <a class="btn secondary contact-linkedin-btn" href="https://www.linkedin.com/in/pathikviramgama15/" target="_blank" rel="noreferrer">
-            <span class="btn-icon linkedin-node-icon" aria-hidden="true"><i></i><i></i><i></i></span><span>LinkedIn</span>
+          <a class="btn secondary contact-resume-btn" href="resume.html">
+            <span class="btn-icon resume-icon" aria-hidden="true"></span><span>Resume</span>
           </a>
+          <button class="btn secondary contact-copy-btn" type="button" data-copy-email="pathikcodes@gmail.com">
+            <span class="btn-icon copy-icon" aria-hidden="true"></span><span>Copy Email</span>
+          </button>
         </div>
         <div class="contact-next-step">
           <span class="next-step-label">Best next step</span>
@@ -1125,6 +1172,47 @@
     </section>
   </main>
 
+
+  <button class="portfolio-ai-toggle" type="button" aria-label="Open Ask Pathik AI" aria-expanded="false">
+    <span class="ai-toggle-orb" aria-hidden="true"><i></i><i></i><i></i></span>
+    <span>Ask Pathik AI</span>
+  </button>
+
+  <section class="portfolio-ai-panel" aria-label="Ask Pathik AI assistant" aria-hidden="true">
+    <div class="portfolio-ai-shell">
+      <div class="portfolio-ai-header">
+        <div>
+          <span class="portfolio-ai-kicker">Local Portfolio Assistant</span>
+          <h2>Ask Pathik AI</h2>
+        </div>
+        <button class="portfolio-ai-close" type="button" aria-label="Close Ask Pathik AI">×</button>
+      </div>
+
+      <div class="portfolio-ai-note">
+        Answers use only this portfolio’s local resume/project context. No internet lookup.
+      </div>
+
+      <div class="portfolio-ai-suggestions" aria-label="Suggested questions">
+        <button type="button">What did Pathik do in Reverse Image Search?</button>
+        <button type="button">Which projects show backend experience?</button>
+        <button type="button">Explain his data engineering work.</button>
+        <button type="button">What AI/ML projects are strongest?</button>
+      </div>
+
+      <div class="portfolio-ai-messages" role="log" aria-live="polite">
+        <div class="ai-message assistant-message">
+          <p>Hi — I can answer questions about Pathik’s experience, projects, skills, education, and certifications using only this portfolio.</p>
+        </div>
+      </div>
+
+      <form class="portfolio-ai-form">
+        <input type="text" class="portfolio-ai-input" name="question" placeholder="Ask about Pathik’s projects, experience, or skills..." autocomplete="off" />
+        <button type="submit">Ask</button>
+      </form>
+    </div>
+  </section>
+
+
   <footer class="footer">
     <div class="container footer-inner">
       <p>© <span id="year"></span> Pathik Viramgama. Built for portfolio purposes.</p>
@@ -1132,6 +1220,7 @@
     </div>
   </footer>
 
+  <script src="portfolio-ai-data.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
