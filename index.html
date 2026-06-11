@@ -19,11 +19,13 @@
         </button>
         <div class="profile-dropdown" aria-hidden="true">
           <a href="#home">Back to intro</a>
-          <button type="button" class="add-cat-btn">Add cat to navbar 🐾</button>
+          <button type="button" class="animal-toggle-btn add-cat-btn" data-animal="cat" aria-pressed="false">Show cat in navbar 🐾</button>
+          <button type="button" class="animal-toggle-btn add-dog-btn" data-animal="dog" aria-pressed="false">Show corgi in navbar 🐶</button>
+          <button type="button" class="animal-toggle-btn add-parrot-btn" data-animal="parrot" aria-pressed="false">Show parrot in navbar 🦜</button>
         </div>
       </div>
-      <div class="cat-playground cat-hidden" aria-label="Clickable animated cat widget">
-        <button class="nav-cat" type="button" aria-label="Click the cat to make it purr" title="Click me for a purr">
+      <div class="animal-playground cat-playground cat-hidden" aria-label="Clickable animated animal navbar widgets">
+        <button class="nav-animal nav-cat animal-hidden" data-animal="cat" type="button" aria-label="Click the cat to make it purr" title="Click me for a purr">
           <span class="cat-tail"></span>
           <span class="cat-body">
             <span class="cat-ear cat-ear-left"></span>
@@ -36,6 +38,32 @@
             </span>
           </span>
           <span class="purr-bubble">purr!</span>
+        </button>
+        <button class="nav-animal nav-dog animal-hidden" data-animal="dog" type="button" aria-label="Click the corgi to make it bark" title="Click me for a bark">
+          <span class="dog-tail"></span>
+          <span class="dog-body">
+            <span class="dog-ear dog-ear-left"></span>
+            <span class="dog-ear dog-ear-right"></span>
+            <span class="dog-face">
+              <span class="dog-eye left"></span>
+              <span class="dog-eye right"></span>
+              <span class="dog-snout"></span>
+              <span class="dog-nose"></span>
+              <span class="dog-mouth">⌣</span>
+            </span>
+          </span>
+          <span class="animal-bubble dog-bubble">woof!</span>
+        </button>
+        <button class="nav-animal nav-parrot animal-hidden" data-animal="parrot" type="button" aria-label="Click the parrot to make it chirp" title="Click me for a chirp">
+          <span class="parrot-tail"></span>
+          <span class="parrot-wing"></span>
+          <span class="parrot-body">
+            <span class="parrot-head">
+              <span class="parrot-eye"></span>
+              <span class="parrot-beak"></span>
+            </span>
+          </span>
+          <span class="animal-bubble parrot-bubble">chirp!</span>
         </button>
       </div>
       <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
@@ -186,87 +214,273 @@
       </div>
     </section>
 
-    <section id="skills" class="section container">
-      <div class="section-heading">
+    <section id="skills" class="section container toolkit-section">
+      <div class="section-heading toolkit-heading">
         <p class="eyebrow">Skills</p>
-        <h2>Technical toolkit</h2>
-        <p class="section-subtitle">Core technologies I work with most often.</p>
+        <h2 class="toolkit-title">
+          <span class="toolkit-word toolkit-word-technical">Technical</span>
+          <span class="toolkit-word toolkit-word-toolkit">Toolkit</span>
+          <span class="toolkit-heading-sticker sticker-wrench" aria-hidden="true">🔧</span>
+          <span class="toolkit-heading-sticker sticker-screwdriver" aria-hidden="true">🪛</span>
+          <span class="toolkit-heading-sticker sticker-gear" aria-hidden="true">⚙️</span>
+        </h2>
+        <p class="section-subtitle">Tools I use to build, scale, automate, and ship production-ready systems.</p>
       </div>
-      <div class="skill-grid">
-        <div class="skill-card skill-card-enhanced">
-          <h3><span class="skill-category-icon icon-code" aria-hidden="true">&lt;/&gt;</span><span>Languages</span></h3>
+      <div class="skill-grid toolkit-grid">
+        <div class="skill-card skill-card-enhanced toolkit-card toolkit-languages">
+          <div class="toolkit-card-top">
+            <h3><span class="skill-category-icon icon-code" aria-hidden="true">&lt;/&gt;</span><span>Languages</span></h3>
+            <div class="skill-micro-scene scene-code" aria-hidden="true">
+              <span class="code-line short"></span>
+              <span class="code-line long"></span>
+              <span class="code-cursor"></span>
+            </div>
+          </div>
+          <p class="toolkit-flow">Think → Type → Compile → Ship</p>
           <div class="skill-mini-list">
-            <span class="skill-mini-chip" data-skill-tooltip="General-purpose programming and ML language">Python</span><span class="skill-mini-chip" data-skill-tooltip="Web scripting and frontend logic">JavaScript</span><span class="skill-mini-chip" data-skill-tooltip="Typed JavaScript for scalable apps">TypeScript</span><span class="skill-mini-chip" data-skill-tooltip="Android and backend development">Kotlin/Java</span><span class="skill-mini-chip" data-skill-tooltip="Flutter app development">Dart</span><span class="skill-mini-chip" data-skill-tooltip="Querying and modeling relational data">SQL</span><span class="skill-mini-chip" data-skill-tooltip="Systems-level programming fundamentals">C</span><span class="skill-mini-chip" data-skill-tooltip="Performance-oriented programming">C++</span><span class="skill-mini-chip" data-skill-tooltip=".NET and application development">C#</span>
+            <span class="skill-mini-chip tech-python" data-skill-tooltip="General-purpose programming and ML language">Python</span><span class="skill-mini-chip tech-js" data-skill-tooltip="Web scripting and frontend logic">JavaScript</span><span class="skill-mini-chip tech-ts" data-skill-tooltip="Typed JavaScript for scalable apps">TypeScript</span><span class="skill-mini-chip" data-skill-tooltip="Android and backend development">Kotlin/Java</span><span class="skill-mini-chip" data-skill-tooltip="Flutter app development">Dart</span><span class="skill-mini-chip tech-sql" data-skill-tooltip="Querying and modeling relational data">SQL</span><span class="skill-mini-chip" data-skill-tooltip="Systems-level programming fundamentals">C</span><span class="skill-mini-chip" data-skill-tooltip="Performance-oriented programming">C++</span><span class="skill-mini-chip" data-skill-tooltip=".NET and application development">C#</span>
           </div>
         </div>
-        <div class="skill-card skill-card-enhanced">
-          <h3><span class="skill-category-icon icon-screen" aria-hidden="true">▣</span><span>Frontend & Product</span></h3>
+        <div class="skill-card skill-card-enhanced toolkit-card toolkit-frontend">
+          <div class="toolkit-card-top">
+            <h3><span class="skill-category-icon icon-screen" aria-hidden="true">▣</span><span>Frontend & Product</span></h3>
+            <div class="skill-micro-scene scene-orbit" aria-hidden="true">
+              <span class="orbit-core"></span>
+              <span class="orbit-dot one"></span>
+              <span class="orbit-dot two"></span>
+              <span class="orbit-dot three"></span>
+            </div>
+          </div>
+          <p class="toolkit-flow">Design → Component → Motion → Experience</p>
           <div class="skill-mini-list">
-            <span class="skill-mini-chip" data-skill-tooltip="Frontend UI library">React</span><span class="skill-mini-chip" data-skill-tooltip="React framework for production web apps">Next.js</span><span class="skill-mini-chip" data-skill-tooltip="Utility-first CSS styling">Tailwind</span><span class="skill-mini-chip" data-skill-tooltip="Web page structure">HTML</span><span class="skill-mini-chip" data-skill-tooltip="Web styling and layouts">CSS</span><span class="skill-mini-chip" data-skill-tooltip="Cross-platform mobile app framework">Flutter</span><span class="skill-mini-chip" data-skill-tooltip="Frontend deployment and hosting">Vercel</span><span class="skill-mini-chip" data-skill-tooltip="Translating designs into UI">Figma-to-code</span>
+            <span class="skill-mini-chip tech-react" data-skill-tooltip="Frontend UI library">React</span><span class="skill-mini-chip" data-skill-tooltip="React framework for production web apps">Next.js</span><span class="skill-mini-chip" data-skill-tooltip="Utility-first CSS styling">Tailwind</span><span class="skill-mini-chip" data-skill-tooltip="Web page structure">HTML</span><span class="skill-mini-chip" data-skill-tooltip="Web styling and layouts">CSS</span><span class="skill-mini-chip" data-skill-tooltip="Cross-platform mobile app framework">Flutter</span><span class="skill-mini-chip" data-skill-tooltip="Frontend deployment and hosting">Vercel</span><span class="skill-mini-chip" data-skill-tooltip="Translating designs into UI">Figma-to-code</span>
           </div>
         </div>
-        <div class="skill-card skill-card-enhanced">
-          <h3><span class="skill-category-icon icon-server" aria-hidden="true">▤</span><span>Backend</span></h3>
+        <div class="skill-card skill-card-enhanced toolkit-card toolkit-backend">
+          <div class="toolkit-card-top">
+            <h3><span class="skill-category-icon icon-server" aria-hidden="true">▤</span><span>Backend</span></h3>
+            <div class="skill-micro-scene scene-api" aria-hidden="true">
+              <span class="api-node left"></span>
+              <span class="api-line"></span>
+              <span class="api-node right"></span>
+            </div>
+          </div>
+          <p class="toolkit-flow">Request → Validate → Query → Respond</p>
           <div class="skill-mini-list">
-            <span class="skill-mini-chip" data-skill-tooltip="JavaScript runtime for backend services">Node.js</span><span class="skill-mini-chip" data-skill-tooltip="Python web framework">Django</span><span class="skill-mini-chip" data-skill-tooltip="Python API framework">FastAPI</span><span class="skill-mini-chip" data-skill-tooltip="Lightweight Python web framework">Flask</span><span class="skill-mini-chip" data-skill-tooltip="HTTP-based service interfaces">REST APIs</span><span class="skill-mini-chip" data-skill-tooltip="API documentation and contract standard">OpenAPI</span><span class="skill-mini-chip" data-skill-tooltip="Relational database system">PostgreSQL</span><span class="skill-mini-chip" data-skill-tooltip="NoSQL document database">MongoDB</span><span class="skill-mini-chip" data-skill-tooltip="Relational database system">MySQL</span>
+            <span class="skill-mini-chip" data-skill-tooltip="JavaScript runtime for backend services">Node.js</span><span class="skill-mini-chip" data-skill-tooltip="Python web framework">Django</span><span class="skill-mini-chip" data-skill-tooltip="Python API framework">FastAPI</span><span class="skill-mini-chip" data-skill-tooltip="Lightweight Python web framework">Flask</span><span class="skill-mini-chip" data-skill-tooltip="HTTP-based service interfaces">REST APIs</span><span class="skill-mini-chip" data-skill-tooltip="API documentation and contract standard">OpenAPI</span><span class="skill-mini-chip tech-postgres" data-skill-tooltip="Relational database system">PostgreSQL</span><span class="skill-mini-chip" data-skill-tooltip="NoSQL document database">MongoDB</span><span class="skill-mini-chip" data-skill-tooltip="Relational database system">MySQL</span>
           </div>
         </div>
-        <div class="skill-card skill-card-enhanced">
-          <h3><span class="skill-category-icon icon-brain" aria-hidden="true">🧠</span><span>AI / ML</span></h3>
+        <div class="skill-card skill-card-enhanced toolkit-card toolkit-ai">
+          <div class="toolkit-card-top">
+            <h3><span class="skill-category-icon icon-ai-spark" aria-hidden="true">
+                <svg viewBox="0 0 28 28" focusable="false">
+                  <circle class="ai-orbit" cx="14" cy="14" r="9.2"></circle>
+                  <circle class="ai-core" cx="14" cy="14" r="3.2"></circle>
+                  <circle class="ai-dot dot-one" cx="14" cy="4.8" r="2.2"></circle>
+                  <circle class="ai-dot dot-two" cx="22.4" cy="17.8" r="2.2"></circle>
+                  <circle class="ai-dot dot-three" cx="5.6" cy="17.8" r="2.2"></circle>
+                  <path class="ai-link" d="M14 8 L14 11 M16.8 15.4 L20.4 17 M11.2 15.4 L7.6 17"></path>
+                </svg>
+              </span><span>AI / ML</span></h3>
+            <div class="skill-micro-scene scene-neural" aria-hidden="true">
+              <span class="neural-line a"></span><span class="neural-line b"></span><span class="neural-line c"></span>
+              <span class="neural-node n1"></span><span class="neural-node n2"></span><span class="neural-node n3"></span><span class="neural-node n4"></span>
+            </div>
+          </div>
+          <p class="toolkit-flow">Prompt → Retrieve → Rerank → Generate</p>
           <div class="skill-mini-list">
-            <span class="skill-mini-chip" data-skill-tooltip="Deep learning framework">PyTorch</span><span class="skill-mini-chip" data-skill-tooltip="Machine learning framework">TensorFlow</span><span class="skill-mini-chip" data-skill-tooltip="High-level neural network API">Keras</span><span class="skill-mini-chip" data-skill-tooltip="Classical ML toolkit">Scikit-learn</span><span class="skill-mini-chip" data-skill-tooltip="LLM APIs and AI workflows">OpenAI</span><span class="skill-mini-chip" data-skill-tooltip="Models, datasets, and transformers">Hugging Face</span><span class="skill-mini-chip" data-skill-tooltip="Transformer model for NLP">BERT</span><span class="skill-mini-chip" data-skill-tooltip="Computer vision library">OpenCV</span>
+            <span class="skill-mini-chip" data-skill-tooltip="Deep learning framework">PyTorch</span><span class="skill-mini-chip" data-skill-tooltip="Machine learning framework">TensorFlow</span><span class="skill-mini-chip" data-skill-tooltip="High-level neural network API">Keras</span><span class="skill-mini-chip" data-skill-tooltip="Classical ML toolkit">Scikit-learn</span><span class="skill-mini-chip tech-openai" data-skill-tooltip="LLM APIs and AI workflows">OpenAI</span><span class="skill-mini-chip" data-skill-tooltip="Models, datasets, and transformers">Hugging Face</span><span class="skill-mini-chip" data-skill-tooltip="Transformer model for NLP">BERT</span><span class="skill-mini-chip" data-skill-tooltip="Computer vision library">OpenCV</span>
           </div>
         </div>
-        <div class="skill-card skill-card-enhanced">
-          <h3><span class="skill-category-icon icon-cloud" aria-hidden="true">☁</span><span>Cloud & DevOps</span></h3>
+        <div class="skill-card skill-card-enhanced toolkit-card toolkit-cloud">
+          <div class="toolkit-card-top">
+            <h3><span class="skill-category-icon icon-cloud" aria-hidden="true">☁</span><span>Cloud & DevOps</span></h3>
+            <div class="skill-micro-scene scene-deploy" aria-hidden="true">
+              <span class="deploy-box one"></span>
+              <span class="deploy-box two"></span>
+              <span class="deploy-box three"></span>
+              <span class="deploy-cloud"></span>
+            </div>
+          </div>
+          <p class="toolkit-flow">Code → Container → CI/CD → Cloud</p>
           <div class="skill-mini-list">
-            <span class="skill-mini-chip" data-skill-tooltip="Cloud services and infrastructure">AWS</span><span class="skill-mini-chip" data-skill-tooltip="Google Cloud Platform">GCP</span><span class="skill-mini-chip" data-skill-tooltip="Microsoft cloud platform">Azure</span><span class="skill-mini-chip" data-skill-tooltip="Containerization platform">Docker</span><span class="skill-mini-chip" data-skill-tooltip="Container orchestration">Kubernetes</span><span class="skill-mini-chip" data-skill-tooltip="Backend platform for apps">Firebase</span><span class="skill-mini-chip" data-skill-tooltip="Version control system">Git</span><span class="skill-mini-chip" data-skill-tooltip="Agile project tracking">Jira</span><span class="skill-mini-chip" data-skill-tooltip="Automated build and deployment">CI/CD</span>
+            <span class="skill-mini-chip tech-aws" data-skill-tooltip="Cloud services and infrastructure">AWS</span><span class="skill-mini-chip" data-skill-tooltip="Google Cloud Platform">GCP</span><span class="skill-mini-chip" data-skill-tooltip="Microsoft cloud platform">Azure</span><span class="skill-mini-chip tech-docker" data-skill-tooltip="Containerization platform">Docker</span><span class="skill-mini-chip" data-skill-tooltip="Container orchestration">Kubernetes</span><span class="skill-mini-chip" data-skill-tooltip="Backend platform for apps">Firebase</span><span class="skill-mini-chip tech-git" data-skill-tooltip="Version control system">Git</span><span class="skill-mini-chip" data-skill-tooltip="Agile project tracking">Jira</span><span class="skill-mini-chip" data-skill-tooltip="Automated build and deployment">CI/CD</span>
           </div>
         </div>
-        <div class="skill-card skill-card-enhanced">
-          <h3><span class="skill-category-icon icon-database" aria-hidden="true">◉</span><span>Data Engineering</span></h3>
+        <div class="skill-card skill-card-enhanced toolkit-card toolkit-data">
+          <div class="toolkit-card-top">
+            <h3><span class="skill-category-icon icon-database" aria-hidden="true">◉</span><span>Data Engineering</span></h3>
+            <div class="skill-micro-scene scene-data" aria-hidden="true">
+              <span class="db-cylinder"></span>
+              <span class="data-bar b1"></span><span class="data-bar b2"></span><span class="data-bar b3"></span>
+            </div>
+          </div>
+          <p class="toolkit-flow">Ingest → Transform → Warehouse → Dashboard</p>
           <div class="skill-mini-list">
-            <span class="skill-mini-chip" data-skill-tooltip="Cloud data warehouse">Snowflake</span><span class="skill-mini-chip" data-skill-tooltip="Lakehouse + Spark workflows">Databricks</span><span class="skill-mini-chip" data-skill-tooltip="Microsoft cloud platform">Azure</span><span class="skill-mini-chip" data-skill-tooltip="Querying and modeling relational data">SQL</span><span class="skill-mini-chip" data-skill-tooltip="SQL Server Management Studio">SSMS</span><span class="skill-mini-chip" data-skill-tooltip="Extract, transform, load workflows">ETL pipelines</span><span class="skill-mini-chip" data-skill-tooltip="Business intelligence dashboards">Power BI</span><span class="skill-mini-chip" data-skill-tooltip="Low-code business applications">Power Apps</span>
+            <span class="skill-mini-chip tech-snowflake" data-skill-tooltip="Cloud data warehouse">Snowflake</span><span class="skill-mini-chip" data-skill-tooltip="Lakehouse + Spark workflows">Databricks</span><span class="skill-mini-chip" data-skill-tooltip="Microsoft cloud platform">Azure</span><span class="skill-mini-chip tech-sql" data-skill-tooltip="Querying and modeling relational data">SQL</span><span class="skill-mini-chip" data-skill-tooltip="SQL Server Management Studio">SSMS</span><span class="skill-mini-chip" data-skill-tooltip="Extract, transform, load workflows">ETL pipelines</span><span class="skill-mini-chip" data-skill-tooltip="Business intelligence dashboards">Power BI</span><span class="skill-mini-chip" data-skill-tooltip="Low-code business applications">Power Apps</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="experience" class="section container">
-      <div class="section-heading">
+    <section id="experience" class="section container recent-work-section">
+      <div class="section-heading recent-work-heading">
         <p class="eyebrow">Experience</p>
-        <h2>Recent work</h2>
+        <h2 class="recent-work-title">
+          <span class="recent-word recent-word-recent">Recent</span>
+          <span class="recent-word recent-word-work">Work</span>
+          <span class="recent-heading-sticker sticker-clock" aria-hidden="true">◷</span>
+          <span class="recent-heading-sticker sticker-terminal" aria-hidden="true">&gt;_</span>
+        </h2>
+        <div class="recent-flow" aria-hidden="true">
+          <span>Idea</span><i></i><span>Build</span><i></i><span>Test</span><i></i><span>Deploy</span><i></i><span>Impact</span>
+        </div>
       </div>
-      <div class="timeline">
-        <article class="timeline-item work-clickable" data-work-url="https://ccsglobaltech.com/" tabindex="0" role="link" aria-label="Open California Creative Solutions website">
-          <span class="date">Mar 2026 — Present</span>
-          <h3><a href="https://ccsglobaltech.com/" target="_blank" rel="noreferrer">Database Engineer · California Creative Solutions</a><span class="work-link-arrow">↗</span></h3>
-          <p>Built end-to-end data engineering pipelines using Snowflake, Databricks, Azure, and SQL. Automated ingestion, transformation, and reporting workflows, improving processing efficiency by 35%.</p>
-          <ul>
-            <li>Optimized SQL, stored procedures, SSMS workflows, and Snowflake ETL logic.</li>
-            <li>Reduced manual data preparation time by 40% while improving reporting accuracy.</li>
-            <li>Built Power BI and Power Apps solutions for real-time visibility and self-service reporting.</li>
-          </ul>
+
+      <div class="timeline recent-mission-board">
+        <article class="timeline-item work-clickable recent-work-card featured-work-card" data-work-url="https://ccsglobaltech.com/" tabindex="0" role="link" aria-label="Open California Creative Solutions website">
+          <div class="work-card-topline">
+            <span class="date">Mar 2026 — Present</span>
+            <span class="work-status status-shipped"><span></span>Shipped</span>
+          </div>
+          <div class="work-card-main">
+            <div class="work-copy">
+              <h3><a href="https://ccsglobaltech.com/" target="_blank" rel="noreferrer">Database Engineer · California Creative Solutions</a><span class="work-link-arrow">↗</span></h3>
+              <p>Built end-to-end data engineering pipelines using Snowflake, Databricks, Azure, and SQL. Automated ingestion, transformation, and reporting workflows, improving processing efficiency by 35%.</p>
+              <ul>
+                <li>Optimized SQL, stored procedures, SSMS workflows, and Snowflake ETL logic.</li>
+                <li>Reduced manual data preparation time by 40% while improving reporting accuracy.</li>
+                <li>Built Power BI and Power Apps solutions for real-time visibility and self-service reporting.</li>
+              </ul>
+            </div>
+            <div class="work-visual data-work-visual" aria-hidden="true">
+              <span class="data-node source"></span>
+              <span class="data-node transform"></span>
+              <span class="data-node warehouse"></span>
+              <span class="data-pipe pipe-one"></span>
+              <span class="data-pipe pipe-two"></span>
+              <span class="data-packet"></span>
+              <span class="dashboard-bar b1"></span>
+              <span class="dashboard-bar b2"></span>
+              <span class="dashboard-bar b3"></span>
+            </div>
+          </div>
         </article>
-        <article class="timeline-item work-clickable" data-work-url="https://www.vibesea.com/" tabindex="0" role="link" aria-label="Open VibeSea website">
-          <span class="date">Sept 2025 — Mar 2026</span>
-          <h3><a href="https://www.vibesea.com/" target="_blank" rel="noreferrer">Software Developer · VibeSea</a><span class="work-link-arrow">↗</span></h3>
-          <p>Designed backend architecture, database schemas, and production APIs for a fast-moving startup building anti-cheat and proctoring workflows.</p>
-          <ul>
-            <li>Built scalable detection systems using Node.js, Django, DynamoDB, PostgreSQL, and Amazon S3.</li>
-            <li>Authored OpenAPI 3.0 REST APIs and optimized services for maintainability and auditability.</li>
-            <li>Deployed a Next.js website through Vercel CI/CD, improving load times by 20%.</li>
-          </ul>
+
+        <article class="timeline-item work-clickable recent-work-card" data-work-url="https://www.vibesea.com/" tabindex="0" role="link" aria-label="Open VibeSea website">
+          <div class="work-card-topline">
+            <span class="date">Sept 2025 — Mar 2026</span>
+            <span class="work-status status-prod"><span></span>Production</span>
+          </div>
+          <div class="work-card-main">
+            <div class="work-copy">
+              <h3><a href="https://www.vibesea.com/" target="_blank" rel="noreferrer">Software Developer · VibeSea</a><span class="work-link-arrow">↗</span></h3>
+              <p>Designed backend architecture, database schemas, and production APIs for a fast-moving startup building anti-cheat and proctoring workflows.</p>
+              <ul>
+                <li>Built scalable detection systems using Node.js, Django, DynamoDB, PostgreSQL, and Amazon S3.</li>
+                <li>Authored OpenAPI 3.0 REST APIs and optimized services for maintainability and auditability.</li>
+                <li>Deployed a Next.js website through Vercel CI/CD, improving load times by 20%.</li>
+              </ul>
+            </div>
+            <div class="work-visual api-work-visual" aria-hidden="true">
+              <span class="api-client">UI</span>
+              <span class="api-server">API</span>
+              <span class="api-db">DB</span>
+              <span class="api-route route-one"></span>
+              <span class="api-route route-two"></span>
+              <span class="api-packet"></span>
+            </div>
+          </div>
         </article>
-        <article class="timeline-item work-clickable" data-work-url="https://joinworkup.com/" tabindex="0" role="link" aria-label="Open WorkUp website">
-          <span class="date">May 2024 — Jul 2024</span>
-          <h3><a href="https://joinworkup.com/" target="_blank" rel="noreferrer">Software Developer Intern · WorkUp</a><span class="work-link-arrow">↗</span></h3>
-          <p>Improved Kotlin mobile app reliability and backend integration while working closely with a 7-member team and company leadership.</p>
-          <ul>
-            <li>Reduced crash rates by 30% through Kotlin, JetBrains, and Retrofit optimizations.</li>
-            <li>Implemented caching using Caffeine and MutableMaps, reducing GCP costs by 8%.</li>
-            <li>Supported production environments with 99.99% uptime across GCP servers and Docker containers.</li>
-          </ul>
+
+        <article class="timeline-item work-clickable recent-work-card" data-work-url="https://joinworkup.com/" tabindex="0" role="link" aria-label="Open WorkUp website">
+          <div class="work-card-topline">
+            <span class="date">May 2024 — Jul 2024</span>
+            <span class="work-status status-stable"><span></span>Stable</span>
+          </div>
+          <div class="work-card-main">
+            <div class="work-copy">
+              <h3><a href="https://joinworkup.com/" target="_blank" rel="noreferrer">Software Developer Intern · WorkUp</a><span class="work-link-arrow">↗</span></h3>
+              <p>Improved Kotlin mobile app reliability and backend integration while working closely with a 7-member team and company leadership.</p>
+              <ul>
+                <li>Reduced crash rates by 30% through Kotlin, JetBrains, and Retrofit optimizations.</li>
+                <li>Implemented caching using Caffeine and MutableMaps, reducing GCP costs by 8%.</li>
+                <li>Supported production environments with 99.99% uptime across GCP servers and Docker containers.</li>
+              </ul>
+            </div>
+            <div class="work-visual mobile-work-visual" aria-hidden="true">
+              <span class="phone-frame">
+                <span class="phone-dot"></span>
+                <span class="phone-line l1"></span>
+                <span class="phone-line l2"></span>
+                <span class="phone-line l3"></span>
+              </span>
+              <span class="uptime-ring"></span>
+              <span class="cache-chip">cache</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="timeline-item recent-work-card">
+          <div class="work-card-topline">
+            <span class="date">Aug 2022 — May 2023</span>
+            <span class="work-status status-ml"><span></span>ML</span>
+          </div>
+          <div class="work-card-main">
+            <div class="work-copy">
+              <h3>Software Developer (ML) · Orail Services</h3>
+              <p>Developed AI-driven MERN applications with machine learning integrations, computer vision workflows, and FastAPI-backed reverse image search systems.</p>
+              <ul>
+                <li>Developed AI-driven web applications using the MERN stack and REST APIs, redesigning UI/UX flows to increase engagement by 20% and improve purchase conversion by 37%.</li>
+                <li>Integrated face recognition into MERN apps using OpenCV and deep learning, reducing login time by 60% through optimized image processing and APIs.</li>
+                <li>Built reverse image search using ResNet101 embeddings and KNN with cosine similarity, deployed through FastAPI in a Flutter app with 94% accuracy across 5K+ augmented images.</li>
+              </ul>
+            </div>
+            <div class="work-visual ml-work-visual" aria-hidden="true">
+              <span class="vision-frame">
+                <span class="scan-line"></span>
+                <span class="face-dot d1"></span>
+                <span class="face-dot d2"></span>
+                <span class="face-dot d3"></span>
+                <span class="face-smile"></span>
+              </span>
+              <span class="embedding-node e1"></span>
+              <span class="embedding-node e2"></span>
+              <span class="embedding-node e3"></span>
+              <span class="embedding-link el1"></span>
+              <span class="embedding-link el2"></span>
+              <span class="search-lens"></span>
+            </div>
+          </div>
+        </article>
+
+        <article class="timeline-item recent-work-card imd-work-card">
+          <div class="work-card-topline">
+            <span class="date">June 2023 — Aug 2023</span>
+            <span class="work-status status-weather"><span></span>Forecast</span>
+          </div>
+          <div class="work-card-main">
+            <div class="work-copy">
+              <h3>ML Intern · Indian Meteorological Department</h3>
+              <p>Built climate forecasting models and real-time inference pipelines for large-scale satellite data analysis in collaboration with ISRO.</p>
+              <ul>
+                <li>Architected LSTM and BiLSTM models achieving 92.6% accuracy, improving climate forecasting efficiency by 18% and supporting time-series analysis for large-scale environmental data.</li>
+                <li>Optimized real-time inference pipelines by processing 16TB+ of IMD-A and IMD-C satellite data, integrating multimodal climate models with ISRO and reducing model latency by 40%.</li>
+                <li>Supported a beta deployment across North Indian states, maintaining 87% real-world forecasting accuracy for weather prediction and early warning systems.</li>
+              </ul>
+            </div>
+            <div class="work-visual weather-work-visual" aria-hidden="true">
+              <span class="weather-cloud c1"></span>
+              <span class="weather-cloud c2"></span>
+              <span class="weather-sun"></span>
+              <span class="weather-orbit"></span>
+              <span class="weather-wave w1"></span>
+              <span class="weather-wave w2"></span>
+              <span class="weather-signal s1"></span>
+              <span class="weather-signal s2"></span>
+              <span class="weather-signal s3"></span>
+            </div>
+          </div>
         </article>
       </div>
     </section>

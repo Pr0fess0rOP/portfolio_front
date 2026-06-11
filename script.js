@@ -173,6 +173,18 @@ window.addEventListener('mousemove', (event) => {
 })();
 
 
+
+
+// Corgi and parrot click reactions
+(() => {
+  document.querySelectorAll(".nav-dog, .nav-parrot").forEach((animal) => {
+    animal.addEventListener("click", () => {
+      animal.classList.add("is-talking");
+      window.setTimeout(() => animal.classList.remove("is-talking"), 850);
+    });
+  });
+})();
+
 // Education card click messages
 (() => {
   const educationCards = document.querySelectorAll(".education-clickable");
@@ -244,20 +256,174 @@ window.addEventListener('mousemove', (event) => {
 })();
 
 
-// Profile photo dropdown and add-cat action
+// Profile photo dropdown and animal navbar toggles
 (() => {
   const menuWrap = document.querySelector(".profile-menu-wrap");
   const trigger = document.querySelector(".profile-menu-trigger");
   const dropdown = document.querySelector(".profile-dropdown");
-  const addCatButton = document.querySelector(".add-cat-btn");
-  const catPlayground = document.querySelector(".cat-playground");
+  const animalButtons = document.querySelectorAll(".animal-toggle-btn");
+  const animalPlayground = document.querySelector(".animal-playground");
 
   if (!menuWrap || !trigger || !dropdown) return;
+
+  const animalLabels = {
+    cat: { show: "Show cat in navbar 🐾", hide: "Hide cat from navbar ✓" },
+    dog: { show: "Show corgi in navbar 🐶", hide: "Hide corgi from navbar ✓" },
+    parrot: { show: "Show parrot in navbar 🦜", hide: "Hide parrot from navbar ✓" }
+  };
 
   const setMenuOpen = (isOpen) => {
     menuWrap.classList.toggle("open", isOpen);
     trigger.setAttribute("aria-expanded", String(isOpen));
     dropdown.setAttribute("aria-hidden", String(!isOpen));
+  };
+
+  const updateAnimalControls = () => {
+    if (!animalPlayground) return;
+    const visibleAnimals = animalPlayground.querySelectorAll(".nav-animal:not(.animal-hidden)");
+    animalPlayground.classList.toggle("cat-hidden", visibleAnimals.length === 0);
+    animalPlayground.classList.toggle("cat-added", visibleAnimals.length > 0);
+  };
+
+  const animalMotion = new Map();
+  const speedPresets = {
+    cat: { vx: 0.72, vy: 0.18, tilt: 1.6 },
+    dog: { vx: -0.86, vy: 0.16, tilt: -1.4 },
+    parrot: { vx: 0.96, vy: -0.24, tilt: 2.1 }
+  };
+
+  const visibleAnimalNodes = () => {
+    if (!animalPlayground) return [];
+    return [...animalPlayground.querySelectorAll(".nav-animal:not(.animal-hidden)")];
+  };
+
+  const animalBounds = (node, playgroundRect) => {
+    const width = node.offsetWidth || 60;
+    const height = node.offsetHeight || 42;
+    const maxX = Math.max(2, playgroundRect.width - width - 4);
+    const maxY = Math.max(0, (playgroundRect.height - height) / 2);
+
+    return { width, height, minX: 2, maxX, minY: -maxY, maxY };
+  };
+
+  const seedAnimalPosition = (node) => {
+    if (!animalPlayground || animalMotion.has(node)) return;
+
+    const animal = node.dataset.animal || "cat";
+    const playgroundRect = animalPlayground.getBoundingClientRect();
+    const bounds = animalBounds(node, playgroundRect);
+    const visible = visibleAnimalNodes();
+    const slotIndex = Math.max(0, visible.indexOf(node));
+    const slotCount = Math.max(1, visible.length);
+    const spread = bounds.maxX - bounds.minX;
+    const x = bounds.minX + (spread * (slotIndex + 0.5)) / slotCount;
+    const y = slotIndex % 2 === 0 ? bounds.minY : bounds.maxY;
+    const preset = speedPresets[animal] || speedPresets.cat;
+
+    animalMotion.set(node, {
+      x,
+      y,
+      vx: preset.vx * (slotIndex % 2 === 0 ? 1 : -1),
+      vy: preset.vy,
+      tilt: preset.tilt
+    });
+  };
+
+  const resetHiddenAnimals = () => {
+    if (!animalPlayground) return;
+    animalPlayground.querySelectorAll(".nav-animal.animal-hidden").forEach((node) => {
+      animalMotion.delete(node);
+      node.style.removeProperty("--animal-x");
+      node.style.removeProperty("--animal-y");
+      node.style.removeProperty("--animal-tilt");
+    });
+  };
+
+  const keepAnimalsApart = (animals, playgroundRect) => {
+    for (let i = 0; i < animals.length; i += 1) {
+      for (let j = i + 1; j < animals.length; j += 1) {
+        const first = animals[i];
+        const second = animals[j];
+        const a = animalMotion.get(first);
+        const b = animalMotion.get(second);
+        if (!a || !b) continue;
+
+        const firstBounds = animalBounds(first, playgroundRect);
+        const secondBounds = animalBounds(second, playgroundRect);
+        const ax = a.x + firstBounds.width / 2;
+        const ay = a.y;
+        const bx = b.x + secondBounds.width / 2;
+        const by = b.y;
+        const dx = bx - ax;
+        const dy = by - ay;
+        const distance = Math.max(0.01, Math.hypot(dx, dy));
+        const minDistance = Math.max(firstBounds.width, secondBounds.width) + 16;
+
+        if (distance >= minDistance) continue;
+
+        const normalX = dx / distance;
+        const normalY = dy / distance;
+        const push = (minDistance - distance) / 2;
+
+        a.x -= normalX * push;
+        a.y -= normalY * push;
+        b.x += normalX * push;
+        b.y += normalY * push;
+
+        const aAlong = a.vx * normalX + a.vy * normalY;
+        const bAlong = b.vx * normalX + b.vy * normalY;
+        const impulse = bAlong - aAlong;
+
+        a.vx += impulse * normalX;
+        a.vy += impulse * normalY;
+        b.vx -= impulse * normalX;
+        b.vy -= impulse * normalY;
+      }
+    }
+  };
+
+  const animateNavbarAnimals = () => {
+    if (animalPlayground) {
+      const playgroundRect = animalPlayground.getBoundingClientRect();
+      const animals = visibleAnimalNodes();
+
+      animals.forEach(seedAnimalPosition);
+      resetHiddenAnimals();
+
+      animals.forEach((node) => {
+        const motion = animalMotion.get(node);
+        if (!motion) return;
+
+        const bounds = animalBounds(node, playgroundRect);
+        motion.x += motion.vx;
+        motion.y += motion.vy;
+
+        if (motion.x <= bounds.minX || motion.x >= bounds.maxX) {
+          motion.x = Math.min(Math.max(motion.x, bounds.minX), bounds.maxX);
+          motion.vx *= -1;
+        }
+
+        if (motion.y <= bounds.minY || motion.y >= bounds.maxY) {
+          motion.y = Math.min(Math.max(motion.y, bounds.minY), bounds.maxY);
+          motion.vy *= -1;
+        }
+      });
+
+      keepAnimalsApart(animals, playgroundRect);
+
+      animals.forEach((node) => {
+        const motion = animalMotion.get(node);
+        if (!motion) return;
+        const bounds = animalBounds(node, playgroundRect);
+        motion.x = Math.min(Math.max(motion.x, bounds.minX), bounds.maxX);
+        motion.y = Math.min(Math.max(motion.y, bounds.minY), bounds.maxY);
+        node.style.setProperty("--animal-x", `${motion.x}px`);
+        node.style.setProperty("--animal-y", `${motion.y}px`);
+        node.style.setProperty("--animal-tilt", `${motion.vx > 0 ? motion.tilt : -motion.tilt}deg`);
+      });
+    }
+
+    window.requestAnimationFrame(animateNavbarAnimals);
   };
 
   trigger.addEventListener("click", (event) => {
@@ -273,19 +439,26 @@ window.addEventListener('mousemove', (event) => {
     if (event.key === "Escape") setMenuOpen(false);
   });
 
-  addCatButton?.addEventListener("click", () => {
-    if (!catPlayground) return;
+  animalButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const animal = button.dataset.animal;
+      const target = animalPlayground?.querySelector(`.nav-animal[data-animal="${animal}"]`);
+      if (!animal || !target) return;
 
-    catPlayground.classList.remove("cat-hidden");
-    catPlayground.classList.add("cat-added");
+      const isNowHidden = target.classList.toggle("animal-hidden");
+      const animalIsVisible = !isNowHidden;
+      button.textContent = animalIsVisible ? animalLabels[animal].hide : animalLabels[animal].show;
+      button.classList.toggle("animal-added-label", animalIsVisible);
+      button.setAttribute("aria-pressed", String(animalIsVisible));
 
-    addCatButton.textContent = "Cat added to navbar ✓";
-    addCatButton.classList.add("cat-added-label");
-
-    setMenuOpen(false);
+      if (!animalIsVisible) animalMotion.delete(target);
+      updateAnimalControls();
+      setMenuOpen(false);
+    });
   });
-})();
 
+  window.requestAnimationFrame(animateNavbarAnimals);
+})();
 
 // Interactive About section: glow + What I build toggle
 (() => {
