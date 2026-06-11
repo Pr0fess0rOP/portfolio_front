@@ -584,3 +584,70 @@ window.addEventListener('mousemove', (event) => {
     });
   }
 })();
+
+
+// Project Lab filters + cursor-reactive card glow
+(() => {
+  const filterButtons = document.querySelectorAll(".project-filter");
+  const projectCards = document.querySelectorAll(".project-card-lab");
+  const projectCategories = document.querySelectorAll(".project-category[data-project-group]");
+
+  if (!filterButtons.length || !projectCards.length) return;
+
+  const setFilter = (filter) => {
+    filterButtons.forEach((button) => {
+      const active = button.dataset.projectFilter === filter;
+      button.classList.toggle("active", active);
+      button.setAttribute("aria-selected", active ? "true" : "false");
+    });
+
+    projectCards.forEach((card) => {
+      const visible = filter === "all" || card.dataset.category === filter;
+      card.classList.toggle("project-card-filtered-out", !visible);
+      card.setAttribute("aria-hidden", visible ? "false" : "true");
+    });
+
+    projectCategories.forEach((category) => {
+      const group = category.dataset.projectGroup;
+      const visible = filter === "all" || group === filter;
+      category.classList.toggle("project-category-hidden", !visible);
+    });
+  };
+
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", () => setFilter(button.dataset.projectFilter));
+  });
+
+  projectCards.forEach((card) => {
+    card.addEventListener("mousemove", (event) => {
+      const rect = card.getBoundingClientRect();
+      const x = ((event.clientX - rect.left) / rect.width) * 100;
+      const y = ((event.clientY - rect.top) / rect.height) * 100;
+      card.style.setProperty("--project-x", `${x}%`);
+      card.style.setProperty("--project-y", `${y}%`);
+    });
+  });
+})();
+
+
+// Contact capability cards jump to matching project filters
+(() => {
+  const capabilityCards = document.querySelectorAll("[data-contact-project-filter]");
+  if (!capabilityCards.length) return;
+
+  capabilityCards.forEach((card) => {
+    card.addEventListener("click", () => {
+      const filter = card.dataset.contactProjectFilter;
+      const projectButton = document.querySelector(`.project-filter[data-project-filter="${filter}"]`);
+      const projectsSection = document.querySelector("#projects");
+
+      if (projectButton) {
+        projectButton.click();
+      }
+
+      if (projectsSection) {
+        projectsSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+  });
+})();

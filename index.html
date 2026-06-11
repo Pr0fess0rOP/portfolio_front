@@ -485,126 +485,435 @@
       </div>
     </section>
 
-    <section id="projects" class="section container">
-      <div class="section-heading">
+    <section id="projects" class="section container projects-lab-section">
+      <div class="section-heading projects-lab-heading">
         <p class="eyebrow">Projects</p>
-        <h2>Selected projects</h2>
+        <h2 class="projects-lab-title">
+          <span class="project-title-word project-title-selected">Selected</span>
+          <span class="project-title-word project-title-projects">Projects</span>
+          <span class="project-title-sticker sticker-folder" aria-hidden="true">▣</span>
+          <span class="project-title-sticker sticker-rocket" aria-hidden="true">↗</span>
+          <span class="project-title-sticker sticker-cursor" aria-hidden="true">select()</span>
+        </h2>
         <p class="section-subtitle">Grouped by focus area, with each project card linked for GitHub, live demos, or case studies.</p>
+        <div class="project-filter-bar" role="tablist" aria-label="Filter selected projects">
+          <button class="project-filter active" type="button" data-project-filter="all" role="tab" aria-selected="true">All</button>
+          <button class="project-filter" type="button" data-project-filter="ai-ml" role="tab" aria-selected="false">AI / ML</button>
+          <button class="project-filter" type="button" data-project-filter="web-backend" role="tab" aria-selected="false">Web & Backend</button>
+          <button class="project-filter" type="button" data-project-filter="app-dev" role="tab" aria-selected="false">Apps</button>
+          <button class="project-filter" type="button" data-project-filter="data-eng" role="tab" aria-selected="false">Data</button>
+          <button class="project-filter" type="button" data-project-filter="analytics-bi" role="tab" aria-selected="false">Analytics & BI</button>
+        </div>
       </div>
-      <div class="project-sections">
-        <div class="project-category">
+      <div class="project-sections projects-lab-grid">
+        <div class="project-category cat-ai" data-project-group="ai-ml">
           <div class="project-category-heading">
-            <h3><span>AI / ML</span></h3>
+            <h3><span>AI / ML</span><span class="project-category-scene cat-ai-scene" aria-hidden="true"><i></i><i></i><i></i></span></h3>
           </div>
           <div class="project-grid">
-          <a class="project-card project-link" href="#" data-project-link="PROJECT_LINK_SELF_CORRECTING_RAG" target="_blank" rel="noreferrer" aria-label="Open Self-Correcting Agentic RAG System project link">
+          <a class="project-card project-link project-card-lab featured-project visual-agent" data-category="ai-ml" href="#" data-project-link="PROJECT_LINK_SELF_CORRECTING_RAG" target="_blank" rel="noreferrer" aria-label="Open Self-Correcting Agentic RAG System project link">
+            <span class="project-badge">AI / ML</span>
             <h3>Self-Correcting Agentic RAG System</h3>
+            <span class="project-preview project-preview-svg icon-agent" aria-hidden="true">
+              <svg class="semantic-svg semantic-agent" viewBox="0 0 72 54" aria-hidden="true" focusable="false">
+                <circle class="svg-node" cx="18" cy="18" r="5"></circle>
+                <circle class="svg-node" cx="54" cy="18" r="5"></circle>
+                <circle class="svg-node" cx="36" cy="36" r="5"></circle>
+                <path class="svg-line" d="M23 18 H49 M21 22 L32 33 M51 22 L40 33"></path>
+                <path class="svg-accent" d="M27 8 C35 2 46 4 51 12"></path>
+              </svg>
+            </span>
             <p>Built an agentic RAG workflow that validates retrieval quality, grades documents, rewrites weak queries, retries retrieval, and generates grounded answers with observability.</p>
             <div class="tags"><span>Python</span><span>LangChain</span><span>LangGraph</span><span>FAISS</span><span>FastAPI</span><span>Docker</span></div>
             <span class="project-cta">View project →</span>
           </a>
-          <a class="project-card project-link" href="#" data-project-link="PROJECT_LINK_VIDEO_SENTIMENT_ANALYSIS" target="_blank" rel="noreferrer" aria-label="Open Video Sentiment Analysis SaaS project link">
-            <h3>Video Sentiment Analysis SaaS</h3>
-            <p>Multimodal SaaS integrating video, audio, text, Whisper transcription, BERT, AWS SageMaker, and a secure Next.js platform.</p>
-            <div class="tags"><span>PyTorch</span><span>OpenAI</span><span>AWS</span><span>Next.js</span><span>Tailwind</span></div>
+          <a class="project-card project-link project-card-lab archive-project visual-ai" data-category="ai-ml" href="#" data-project-link="PROJECT_LINK_VIDEO_SENTIMENT_ANALYSIS_MODEL" target="_blank" rel="noreferrer" aria-label="Open Video Sentiment Analysis Model project link">
+            <span class="project-badge">AI / ML</span>
+            <h3>Video Sentiment Analysis Model</h3>
+            <span class="project-preview project-preview-svg icon-ai" aria-hidden="true">
+              <svg class="semantic-svg semantic-ai" viewBox="0 0 72 54" aria-hidden="true" focusable="false">
+                <circle class="svg-soft" cx="36" cy="27" r="18"></circle>
+                <circle class="svg-node" cx="24" cy="22" r="4.5"></circle>
+                <circle class="svg-node" cx="48" cy="22" r="4.5"></circle>
+                <circle class="svg-node" cx="36" cy="34" r="4.5"></circle>
+                <path class="svg-line" d="M28 23 H44 M27 25 L33 32 M45 25 L39 32"></path>
+              </svg>
+            </span>
+            <p>Built the multimodal sentiment model pipeline combining video, audio, text, Whisper transcription, BERT-based NLP, and SageMaker-backed model workflows.</p>
+            <div class="tags"><span>PyTorch</span><span>BERT</span><span>Whisper</span><span>AWS SageMaker</span><span>OpenAI</span></div>
             <span class="project-cta">View project →</span>
           </a>
-          <a class="project-card project-link" href="#" data-project-link="PROJECT_LINK_OPTIGO_ML_PLATFORM" target="_blank" rel="noreferrer" aria-label="Open Optigo Apps ML Platform project link">
+          <a class="project-card project-link project-card-lab archive-project visual-ai" data-category="ai-ml" href="#" data-project-link="PROJECT_LINK_OPTIGO_ML_PLATFORM" target="_blank" rel="noreferrer" aria-label="Open Optigo Apps ML Platform project link">
+            <span class="project-badge">AI / ML</span>
             <h3>Optigo Apps ML Platform</h3>
+            <span class="project-preview project-preview-svg icon-ai" aria-hidden="true">
+              <svg class="semantic-svg semantic-ai" viewBox="0 0 72 54" aria-hidden="true" focusable="false">
+                <circle class="svg-soft" cx="36" cy="27" r="18"></circle>
+                <circle class="svg-node" cx="24" cy="22" r="4.5"></circle>
+                <circle class="svg-node" cx="48" cy="22" r="4.5"></circle>
+                <circle class="svg-node" cx="36" cy="34" r="4.5"></circle>
+                <path class="svg-line" d="M28 23 H44 M27 25 L33 32 M45 25 L39 32"></path>
+              </svg>
+            </span>
             <p>Dockerized ML models on GCP with real-time REST APIs, customer value scoring, and high-uptime MERN integration.</p>
             <div class="tags"><span>GCP</span><span>Docker</span><span>OpenCV</span><span>Keras</span><span>React</span></div>
             <span class="project-cta">View project →</span>
           </a>
-          <a class="project-card project-link" href="#" data-project-link="PROJECT_LINK_CUSTOMER_RATING_SYSTEM" target="_blank" rel="noreferrer" aria-label="Open Customer Rating ML System project link">
+          <a class="project-card project-link project-card-lab featured-project visual-image-search" data-category="ai-ml" href="#" data-project-link="PROJECT_LINK_REVERSE_IMAGE_SEARCH" target="_blank" rel="noreferrer" aria-label="Open Reverse Image Search project link">
+            <span class="project-badge">AI / ML</span>
+            <h3>Reverse Image Search</h3>
+            <span class="project-preview project-preview-svg icon-image-search" aria-hidden="true">
+              <svg class="semantic-svg semantic-image-search" viewBox="0 0 72 54" aria-hidden="true" focusable="false">
+                <rect class="svg-box" x="10" y="12" width="28" height="22" rx="6"></rect>
+                <circle class="svg-node" cx="19" cy="20" r="3"></circle>
+                <path class="svg-line" d="M14 30 L23 25 L30 31 L35 26"></path>
+                <circle class="svg-accent" cx="51" cy="30" r="9"></circle>
+                <path class="svg-accent" d="M58 37 L64 43"></path>
+              </svg>
+            </span>
+            <p>Engineered a reverse image search system for a custom database using TensorFlow ResNet50 and OpenAI CLIP, exposed through FastAPI and a React frontend on Linux-based AWS instances.</p>
+            <ul class="project-highlights">
+              <li>Combined CNN and vision-language embeddings for scalable image-to-semantic search across custom media collections.</li>
+              <li>Built a full-stack retrieval workflow with FastAPI services and React UI for high-accuracy visual search.</li>
+            </ul>
+            <div class="tags"><span>OpenCV</span><span>TensorFlow</span><span>Scikit-learn</span><span>CLIP</span><span>FastAPI</span><span>React</span></div>
+            <span class="project-cta">View project →</span>
+          </a>
+
+          <a class="project-card project-link project-card-lab archive-project visual-forecast" data-category="ai-ml" href="#" data-project-link="PROJECT_LINK_FUTURE_AIR_POLLUTION_PREDICTION" target="_blank" rel="noreferrer" aria-label="Open Future Air Pollution Prediction project link">
+            <span class="project-badge">AI / ML</span>
+            <h3>Future Air Pollution Prediction</h3>
+            <span class="project-preview project-preview-svg icon-forecast" aria-hidden="true">
+              <svg class="semantic-svg semantic-forecast" viewBox="0 0 72 54" aria-hidden="true" focusable="false">
+                <path class="svg-box" d="M14 28 C10 28 8 25 8 22 C8 18 12 16 16 17 C18 12 23 10 28 12 C32 14 34 17 34 22 H38 C42 22 44 25 44 28 C44 31 42 34 38 34 H14Z"></path>
+                <path class="svg-line" d="M34 40 L43 32 L50 35 L60 22"></path>
+                <circle class="svg-node" cx="43" cy="32" r="3"></circle>
+                <circle class="svg-node" cx="60" cy="22" r="3"></circle>
+              </svg>
+            </span>
+            <p>Studied historical air-pollution patterns and advanced the work toward predicting future pollution levels using XGBoost and Principal Component Analysis.</p>
+            <div class="tags"><span>XGBoost</span><span>PCA</span><span>Machine Learning</span><span>Time Series</span><span>Python</span></div>
+            <span class="project-cta">View project →</span>
+          </a>
+          <a class="project-card project-link project-card-lab archive-project visual-logic" data-category="ai-ml" href="#" data-project-link="PROJECT_LINK_HIDDEN_MARKOV_MODELS_SCRATCH" target="_blank" rel="noreferrer" aria-label="Open Hidden Markov Models from Scratch project link">
+            <span class="project-badge">AI / ML</span>
+            <h3>Hidden Markov Models from Scratch</h3>
+            <span class="project-preview project-preview-svg icon-tree" aria-hidden="true">
+              <svg class="semantic-svg semantic-tree" viewBox="0 0 72 54" aria-hidden="true" focusable="false">
+                <rect class="svg-node-square" x="31" y="8" width="10" height="10" rx="3"></rect>
+                <rect class="svg-node-square" x="14" y="34" width="10" height="10" rx="3"></rect>
+                <rect class="svg-node-square" x="31" y="34" width="10" height="10" rx="3"></rect>
+                <rect class="svg-node-square" x="48" y="34" width="10" height="10" rx="3"></rect>
+                <path class="svg-line" d="M36 18 V25 M36 25 L19 34 M36 25 V34 M36 25 L53 34"></path>
+              </svg>
+            </span>
+            <p>Implemented Hidden Markov Models from scratch using NumPy, pandas, and JSON, with a mathematical walkthrough of the model logic and code implementation.</p>
+            <div class="tags"><span>Python</span><span>NumPy</span><span>pandas</span><span>JSON</span><span>HMM</span></div>
+            <span class="project-cta">View project →</span>
+          </a>
+          <a class="project-card project-link project-card-lab archive-project visual-classifier" data-category="ai-ml" href="#" data-project-link="PROJECT_LINK_FAKE_NEWS_COMPARATIVE_STUDY" target="_blank" rel="noreferrer" aria-label="Open Fake News Classification Comparative Study project link">
+            <span class="project-badge">AI / ML</span>
+            <h3>Fake News Classification Comparative Study</h3>
+            <span class="project-preview project-preview-svg icon-tree" aria-hidden="true">
+              <svg class="semantic-svg semantic-tree" viewBox="0 0 72 54" aria-hidden="true" focusable="false">
+                <rect class="svg-node-square" x="31" y="8" width="10" height="10" rx="3"></rect>
+                <rect class="svg-node-square" x="14" y="34" width="10" height="10" rx="3"></rect>
+                <rect class="svg-node-square" x="31" y="34" width="10" height="10" rx="3"></rect>
+                <rect class="svg-node-square" x="48" y="34" width="10" height="10" rx="3"></rect>
+                <path class="svg-line" d="M36 18 V25 M36 25 L19 34 M36 25 V34 M36 25 L53 34"></path>
+              </svg>
+            </span>
+            <p>Applied deep learning and machine-learning algorithms to compare fake-news classification behavior across LSTM, BiLSTM, BERT, GPT-2, RoBERTa, and classical ML baselines.</p>
+            <div class="tags"><span>LSTM</span><span>BiLSTM</span><span>BERT</span><span>GPT-2</span><span>RoBERTa</span><span>ML</span></div>
+            <span class="project-cta">View project →</span>
+          </a>
+          <a class="project-card project-link project-card-lab archive-project visual-classifier" data-category="ai-ml" href="#" data-project-link="PROJECT_LINK_FAKE_NEWS_NOVEL_APPROACH" target="_blank" rel="noreferrer" aria-label="Open Fake News Classification Novel Approach project link">
+            <span class="project-badge">AI / ML</span>
+            <h3>Fake News Classification Novel Approach</h3>
+            <span class="project-preview project-preview-svg icon-tree" aria-hidden="true">
+              <svg class="semantic-svg semantic-tree" viewBox="0 0 72 54" aria-hidden="true" focusable="false">
+                <rect class="svg-node-square" x="31" y="8" width="10" height="10" rx="3"></rect>
+                <rect class="svg-node-square" x="14" y="34" width="10" height="10" rx="3"></rect>
+                <rect class="svg-node-square" x="31" y="34" width="10" height="10" rx="3"></rect>
+                <rect class="svg-node-square" x="48" y="34" width="10" height="10" rx="3"></rect>
+                <path class="svg-line" d="M36 18 V25 M36 25 L19 34 M36 25 V34 M36 25 L53 34"></path>
+              </svg>
+            </span>
+            <p>Researched grammatical patterns for fake-news detection and developed a POS-tag occurrence approach to create decision-tree features, reaching 89% accuracy in raw format.</p>
+            <div class="tags"><span>NLP</span><span>POS Tags</span><span>Decision Trees</span><span>Text Analysis</span><span>Python</span></div>
+            <span class="project-cta">View project →</span>
+          </a>
+          <a class="project-card project-link project-card-lab archive-project visual-logic" data-category="ai-ml" href="https://github.com/PathikViramgama/scratch_codes" data-project-link="PROJECT_LINK_ML_ALGORITHMS_SCRATCH" target="_blank" rel="noreferrer" aria-label="Open Machine Learning Algorithms from Scratch GitHub project">
+            <span class="project-badge">AI / ML</span>
+            <h3>Machine Learning Algorithms from Scratch</h3>
+            <span class="project-preview project-preview-svg icon-tree" aria-hidden="true">
+              <svg class="semantic-svg semantic-tree" viewBox="0 0 72 54" aria-hidden="true" focusable="false">
+                <rect class="svg-node-square" x="31" y="8" width="10" height="10" rx="3"></rect>
+                <rect class="svg-node-square" x="14" y="34" width="10" height="10" rx="3"></rect>
+                <rect class="svg-node-square" x="31" y="34" width="10" height="10" rx="3"></rect>
+                <rect class="svg-node-square" x="48" y="34" width="10" height="10" rx="3"></rect>
+                <path class="svg-line" d="M36 18 V25 M36 25 L19 34 M36 25 V34 M36 25 L53 34"></path>
+              </svg>
+            </span>
+            <p>Implemented machine-learning and deep-learning algorithms from scratch using only pandas and NumPy, with reusable code examples and experiment notebooks.</p>
+            <div class="tags"><span>Python</span><span>NumPy</span><span>pandas</span><span>ML from Scratch</span><span>Deep Learning</span></div>
+            <span class="project-cta">View project →</span>
+          </a>
+
+          <a class="project-card project-link project-card-lab archive-project visual-ai" data-category="ai-ml" href="#" data-project-link="PROJECT_LINK_CUSTOMER_RATING_SYSTEM" target="_blank" rel="noreferrer" aria-label="Open Customer Rating ML System project link">
+            <span class="project-badge">AI / ML</span>
             <h3>Customer Rating ML System</h3>
+            <span class="project-preview project-preview-svg icon-ai" aria-hidden="true">
+              <svg class="semantic-svg semantic-ai" viewBox="0 0 72 54" aria-hidden="true" focusable="false">
+                <circle class="svg-soft" cx="36" cy="27" r="18"></circle>
+                <circle class="svg-node" cx="24" cy="22" r="4.5"></circle>
+                <circle class="svg-node" cx="48" cy="22" r="4.5"></circle>
+                <circle class="svg-node" cx="36" cy="34" r="4.5"></circle>
+                <path class="svg-line" d="M28 23 H44 M27 25 L33 32 M45 25 L39 32"></path>
+              </svg>
+            </span>
             <p>Developed a machine-learning prototype to predict customer quality scores from order activity, category spend, pricing, labor charges, and commercial metrics for prioritization decisions.</p>
             <div class="tags"><span>Python</span><span>Jupyter</span><span>pandas</span><span>scikit-learn</span><span>SVR</span><span>Random Forest</span></div>
             <span class="project-cta">View project →</span>
           </a>
           </div>
         </div>
-        <div class="project-category">
+        <div class="project-category cat-web" data-project-group="web-backend">
           <div class="project-category-heading">
-            <h3><span>Web & Backend</span></h3>
+            <h3><span>Web & Backend</span><span class="project-category-scene cat-web-scene" aria-hidden="true"><i></i><i></i><i></i></span></h3>
           </div>
           <div class="project-grid">
-          <a class="project-card project-link" href="#" data-project-link="PROJECT_LINK_VIBECHECK_BACKEND" target="_blank" rel="noreferrer" aria-label="Open VibeCheck Anti-Cheat Interview Backend project link">
+          <a class="project-card project-link project-card-lab archive-project visual-api" data-category="web-backend" href="#" data-project-link="PROJECT_LINK_VIBECHECK_BACKEND" target="_blank" rel="noreferrer" aria-label="Open VibeCheck Anti-Cheat Interview Backend project link">
+            <span class="project-badge">Web</span>
             <h3>VibeCheck Anti-Cheat Interview Backend</h3>
+            <span class="project-preview project-preview-svg icon-api" aria-hidden="true">
+              <svg class="semantic-svg semantic-api" viewBox="0 0 72 54" aria-hidden="true" focusable="false">
+                <rect class="svg-box" x="8" y="17" width="18" height="14" rx="5"></rect>
+                <rect class="svg-box" x="46" y="17" width="18" height="14" rx="5"></rect>
+                <rect class="svg-box" x="27" y="34" width="18" height="12" rx="5"></rect>
+                <path class="svg-line" d="M26 24 H46 M36 31 V34"></path>
+                <circle class="svg-node" cx="28" cy="24" r="3"></circle>
+              </svg>
+            </span>
             <p>Developed backend APIs for a remote interview integrity platform with secure onboarding, scheduled interviews, media uploads, AI vision analysis, alerts, review flows, and Stripe credits.</p>
             <div class="tags"><span>Python</span><span>Django</span><span>FastAPI</span><span>AWS S3</span><span>Cognito</span><span>Stripe</span></div>
             <span class="project-cta">View project →</span>
           </a>
-          </div>
-        </div>
-        <div class="project-category">
-          <div class="project-category-heading">
-            <h3><span>App Development</span></h3>
-          </div>
-          <div class="project-grid">
-          <a class="project-card project-link" href="#" data-project-link="PROJECT_LINK_STOCK_TRADING_PLATFORM" target="_blank" rel="noreferrer" aria-label="Open Stock Trading Platform project link">
-            <h3>Stock Trading Platform</h3>
-            <p>Cross-platform Kotlin Android + MERN web platform simulating real-time NASDAQ trading with virtual currency.</p>
-            <div class="tags"><span>Node.js</span><span>MongoDB</span><span>GCP</span><span>React</span><span>Kotlin</span></div>
+          <a class="project-card project-link project-card-lab archive-project visual-website" data-category="web-backend" href="#" data-project-link="PROJECT_LINK_VIDEO_SENTIMENT_ANALYSIS_WEBSITE" target="_blank" rel="noreferrer" aria-label="Open Video Sentiment Analysis Website project link">
+            <span class="project-badge">Web</span>
+            <h3>Video Sentiment Analysis Website</h3>
+            <span class="project-preview project-preview-svg icon-website" aria-hidden="true">
+              <svg class="semantic-svg semantic-website" viewBox="0 0 72 54" aria-hidden="true" focusable="false">
+                <rect class="svg-box" x="10" y="10" width="52" height="34" rx="7"></rect>
+                <path class="svg-line" d="M10 19 H62"></path>
+                <circle class="svg-node tiny" cx="18" cy="15" r="2.4"></circle>
+                <path class="svg-accent" d="M19 29 H39 M19 36 H52"></path>
+              </svg>
+            </span>
+            <p>Built the secure SaaS web experience for uploading media, reviewing AI sentiment results, and presenting model outputs through a polished Next.js interface.</p>
+            <div class="tags"><span>Next.js</span><span>Tailwind</span><span>React</span><span>AWS</span><span>SaaS</span></div>
             <span class="project-cta">View project →</span>
           </a>
+
+
+          <a class="project-card project-link project-card-lab archive-project visual-trading" data-category="web-backend" href="https://youtu.be/ocW2re6Y9m0" data-project-link="PROJECT_LINK_STOCK_TRADING_WEBSITE" target="_blank" rel="noreferrer" aria-label="Open Stock Trading Platform Website demo">
+            <span class="project-badge">Web</span>
+            <h3>Stock Trading Platform Website</h3>
+            <span class="project-preview project-preview-svg icon-website" aria-hidden="true">
+              <svg class="semantic-svg semantic-website" viewBox="0 0 72 54" aria-hidden="true" focusable="false">
+                <rect class="svg-box" x="10" y="10" width="52" height="34" rx="7"></rect>
+                <path class="svg-line" d="M10 19 H62"></path>
+                <circle class="svg-node tiny" cx="18" cy="15" r="2.4"></circle>
+                <path class="svg-accent" d="M19 29 H39 M19 36 H52"></path>
+              </svg>
+            </span>
+            <p>Created a stock-trading web platform using React, MongoDB Atlas, Node.js, and Express, enabling users to create profiles and study trading patterns without financial risk.</p>
+            <div class="tags"><span>React</span><span>MongoDB Atlas</span><span>Node.js</span><span>Express</span><span>Web App</span></div>
+            <span class="project-cta">View project →</span>
+          </a>
+
           </div>
         </div>
-        <div class="project-category">
+        <div class="project-category cat-app" data-project-group="app-dev">
           <div class="project-category-heading">
-            <h3><span>Data Engineering</span></h3>
+            <h3><span>App Development</span><span class="project-category-scene cat-app-scene" aria-hidden="true"><i></i><i></i><i></i></span></h3>
           </div>
           <div class="project-grid">
-          <a class="project-card project-link" href="#" data-project-link="PROJECT_LINK_AZURE_HEALTHCARE_LAKEHOUSE" target="_blank" rel="noreferrer" aria-label="Open Azure Healthcare Lakehouse Pipeline project link">
+          <a class="project-card project-link project-card-lab archive-project visual-trading" data-category="app-dev" href="#" data-project-link="PROJECT_LINK_STOCK_TRADING_PLATFORM" target="_blank" rel="noreferrer" aria-label="Open Stock Trading Platform project link">
+            <span class="project-badge">App</span>
+            <h3>Stock Trading Platform Android Application</h3>
+            <span class="project-preview project-preview-svg icon-mobile" aria-hidden="true">
+              <svg class="semantic-svg semantic-mobile" viewBox="0 0 72 54" aria-hidden="true" focusable="false">
+                <rect class="svg-box" x="25" y="6" width="22" height="42" rx="8"></rect>
+                <circle class="svg-node tiny" cx="36" cy="13" r="2.5"></circle>
+                <path class="svg-accent" d="M31 24 H41 M31 31 H41 M31 38 H38"></path>
+              </svg>
+            </span>
+            <p>Created a detailed stock-trading Android platform using Kotlin and XML layouts with a MongoDB Atlas, Node.js, and Express backend for user profiles and risk-free trading-pattern analysis.</p>
+            <div class="tags"><span>Kotlin</span><span>XML Layouts</span><span>MongoDB Atlas</span><span>Node.js</span><span>Express</span></div>
+            <span class="project-cta">View project →</span>
+          </a>
+
+          <a class="project-card project-link project-card-lab archive-project visual-archive" data-category="app-dev" href="https://github.com/Pr0fess0rOP/DVD-Rental-System-and-Business-Encircling-it" data-project-link="PROJECT_LINK_DVD_RENTAL_BUSINESS" target="_blank" rel="noreferrer" aria-label="Open DVD Rental System and Business Encircling it GitHub project">
+            <span class="project-badge">App</span>
+            <h3>DVD Rental System and Business Encircling It</h3>
+            <span class="project-preview project-preview-svg icon-archive" aria-hidden="true">
+              <svg class="semantic-svg semantic-archive" viewBox="0 0 72 54" aria-hidden="true" focusable="false">
+                <circle class="svg-accent" cx="22" cy="27" r="12"></circle>
+                <circle class="svg-node tiny" cx="22" cy="27" r="3"></circle>
+                <rect class="svg-box" x="40" y="17" width="22" height="20" rx="6"></rect>
+                <path class="svg-line" d="M45 24 H57 M45 30 H53"></path>
+              </svg>
+            </span>
+            <p>Created a comparative analysis of an old DVD rental system and modern subscription-based technology, combining business analysis with system-design thinking.</p>
+            <div class="tags"><span>Business Analysis</span><span>System Design</span><span>Research</span><span>Subscription Model</span></div>
+            <span class="project-cta">View project →</span>
+          </a>
+          <a class="project-card project-link project-card-lab archive-project visual-game" data-category="app-dev" href="https://github.com/Pr0fess0rOP/Dino_Run_RTXOn" data-project-link="PROJECT_LINK_DINO_RUN_FLUTTER" target="_blank" rel="noreferrer" aria-label="Open Dino Run Game in Flutter and Flame Engine GitHub project">
+            <span class="project-badge">App</span>
+            <h3>Dino Run Game in Flutter and Flame Engine</h3>
+            <span class="project-preview project-preview-svg icon-game" aria-hidden="true">
+              <svg class="semantic-svg semantic-game" viewBox="0 0 72 54" aria-hidden="true" focusable="false">
+                <rect class="svg-box" x="22" y="7" width="28" height="40" rx="9"></rect>
+                <path class="svg-accent" d="M30 29 H42 M36 23 V35"></path>
+                <circle class="svg-node" cx="43" cy="25" r="3"></circle>
+                <circle class="svg-node" cx="43" cy="34" r="3"></circle>
+              </svg>
+            </span>
+            <p>Built a graphical Chrome Dino Run-inspired game in a Mario Run format using Flutter, Dart, and the Flame game engine.</p>
+            <div class="tags"><span>Flutter</span><span>Dart</span><span>Flame</span><span>Game Development</span></div>
+            <span class="project-cta">View project →</span>
+          </a>
+
+          </div>
+        </div>
+        <div class="project-category cat-data" data-project-group="data-eng">
+          <div class="project-category-heading">
+            <h3><span>Data Engineering</span><span class="project-category-scene cat-data-scene" aria-hidden="true"><i></i><i></i><i></i></span></h3>
+          </div>
+          <div class="project-grid">
+          <a class="project-card project-link project-card-lab featured-project visual-data" data-category="data-eng" href="#" data-project-link="PROJECT_LINK_AZURE_HEALTHCARE_LAKEHOUSE" target="_blank" rel="noreferrer" aria-label="Open Azure Healthcare Lakehouse Pipeline project link">
+            <span class="project-badge">Data</span>
             <h3>Azure Healthcare Lakehouse Pipeline</h3>
+            <span class="project-preview project-preview-svg icon-database" aria-hidden="true">
+              <svg class="semantic-svg semantic-database" viewBox="0 0 72 54" aria-hidden="true" focusable="false">
+                <ellipse class="svg-box" cx="36" cy="14" rx="20" ry="7"></ellipse>
+                <path class="svg-box no-fill" d="M16 14 V38 C16 42 25 46 36 46 C47 46 56 42 56 38 V14"></path>
+                <path class="svg-line" d="M16 26 C16 30 25 34 36 34 C47 34 56 30 56 26"></path>
+                <path class="svg-line" d="M16 38 C16 42 25 46 36 46 C47 46 56 42 56 38"></path>
+              </svg>
+            </span>
             <p>Designed a healthcare revenue-cycle data pipeline that ingests SQL, files, and public APIs, applies Medallion architecture, validates data quality, and builds Gold fact/dimension tables.</p>
             <div class="tags"><span>ADF</span><span>ADLS Gen2</span><span>Databricks</span><span>Delta Lake</span><span>PySpark</span><span>SQL</span></div>
             <span class="project-cta">View project →</span>
           </a>
-          <a class="project-card project-link" href="#" data-project-link="PROJECT_LINK_NETFLIX_AZURE_LAKEHOUSE" target="_blank" rel="noreferrer" aria-label="Open Netflix Azure Lakehouse Project project link">
+          <a class="project-card project-link project-card-lab archive-project visual-data" data-category="data-eng" href="#" data-project-link="PROJECT_LINK_NETFLIX_AZURE_LAKEHOUSE" target="_blank" rel="noreferrer" aria-label="Open Netflix Azure Lakehouse Project project link">
+            <span class="project-badge">Data</span>
             <h3>Netflix Azure Lakehouse Project</h3>
+            <span class="project-preview project-preview-svg icon-database" aria-hidden="true">
+              <svg class="semantic-svg semantic-database" viewBox="0 0 72 54" aria-hidden="true" focusable="false">
+                <ellipse class="svg-box" cx="36" cy="14" rx="20" ry="7"></ellipse>
+                <path class="svg-box no-fill" d="M16 14 V38 C16 42 25 46 36 46 C47 46 56 42 56 38 V14"></path>
+                <path class="svg-line" d="M16 26 C16 30 25 34 36 34 C47 34 56 30 56 26"></path>
+                <path class="svg-line" d="M16 38 C16 42 25 46 36 46 C47 46 56 42 56 38"></path>
+              </svg>
+            </span>
             <p>Built an end-to-end Azure data engineering pipeline for Netflix-style analytics using ADF, Databricks, Delta Live Tables, Unity Catalog, and Power BI-ready Gold tables.</p>
             <div class="tags"><span>ADF</span><span>Databricks</span><span>PySpark</span><span>Delta Live Tables</span><span>Unity Catalog</span><span>CI/CD</span></div>
             <span class="project-cta">View project →</span>
           </a>
-          <a class="project-card project-link" href="#" data-project-link="PROJECT_LINK_REAL_TIME_AZURE_STREAMING" target="_blank" rel="noreferrer" aria-label="Open Real-Time Azure Streaming Pipeline project link">
+          <a class="project-card project-link project-card-lab archive-project visual-stream" data-category="data-eng" href="#" data-project-link="PROJECT_LINK_REAL_TIME_AZURE_STREAMING" target="_blank" rel="noreferrer" aria-label="Open Real-Time Azure Streaming Pipeline project link">
+            <span class="project-badge">Data</span>
             <h3>Real-Time Azure Streaming Pipeline</h3>
+            <span class="project-preview project-preview-svg icon-stream" aria-hidden="true">
+              <svg class="semantic-svg semantic-stream" viewBox="0 0 72 54" aria-hidden="true" focusable="false">
+                <circle class="svg-node" cx="13" cy="18" r="4"></circle>
+                <circle class="svg-node" cx="59" cy="36" r="4"></circle>
+                <path class="svg-accent" d="M18 18 C30 8 42 28 54 18"></path>
+                <path class="svg-line" d="M18 36 C30 46 42 26 54 36"></path>
+              </svg>
+            </span>
             <p>Created a live weather streaming pipeline with dual ingestion through Databricks and Azure Functions, Event Hubs, Fabric Eventstream, Eventhouse/KQL, Power BI, and alerting.</p>
             <div class="tags"><span>Event Hubs</span><span>Azure Functions</span><span>Fabric</span><span>KQL</span><span>Power BI</span><span>Data Activator</span></div>
             <span class="project-cta">View project →</span>
           </a>
-          <a class="project-card project-link" href="#" data-project-link="PROJECT_LINK_MDOTSA_AZURE_PIPELINE" target="_blank" rel="noreferrer" aria-label="Open MDOTSA Azure Data Pipeline project link">
+          <a class="project-card project-link project-card-lab archive-project visual-data" data-category="data-eng" href="#" data-project-link="PROJECT_LINK_MDOTSA_AZURE_PIPELINE" target="_blank" rel="noreferrer" aria-label="Open MDOTSA Azure Data Pipeline project link">
+            <span class="project-badge">Data</span>
             <h3>MDOTSA Azure Data Pipeline</h3>
+            <span class="project-preview project-preview-svg icon-database" aria-hidden="true">
+              <svg class="semantic-svg semantic-database" viewBox="0 0 72 54" aria-hidden="true" focusable="false">
+                <ellipse class="svg-box" cx="36" cy="14" rx="20" ry="7"></ellipse>
+                <path class="svg-box no-fill" d="M16 14 V38 C16 42 25 46 36 46 C47 46 56 42 56 38 V14"></path>
+                <path class="svg-line" d="M16 26 C16 30 25 34 36 34 C47 34 56 30 56 26"></path>
+                <path class="svg-line" d="M16 38 C16 42 25 46 36 46 C47 46 56 42 56 38"></path>
+              </svg>
+            </span>
             <p>Implemented a metadata-driven transit data pipeline ingesting REST APIs, CSV drops, and on-prem SQL Server through SHIR into ADLS Gen2 and Azure SQL Bronze/Bronze_Hist layers.</p>
             <div class="tags"><span>ADF</span><span>SHIR</span><span>Azure SQL</span><span>REST APIs</span><span>Stored Procedures</span><span>Logging</span></div>
             <span class="project-cta">View project →</span>
           </a>
-          <a class="project-card project-link" href="#" data-project-link="PROJECT_LINK_DATABRICKS_INCREMENTAL_LAKEHOUSE" target="_blank" rel="noreferrer" aria-label="Open Azure Databricks Incremental Lakehouse project link">
+          <a class="project-card project-link project-card-lab archive-project visual-data" data-category="data-eng" href="#" data-project-link="PROJECT_LINK_DATABRICKS_INCREMENTAL_LAKEHOUSE" target="_blank" rel="noreferrer" aria-label="Open Azure Databricks Incremental Lakehouse project link">
+            <span class="project-badge">Data</span>
             <h3>Azure Databricks Incremental Lakehouse</h3>
+            <span class="project-preview project-preview-svg icon-database" aria-hidden="true">
+              <svg class="semantic-svg semantic-database" viewBox="0 0 72 54" aria-hidden="true" focusable="false">
+                <ellipse class="svg-box" cx="36" cy="14" rx="20" ry="7"></ellipse>
+                <path class="svg-box no-fill" d="M16 14 V38 C16 42 25 46 36 46 C47 46 56 42 56 38 V14"></path>
+                <path class="svg-line" d="M16 26 C16 30 25 34 36 34 C47 34 56 30 56 26"></path>
+                <path class="svg-line" d="M16 38 C16 42 25 46 36 46 C47 46 56 42 56 38"></path>
+              </svg>
+            </span>
             <p>Built a Databricks Lakehouse pipeline for batch, incremental, and streaming data with Auto Loader, Structured Streaming, Bronze/Silver/Gold Delta tables, and workflow orchestration.</p>
             <div class="tags"><span>Databricks</span><span>Spark</span><span>PySpark</span><span>Auto Loader</span><span>Delta Lake</span><span>Workflows</span></div>
             <span class="project-cta">View project →</span>
           </a>
-          <a class="project-card project-link" href="#" data-project-link="PROJECT_LINK_WEB_SCRAPING_PIPELINE" target="_blank" rel="noreferrer" aria-label="Open Web Scraping Pipeline project link">
+          <a class="project-card project-link project-card-lab archive-project visual-scrape" data-category="data-eng" href="#" data-project-link="PROJECT_LINK_WEB_SCRAPING_PIPELINE" target="_blank" rel="noreferrer" aria-label="Open Web Scraping Pipeline project link">
+            <span class="project-badge">Data</span>
             <h3>Web Scraping Pipeline</h3>
+            <span class="project-preview project-preview-svg icon-scrape" aria-hidden="true">
+              <svg class="semantic-svg semantic-scrape" viewBox="0 0 72 54" aria-hidden="true" focusable="false">
+                <rect class="svg-box" x="10" y="10" width="42" height="30" rx="7"></rect>
+                <path class="svg-line" d="M10 19 H52 M18 28 H37 M18 34 H45"></path>
+                <path class="svg-accent" d="M48 34 L62 42 L57 44 L54 50 L48 34Z"></path>
+              </svg>
+            </span>
             <p>Scalable Python scraping system extracting data from 100+ domains and automating cleaning workflows to reduce processing time by 40%.</p>
             <div class="tags"><span>Python</span><span>BeautifulSoup</span><span>Selenium</span><span>Pandas</span></div>
             <span class="project-cta">View project →</span>
           </a>
           </div>
         </div>
-        <div class="project-category">
+        <div class="project-category cat-bi" data-project-group="analytics-bi">
           <div class="project-category-heading">
-            <h3><span>Analytics & BI</span></h3>
+            <h3><span>Analytics & BI</span><span class="project-category-scene cat-bi-scene" aria-hidden="true"><i></i><i></i><i></i></span></h3>
           </div>
           <div class="project-grid">
-          <a class="project-card project-link" href="#" data-project-link="PROJECT_LINK_INDIA_ELECTION_POWERBI" target="_blank" rel="noreferrer" aria-label="Open India Election Results Power BI Dashboard project link">
+          <a class="project-card project-link project-card-lab archive-project visual-bi" data-category="analytics-bi" href="#" data-project-link="PROJECT_LINK_INDIA_ELECTION_POWERBI" target="_blank" rel="noreferrer" aria-label="Open India Election Results Power BI Dashboard project link">
+            <span class="project-badge">BI</span>
             <h3>India Election Results Power BI Dashboard</h3>
+            <span class="project-preview project-preview-svg icon-bi" aria-hidden="true">
+              <svg class="semantic-svg semantic-bi" viewBox="0 0 72 54" aria-hidden="true" focusable="false">
+                <path class="svg-line" d="M13 43 H60 M13 43 V12"></path>
+                <rect class="svg-bar" x="21" y="30" width="8" height="13" rx="2"></rect>
+                <rect class="svg-bar" x="34" y="21" width="8" height="22" rx="2"></rect>
+                <rect class="svg-bar" x="47" y="15" width="8" height="28" rx="2"></rect>
+              </svg>
+            </span>
             <p>Designed an interactive Power BI dashboard for election analytics covering party performance, alliances, state-level results, vote share, seat distribution, maps, drill-throughs, and KPIs.</p>
             <div class="tags"><span>Power BI</span><span>Power Query</span><span>DAX</span><span>Data Modeling</span><span>Maps</span><span>Drill-through</span></div>
             <span class="project-cta">View project →</span>
           </a>
-          <a class="project-card project-link" href="#" data-project-link="PROJECT_LINK_HOSPITAL_ANALYTICS_POWERBI" target="_blank" rel="noreferrer" aria-label="Open Hospital Analytics Power BI Dashboard project link">
+          <a class="project-card project-link project-card-lab archive-project visual-bi" data-category="analytics-bi" href="#" data-project-link="PROJECT_LINK_HOSPITAL_ANALYTICS_POWERBI" target="_blank" rel="noreferrer" aria-label="Open Hospital Analytics Power BI Dashboard project link">
+            <span class="project-badge">BI</span>
             <h3>Hospital Analytics Power BI Dashboard</h3>
+            <span class="project-preview project-preview-svg icon-bi" aria-hidden="true">
+              <svg class="semantic-svg semantic-bi" viewBox="0 0 72 54" aria-hidden="true" focusable="false">
+                <path class="svg-line" d="M13 43 H60 M13 43 V12"></path>
+                <rect class="svg-bar" x="21" y="30" width="8" height="13" rx="2"></rect>
+                <rect class="svg-bar" x="34" y="21" width="8" height="22" rx="2"></rect>
+                <rect class="svg-bar" x="47" y="15" width="8" height="28" rx="2"></rect>
+              </svg>
+            </span>
             <p>Built an end-to-end analytics dashboard with data cleaning, modeling, DAX measures, KPI cards, slicers, filters, and polished report design for healthcare/business reporting workflows.</p>
             <div class="tags"><span>Power BI</span><span>DAX</span><span>Power Query</span><span>KPIs</span><span>Slicers</span><span>Visualization</span></div>
             <span class="project-cta">View project →</span>
@@ -614,17 +923,37 @@
       </div>
     </section>
 
-    <section id="certifications" class="section container certifications-section">
-      <div class="section-heading">
+    <section id="certifications" class="section container certifications-section credential-vault-section">
+      <div class="section-heading credential-vault-heading">
         <p class="eyebrow">Certifications & Papers</p>
-        <h2>Proof of learning, practice, and technical depth.</h2>
+        <h2 class="credential-title">
+          <span class="credential-word proof-word">Proof</span>
+          <span>of</span>
+          <span class="credential-word learning-word">learning,</span>
+          <span class="credential-word practice-word">practice,</span>
+          <span>and</span>
+          <span class="credential-word depth-word">technical depth.</span>
+          <span class="credential-sticker sticker-stamp" aria-hidden="true">✓</span>
+          <span class="credential-sticker sticker-book" aria-hidden="true"></span>
+          <span class="credential-sticker sticker-terminal-cert" aria-hidden="true">&gt;_</span>
+        </h2>
         <p class="section-subtitle">A growing collection of verified certifications, public profiles, and papers.</p>
+        <div class="credential-path" aria-hidden="true">
+          <span>Learn</span><i></i><span>Practice</span><i></i><span>Certify</span><i></i><span>Publish</span>
+        </div>
       </div>
 
-      <div class="cert-grid">
-        <a class="cert-card glass-card" href="https://www.skills.google/public_profiles/2cd011a6-f4ee-46ab-b302-a36b29777dc6" target="_blank" rel="noreferrer">
-          <div class="cert-icon">G</div>
-          <div>
+      <div class="cert-grid credential-vault-grid">
+        <a class="cert-card glass-card credential-card credential-google" href="https://www.skills.google/public_profiles/2cd011a6-f4ee-46ab-b302-a36b29777dc6" target="_blank" rel="noreferrer">
+          <div class="cert-icon credential-icon google-credential-icon" aria-hidden="true">
+            <svg viewBox="0 0 56 56" focusable="false">
+              <circle class="cert-ring-track" cx="28" cy="28" r="18"></circle>
+              <circle class="cert-ring-progress" cx="28" cy="28" r="18"></circle>
+              <path class="cert-cloud" d="M18 32 C14 32 12 29.6 12 26.8 C12 24 14.2 22 17.2 22 C18.5 17.8 22.4 15.4 26.8 16.2 C30 16.8 32.5 18.8 33.8 21.8 C38.4 21.7 42 25 42 29 C42 32.8 39 35 35 35 H18Z"></path>
+              <path class="cert-check" d="M22 29 L26 33 L35 23"></path>
+            </svg>
+          </div>
+          <div class="credential-copy">
             <span class="cert-type">Public Profile</span>
             <h3>Google Skills Profile</h3>
             <p>Verified Google Skills public profile showcasing completed learning paths and cloud/data skill development.</p>
@@ -632,9 +961,17 @@
           <span class="cert-arrow">↗</span>
         </a>
 
-        <a class="cert-card glass-card" href="https://www.hackerrank.com/certificates/6ed103da4ff3" target="_blank" rel="noreferrer">
-          <div class="cert-icon">HR</div>
-          <div>
+        <a class="cert-card glass-card credential-card credential-hackerrank" href="https://www.hackerrank.com/certificates/6ed103da4ff3" target="_blank" rel="noreferrer">
+          <div class="cert-icon credential-icon hackerrank-credential-icon" aria-hidden="true">
+            <svg viewBox="0 0 56 56" focusable="false">
+              <rect class="cert-terminal" x="10" y="13" width="36" height="30" rx="9"></rect>
+              <path class="cert-code-line" d="M18 24 L23 28 L18 32"></path>
+              <path class="cert-code-line" d="M28 33 H38"></path>
+              <path class="cert-cursor-line" d="M31 24 H39"></path>
+              <path class="cert-check small" d="M35 15 L39 19 L46 10"></path>
+            </svg>
+          </div>
+          <div class="credential-copy">
             <span class="cert-type">Certificate</span>
             <h3>HackerRank Certification</h3>
             <p>Verified HackerRank certificate demonstrating practical coding and problem-solving ability.</p>
@@ -642,9 +979,17 @@
           <span class="cert-arrow">↗</span>
         </a>
 
-        <div class="cert-card glass-card cert-placeholder">
-          <div class="cert-icon">P</div>
-          <div>
+        <div class="cert-card glass-card credential-card cert-placeholder credential-paper">
+          <div class="cert-icon credential-icon paper-credential-icon" aria-hidden="true">
+            <svg viewBox="0 0 56 56" focusable="false">
+              <path class="cert-paper back" d="M18 10 H37 L44 17 V43 H18Z"></path>
+              <path class="cert-paper front" d="M13 15 H32 L39 22 V46 H13Z"></path>
+              <path class="cert-fold" d="M32 15 V22 H39"></path>
+              <path class="cert-paper-line" d="M19 28 H32 M19 34 H34 M19 40 H29"></path>
+              <path class="cert-plus" d="M44 34 V44 M39 39 H49"></path>
+            </svg>
+          </div>
+          <div class="credential-copy">
             <span class="cert-type">Coming Soon</span>
             <h3>Research Papers</h3>
             <p>Add published papers, preprints, technical blogs, or case studies here as the portfolio grows.</p>
@@ -702,26 +1047,79 @@
       </div>
     </section>
 
-    <section id="contact" class="section container contact-section contact-upgraded">
+    <section id="contact" class="section container contact-section contact-upgraded contact-launch-panel">
       <div class="contact-copy">
         <p class="eyebrow">Contact</p>
-        <h2>Let’s build something useful.</h2>
+        <h2 class="contact-title">
+          <span>Let’s</span>
+          <span class="contact-word build-word">build</span>
+          <span class="contact-word something-word">something</span>
+          <span class="contact-word useful-word">useful.</span>
+          <span class="contact-sticker contact-gear" aria-hidden="true">⚙</span>
+          <span class="contact-sticker contact-blocks" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="contact-sticker contact-check" aria-hidden="true">✓</span>
+        </h2>
         <p>Open to software engineering, AI/ML, data engineering, and full-stack product roles.</p>
-        <div class="contact-highlights">
-          <span>Available for full-time roles</span>
-          <span>Remote / hybrid friendly</span>
-          <span>Open to relocation</span>
+        <div class="contact-highlights contact-status-chips contact-status-grid">
+          <span><i></i><strong>Available</strong><small>full-time roles</small></span>
+          <span><i></i><strong>Flexible</strong><small>remote / hybrid</small></span>
+          <span><i></i><strong>Mobile</strong><small>open to relocation</small></span>
+        </div>
+
+        <div class="contact-capability-panel" aria-label="How I can help">
+          <span class="capability-label">How I can help</span>
+          <button type="button" class="capability-card" data-contact-project-filter="ai-ml">
+            <span class="capability-icon ai-capability-icon" aria-hidden="true"><i></i><i></i><i></i></span>
+            <strong>AI / ML systems</strong>
+            <small>model workflows, RAG, classification, search</small>
+            <em>View AI projects →</em>
+          </button>
+          <button type="button" class="capability-card" data-contact-project-filter="web-backend">
+            <span class="capability-icon backend-capability-icon" aria-hidden="true"><i></i><i></i><i></i></span>
+            <strong>Backend & APIs</strong>
+            <small>services, integrations, secure product flows</small>
+            <em>View backend projects →</em>
+          </button>
+          <button type="button" class="capability-card" data-contact-project-filter="data-eng">
+            <span class="capability-icon data-capability-icon" aria-hidden="true"><i></i><i></i><i></i></span>
+            <strong>Data engineering</strong>
+            <small>pipelines, lakehouses, streaming analytics</small>
+            <em>View data projects →</em>
+          </button>
+          <button type="button" class="capability-card" data-contact-project-filter="app-dev">
+            <span class="capability-icon product-capability-icon" aria-hidden="true"><i></i><i></i><i></i></span>
+            <strong>Product builds</strong>
+            <small>apps, dashboards, full-stack experiences</small>
+            <em>View app projects →</em>
+          </button>
         </div>
       </div>
 
       <div class="contact-panel">
-        <div class="contact-mini-card">
-          <span class="mini-label">Best way to reach me</span>
-          <strong>pathikcodes@gmail.com</strong>
+        <div class="contact-mini-card contact-terminal-card">
+          <div class="cmd-titlebar" aria-hidden="true">
+            <span class="cmd-title">Contact Terminal</span>
+            <span class="cmd-controls"><i></i><i></i><i></i></span>
+          </div>
+          <div class="cmd-body">
+            <div class="cmd-line"><span class="cmd-path">portfolio&gt;</span><span class="cmd-command">contact --email</span></div>
+            <div class="cmd-output cmd-email">pathikcodes@gmail.com</div>
+            <div class="cmd-line"><span class="cmd-path">portfolio&gt;</span><span class="cmd-command">status --availability</span></div>
+            <div class="cmd-output cmd-status-text">available for full-time roles</div>
+            <div class="cmd-line"><span class="cmd-path">portfolio&gt;</span><span class="cmd-cursor" aria-hidden="true"></span></div>
+          </div>
         </div>
-        <div class="contact-actions">
-          <a class="btn primary" href="mailto:pathikcodes@gmail.com">Email Me</a>
-          <a class="btn secondary" href="https://www.linkedin.com/in/pathikviramgama15/" target="_blank" rel="noreferrer">LinkedIn</a>
+        <div class="contact-actions contact-action-buttons">
+          <a class="btn primary contact-email-btn" href="mailto:pathikcodes@gmail.com">
+            <span class="btn-icon envelope-icon" aria-hidden="true"></span><span>Email Me</span>
+          </a>
+          <a class="btn secondary contact-linkedin-btn" href="https://www.linkedin.com/in/pathikviramgama15/" target="_blank" rel="noreferrer">
+            <span class="btn-icon linkedin-node-icon" aria-hidden="true"><i></i><i></i><i></i></span><span>LinkedIn</span>
+          </a>
+        </div>
+        <div class="contact-next-step">
+          <span class="next-step-label">Best next step</span>
+          <strong>Send a role, problem, or product idea — I’ll reply with how I can help.</strong>
         </div>
       </div>
     </section>
