@@ -4265,9 +4265,9 @@ body {
 
 .route-two {
   left: calc(50% - 2px);
-  top: 62px;
+  top: 45px;
   width: 2px;
-  height: 32px;
+  height: calc(100% - 105px);
   background: rgba(217,249,157,0.4);
 }
 
@@ -4319,7 +4319,7 @@ body {
 
 .uptime-ring {
   position: absolute;
-  right: 28px;
+  right: 15px;
   top: 26px;
   width: 54px;
   height: 54px;
@@ -4332,7 +4332,7 @@ body {
 
 .cache-chip {
   position: absolute;
-  right: 22px;
+  right: 64px;
   bottom: 24px;
   padding: 6px 9px;
   border-radius: 999px;
@@ -4648,6 +4648,7 @@ body {
 
 .ml-work-visual {
   position: relative;
+  
 }
 
 .vision-frame {
@@ -4861,19 +4862,19 @@ body {
   height: 10px;
 }
 
-.recent-mission-board .recent-work-card:nth-of-type(4) .embedding-node.e1 { right: 70px; top: 34px; }
-.recent-mission-board .recent-work-card:nth-of-type(4) .embedding-node.e2 { right: 34px; top: 58px; }
-.recent-mission-board .recent-work-card:nth-of-type(4) .embedding-node.e3 { right: 76px; bottom: 28px; }
+.recent-mission-board .recent-work-card:nth-of-type(4) .embedding-node.e1 { right: 90px; top: 34px; }
+.recent-mission-board .recent-work-card:nth-of-type(4) .embedding-node.e2 { right: 54px; top: 58px; }
+.recent-mission-board .recent-work-card:nth-of-type(4) .embedding-node.e3 { right: 96px; bottom: 28px; }
 
 .recent-mission-board .recent-work-card:nth-of-type(4) .embedding-link.el1 {
-  right: 48px;
-  top: 51px;
+  right: 60px;
+  top: 45px;
   width: 35px;
 }
 
 .recent-mission-board .recent-work-card:nth-of-type(4) .embedding-link.el2 {
-  right: 46px;
-  top: 75px;
+  right: 25px;
+  top: 67px;
   width: 42px;
 }
 
