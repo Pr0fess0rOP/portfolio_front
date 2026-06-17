@@ -998,3 +998,18 @@ window.addEventListener('mousemove', (event) => {
     background.style.setProperty("--cursor-y", `${(event.clientY / window.innerHeight) * 100}%`);
   }, { passive: true });
 })();
+
+// Keep Ask Pathik AI messages auto-scrolled inside the fixed chat box
+(() => {
+  const messages = document.querySelector(".portfolio-ai-messages");
+  if (!messages) return;
+
+  const scrollToBottom = () => {
+    messages.scrollTop = messages.scrollHeight;
+  };
+
+  const observer = new MutationObserver(scrollToBottom);
+  observer.observe(messages, { childList: true, subtree: true });
+
+  scrollToBottom();
+})();

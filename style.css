@@ -9168,3 +9168,67 @@ body {
     opacity: 0.28;
   }
 }
+
+/* Ask Pathik AI fixed-size chat box with scrollable messages */
+.portfolio-ai-panel {
+  width: min(620px, calc(100vw - 40px));
+  max-width: 620px;
+}
+
+.portfolio-ai-shell {
+  height: min(720px, calc(100vh - 120px));
+  max-height: min(720px, calc(100vh - 120px));
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Header, note, suggestions, and input stay fixed */
+.portfolio-ai-header,
+.portfolio-ai-note,
+.portfolio-ai-suggestions,
+.portfolio-ai-form {
+  flex: 0 0 auto;
+}
+
+/* Only this middle chat area scrolls */
+.portfolio-ai-messages {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 8px;
+  overscroll-behavior: contain;
+  scroll-behavior: smooth;
+}
+
+/* Cleaner scrollbar */
+.portfolio-ai-messages::-webkit-scrollbar {
+  width: 8px;
+}
+
+.portfolio-ai-messages::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 999px;
+}
+
+.portfolio-ai-messages::-webkit-scrollbar-thumb {
+  background: rgba(217, 249, 157, 0.28);
+  border-radius: 999px;
+}
+
+.portfolio-ai-messages::-webkit-scrollbar-thumb:hover {
+  background: rgba(217, 249, 157, 0.45);
+}
+
+/* Mobile-safe sizing */
+@media (max-width: 640px) {
+  .portfolio-ai-panel {
+    width: calc(100vw - 24px);
+  }
+
+  .portfolio-ai-shell {
+    height: min(680px, calc(100vh - 92px));
+    max-height: min(680px, calc(100vh - 92px));
+  }
+}
