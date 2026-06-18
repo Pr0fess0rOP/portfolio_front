@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Code icon">
+  <defs>
+    <linearGradient id="bg" x1="8" y1="6" x2="58" y2="60" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#111a33"/>
+      <stop offset="1" stop-color="#0b1020"/>
+    </linearGradient>
+    <linearGradient id="mark" x1="12" y1="18" x2="52" y2="46" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8cc8ff"/>
+      <stop offset="1" stop-color="#d9f99d"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="5" y="5" width="54" height="54" rx="16" fill="url(#bg)"/>
+  <rect x="5.75" y="5.75" width="52.5" height="52.5" rx="15.25" fill="none" stroke="#8cc8ff" stroke-opacity="0.34" stroke-width="1.5"/>
+
+  <path d="M25.2 22.6 16.1 32l9.1 9.4" fill="none" stroke="url(#mark)" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M38.8 22.6 47.9 32l-9.1 9.4" fill="none" stroke="url(#mark)" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M35.4 18.8 28.6 45.2" fill="none" stroke="#eef4ff" stroke-opacity="0.88" stroke-width="4.8" stroke-linecap="round"/>
+</svg>
