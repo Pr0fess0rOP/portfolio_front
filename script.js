@@ -10,6 +10,39 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 });
 year.textContent = new Date().getFullYear();
 
+
+
+// GitHub repo last updated dates
+(() => {
+  const repoBadges = document.querySelectorAll(".repository-tag");
+  if (!repoBadges.length) return;
+
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+
+    return date.toLocaleDateString("en-US", {
+      month: "short",
+      year: "numeric",
+    });
+  };
+
+  repoBadges.forEach((badge) => {
+    const repo = badge.dataset.repo;
+    if (!repo) return;
+    fetch(`https://api.github.com/repos/${repo}`)
+      .then((res) => {
+        if (!res.ok) throw new Error("GitHub API failed");
+        return res.json();
+      })
+      .then((data) => {
+        badge.textContent = `Last Updated ${formatDate(data.pushed_at)}`;
+      })
+      .catch(() => {
+        badge.textContent = "Updated recently";
+      });
+  });
+})();
+
 // Simple portfolio visit counter
 // Portfolio visit counter
 // Portfolio visit counter

@@ -10456,7 +10456,11 @@ body {
   right: 0;
   bottom: calc(100% + 10px);
 
-  width: 220px;
+  width: max-content;
+  min-width: 50px;
+  max-width: 260px;
+
+  white-space: normal;
   padding: 10px 12px;
   border-radius: 14px;
 
@@ -10547,4 +10551,17 @@ body {
 /* Prevent filtered-out cards from leaving vertical space */
 .project-card-lab.project-card-filtered-out {
   display: none !important;
+}
+
+.repo-updated {
+  display: inline-flex;
+  width: fit-content;
+  margin-top: 10px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(140, 200, 255, 0.08);
+  border: 1px solid rgba(140, 200, 255, 0.18);
+  color: var(--accent);
+  font-size: 0.74rem;
+  font-weight: 800;
 }
