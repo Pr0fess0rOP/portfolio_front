@@ -10,6 +10,41 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 });
 year.textContent = new Date().getFullYear();
 
+// Simple portfolio visit counter
+// Portfolio visit counter
+// Portfolio visit counter
+// Portfolio visit counter
+(() => {
+  const counter = document.querySelector("#visit-count");
+  if (!counter) return;
+
+  const workspace = "page-views-portfolio";
+  const counterName = "portfolio-visit-counter";
+
+  fetch(`https://api.counterapi.dev/v2/${workspace}/${counterName}/up`)
+    .then((res) => res.json())
+    .then((data) => {
+      console.log("CounterAPI response:", data);
+
+      const value =
+        data?.data?.count ??
+        data?.data?.value ??
+        data?.data?.up_count ??
+        data?.count ??
+        data?.value;
+
+      const numberValue = Number(value);
+
+      counter.textContent = Number.isFinite(numberValue)
+        ? numberValue.toLocaleString()
+        : "—";
+    })
+    .catch((err) => {
+      console.error("Visit counter failed:", err);
+      counter.textContent = "—";
+    });
+})();
+
 // Smooth reveal on scroll
 const revealItems = document.querySelectorAll('.section-heading, .about-grid, .skill-card, .timeline-item, .project-card, .education-card, .contact-section, .hero-copy, .hero-card');
 revealItems.forEach(item => item.classList.add('reveal'));

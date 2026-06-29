@@ -8809,6 +8809,8 @@ body {
 .scroll-3d-background[data-active-section="skills"] .stage-toolkit,
 .scroll-3d-background[data-active-section="experience"] .stage-work,
 .scroll-3d-background[data-active-section="projects"] .stage-projects,
+.scroll-3d-background[data-active-section="recognition"] .stage-recognition,
+.scroll-3d-background[data-active-section="education"] .stage-education,
 .scroll-3d-background[data-active-section="contact"] .stage-contact {
   opacity: 0.88;
   color: var(--text);
@@ -8821,6 +8823,8 @@ body {
 .scroll-3d-background[data-active-section="skills"] .stage-toolkit i,
 .scroll-3d-background[data-active-section="experience"] .stage-work i,
 .scroll-3d-background[data-active-section="projects"] .stage-projects i,
+.scroll-3d-background[data-active-section="recognition"] .stage-recognition i,
+.scroll-3d-background[data-active-section="education"] .stage-education i,
 .scroll-3d-background[data-active-section="contact"] .stage-contact i {
   background: var(--accent-2);
   box-shadow: 0 0 22px rgba(217,249,157,0.74);
@@ -9125,6 +9129,8 @@ body {
 .coding-scroll-background[data-active-section="skills"] .stage-toolkit,
 .coding-scroll-background[data-active-section="experience"] .stage-work,
 .coding-scroll-background[data-active-section="projects"] .stage-projects,
+.coding-scroll-background[data-active-section="recognition"] .stage-recognition,
+.coding-scroll-background[data-active-section="education"] .stage-education,
 .coding-scroll-background[data-active-section="contact"] .stage-contact {
   opacity: 0.98;
   background: rgba(217,249,157,0.11);
@@ -9230,5 +9236,1175 @@ body {
   .portfolio-ai-shell {
     height: min(680px, calc(100vh - 92px));
     max-height: min(680px, calc(100vh - 92px));
+  }
+}
+
+.visit-counter {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(217,249,157,0.18);
+  background: rgba(217,249,157,0.06);
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.visit-counter strong {
+  color: var(--accent-2);
+  font-size: 1rem;
+}
+
+.recommendation-section {
+  position: relative;
+}
+
+.recommendation-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.recommendation-card {
+  position: relative;
+  padding: 26px;
+  border-radius: 28px;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(255,255,255,0.075), rgba(255,255,255,0.028));
+  box-shadow: 0 22px 60px rgba(0,0,0,0.22);
+  overflow: hidden;
+}
+
+.recommendation-card::before {
+  content: "“";
+  position: absolute;
+  right: 22px;
+  top: -18px;
+  font-size: 7rem;
+  line-height: 1;
+  color: rgba(217,249,157,0.10);
+  font-weight: 900;
+}
+
+.recommendation-type {
+  display: inline-flex;
+  margin-bottom: 16px;
+  padding: 7px 11px;
+  border-radius: 999px;
+  border: 1px solid rgba(217,249,157,0.18);
+  background: rgba(217,249,157,0.07);
+  color: var(--accent-2);
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.recommendation-card p {
+  position: relative;
+  color: var(--text);
+  font-size: 1rem;
+  line-height: 1.65;
+  margin-bottom: 22px;
+}
+
+.recommendation-card strong {
+  display: block;
+  color: var(--accent);
+  font-size: 0.98rem;
+}
+
+.recommendation-card span {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 760px) {
+  .recommendation-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Make visit counter match hero stat cards */
+.quick-stats .visit-counter,
+.quick-stats .stat-visit-card {
+  display: block;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255,255,255,0.04);
+  color: var(--muted);
+}
+
+.quick-stats .visit-counter strong,
+.quick-stats .stat-visit-card strong {
+  display: block;
+  font-size: 1.4rem;
+  color: var(--accent-2);
+  line-height: 1.1;
+}
+
+.quick-stats .visit-counter span,
+.quick-stats .stat-visit-card span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.25;
+  margin-top: 4px;
+}
+
+.quick-stats .visit-counter:hover,
+.quick-stats .stat-visit-card:hover {
+  transform: translateY(-5px) scale(1.03);
+  border-color: rgba(217,249,157,0.40);
+  background: rgba(217,249,157,0.08);
+}
+
+/* Make all hero stat cards use the same hover emboss effect */
+.quick-stats div {
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.24s ease,
+    border-color 0.24s ease,
+    background 0.24s ease,
+    box-shadow 0.24s ease;
+}
+
+.quick-stats div::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    radial-gradient(circle at 82% 28%, rgba(217,249,157,0.18), transparent 34%),
+    linear-gradient(180deg, rgba(217,249,157,0.08), rgba(255,255,255,0.02));
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.24s ease;
+}
+
+.quick-stats div:hover {
+  transform: translateY(-5px) scale(1.03);
+  border-color: rgba(217,249,157,0.40);
+  background: rgba(217,249,157,0.08);
+  box-shadow:
+    0 18px 44px rgba(0,0,0,0.24),
+    0 0 0 1px rgba(217,249,157,0.10),
+    inset 0 1px 0 rgba(255,255,255,0.14);
+}
+
+.quick-stats div:hover::before {
+  opacity: 1;
+}
+
+.quick-stats div:hover strong {
+  color: var(--accent-2);
+  text-shadow: 0 0 18px rgba(217,249,157,0.28);
+}
+
+.quick-stats div:hover span {
+  color: var(--text);
+}
+
+/* Recognition section animations */
+.recommendation-section {
+  position: relative;
+  overflow: visible;
+}
+
+.recommendation-section .section-heading {
+  animation: recognitionHeadingIn 0.8s ease both;
+}
+
+.recommendation-section .eyebrow {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.recommendation-section .eyebrow::after {
+  content: "";
+  width: 42px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent-2), transparent);
+  box-shadow: 0 0 18px rgba(217,249,157,0.35);
+  animation: recognitionLinePulse 1.8s ease-in-out infinite;
+}
+
+.recommendation-grid {
+  perspective: 1000px;
+}
+
+.recommendation-card {
+  position: relative;
+  overflow: hidden;
+  transform: translateY(18px) rotateX(4deg);
+  opacity: 0;
+  animation: recommendationCardIn 0.8s ease forwards;
+  transition:
+    transform 0.28s ease,
+    border-color 0.28s ease,
+    background 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+.recommendation-card:nth-child(1) {
+  animation-delay: 0.12s;
+}
+
+.recommendation-card:nth-child(2) {
+  animation-delay: 0.26s;
+}
+
+.recommendation-card::after {
+  content: "";
+  position: absolute;
+  inset: -40% -80%;
+  background: linear-gradient(
+    115deg,
+    transparent 35%,
+    rgba(255,255,255,0.18),
+    transparent 65%
+  );
+  transform: translateX(-70%) rotate(8deg);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.recommendation-card:hover {
+  transform: translateY(-8px) rotateX(0deg) scale(1.015);
+  border-color: rgba(217,249,157,0.36);
+  background:
+    radial-gradient(circle at 82% 10%, rgba(217,249,157,0.10), transparent 32%),
+    linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.035));
+  box-shadow:
+    0 28px 80px rgba(0,0,0,0.28),
+    0 0 0 1px rgba(217,249,157,0.08),
+    inset 0 1px 0 rgba(255,255,255,0.12);
+}
+
+.recommendation-card:hover::after {
+  opacity: 1;
+  animation: recommendationShine 0.85s ease;
+}
+
+.recommendation-card::before {
+  animation: quoteFloat 3.2s ease-in-out infinite;
+}
+
+.recommendation-type {
+  position: relative;
+  overflow: hidden;
+}
+
+.recommendation-type::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(217,249,157,0.18), transparent);
+  transform: translateX(-110%);
+  animation: badgeSweep 2.8s ease-in-out infinite;
+}
+
+.recommendation-card p {
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.recommendation-card:hover p {
+  color: var(--text);
+  transform: translateY(-2px);
+}
+
+.recommendation-card strong {
+  transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+
+.recommendation-card:hover strong {
+  color: var(--accent-2);
+  text-shadow: 0 0 18px rgba(217,249,157,0.28);
+}
+
+@keyframes recognitionHeadingIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes recognitionLinePulse {
+  0%, 100% {
+    opacity: 0.45;
+    transform: scaleX(0.82);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes recommendationCardIn {
+  to {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg);
+  }
+}
+
+@keyframes recommendationShine {
+  0% {
+    transform: translateX(-70%) rotate(8deg);
+  }
+  100% {
+    transform: translateX(70%) rotate(8deg);
+  }
+}
+
+@keyframes quoteFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.85;
+  }
+  50% {
+    transform: translateY(8px) rotate(2deg);
+    opacity: 1;
+  }
+}
+
+@keyframes badgeSweep {
+  0%, 65% {
+    transform: translateX(-110%);
+  }
+  100% {
+    transform: translateX(110%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .recommendation-section .section-heading,
+  .recommendation-card,
+  .recommendation-card::before,
+  .recommendation-card::after,
+  .recommendation-type::after,
+  .recommendation-section .eyebrow::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .recommendation-card {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Floating interactive icons for Education + Recognition */
+.education-section,
+.recommendation-section {
+  position: relative;
+  overflow: visible;
+}
+
+.section-floating-icons {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.education-section > *,
+.recommendation-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+.floating-icon {
+  position: absolute;
+  display: inline-grid;
+  place-items: center;
+  color: var(--accent-2);
+  border: 2px solid rgba(217,249,157,0.42);
+  background:
+    radial-gradient(circle at 35% 25%, rgba(217,249,157,0.18), transparent 45%),
+    rgba(255,255,255,0.035);
+  box-shadow:
+    0 18px 48px rgba(0,0,0,0.22),
+    0 0 24px rgba(217,249,157,0.10),
+    inset 0 1px 0 rgba(255,255,255,0.10);
+  backdrop-filter: blur(8px);
+  opacity: 0.78;
+  animation: floatingIconDrift 4.8s ease-in-out infinite;
+}
+
+/* Education icons */
+.edu-icon-book {
+  right: 10%;
+  top: 8%;
+  width: 72px;
+  height: 46px;
+  border-radius: 16px;
+  color: var(--accent);
+  animation-delay: -0.8s;
+}
+
+.edu-icon-cap {
+  right: 2%;
+  top: 38%;
+  width: 74px;
+  height: 74px;
+  border-radius: 999px;
+  font-size: 2.1rem;
+  animation-delay: -2.2s;
+}
+
+.edu-icon-code {
+  left: 44%;
+  bottom: 4%;
+  min-width: 82px;
+  height: 42px;
+  padding: 0 14px;
+  border-radius: 999px;
+  color: var(--accent);
+  font-family: Consolas, "Courier New", monospace;
+  font-weight: 900;
+  animation-delay: -1.5s;
+}
+
+/* Recognition icons */
+.rec-icon-star {
+  right: 6%;
+  top: 4%;
+  width: 70px;
+  height: 70px;
+  border-radius: 999px;
+  font-size: 2rem;
+  animation-delay: -0.6s;
+}
+
+.rec-icon-quote {
+  right: 18%;
+  top: 32%;
+  width: 76px;
+  height: 76px;
+  border-radius: 24px;
+  font-size: 4.4rem;
+  line-height: 1;
+  color: rgba(217,249,157,0.75);
+  animation-delay: -2s;
+}
+
+.rec-icon-check {
+  left: 58%;
+  bottom: 2%;
+  width: 72px;
+  height: 72px;
+  border-radius: 999px;
+  font-size: 2.4rem;
+  animation-delay: -3s;
+}
+
+/* Card hover motion to match Certifications feel */
+.education-feature,
+.recommendation-card {
+  transition:
+    transform 0.28s ease,
+    border-color 0.28s ease,
+    background 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+.education-feature:hover,
+.recommendation-card:hover {
+  transform: translateY(-8px) scale(1.012);
+  border-color: rgba(217,249,157,0.36);
+  background:
+    radial-gradient(circle at 82% 10%, rgba(217,249,157,0.10), transparent 32%),
+    linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.035));
+  box-shadow:
+    0 28px 80px rgba(0,0,0,0.28),
+    0 0 0 1px rgba(217,249,157,0.08),
+    inset 0 1px 0 rgba(255,255,255,0.12);
+}
+
+/* Small shine sweep on cards */
+.education-feature::after,
+.recommendation-card::after {
+  content: "";
+  position: absolute;
+  inset: -45% -90%;
+  background: linear-gradient(
+    115deg,
+    transparent 35%,
+    rgba(255,255,255,0.16),
+    transparent 65%
+  );
+  transform: translateX(-72%) rotate(8deg);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.education-feature:hover::after,
+.recommendation-card:hover::after {
+  opacity: 1;
+  animation: sectionCardShine 0.85s ease;
+}
+
+/* Make chips/logos feel alive */
+.education-feature:hover .school-mark,
+.recommendation-card:hover .recommendation-type {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 0 24px rgba(217,249,157,0.12);
+}
+
+.education-feature .school-mark,
+.recommendation-card .recommendation-type {
+  transition: transform 0.24s ease, box-shadow 0.24s ease;
+}
+
+/* Floating animation */
+@keyframes floatingIconDrift {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  35% {
+    transform: translateY(-12px) rotate(3deg);
+  }
+  70% {
+    transform: translateY(8px) rotate(-3deg);
+  }
+}
+
+@keyframes sectionCardShine {
+  0% {
+    transform: translateX(-72%) rotate(8deg);
+  }
+  100% {
+    transform: translateX(72%) rotate(8deg);
+  }
+}
+
+@media (max-width: 760px) {
+  .section-floating-icons {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floating-icon,
+  .education-feature,
+  .recommendation-card,
+  .education-feature::after,
+  .recommendation-card::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Meaning-based heading stickers for Education + Recognition */
+.education-title,
+.recognition-title {
+  position: relative;
+  display: inline-flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 0.16em;
+  overflow: visible;
+}
+
+.edu-title-word,
+.rec-title-word {
+  position: relative;
+  display: inline-block;
+}
+
+.background-word {
+  color: var(--accent);
+}
+
+.appreciation-word {
+  color: var(--accent-2);
+}
+
+/* Shared sticker style */
+.edu-sticker,
+.rec-sticker {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 auto;
+  color: var(--accent-2);
+  border: 2px solid rgba(217,249,157,0.42);
+  background:
+    radial-gradient(circle at 35% 25%, rgba(217,249,157,0.16), transparent 45%),
+    rgba(255,255,255,0.035);
+  box-shadow:
+    0 14px 36px rgba(0,0,0,0.22),
+    0 0 22px rgba(217,249,157,0.10),
+    inset 0 1px 0 rgba(255,255,255,0.12);
+  backdrop-filter: blur(8px);
+  transform-origin: center;
+}
+
+/* Education: book stack beside Academic */
+.edu-book {
+  width: 0.72em;
+  height: 0.72em;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  margin: 0 0.06em 0.16em -0.03em;
+  animation: eduBookFloat 2.4s ease-in-out infinite;
+}
+
+.edu-book i {
+  position: absolute;
+  width: 0.34em;
+  height: 0.12em;
+  border-radius: 0.04em;
+  background: var(--accent-2);
+  box-shadow: 0 0 12px rgba(217,249,157,0.30);
+}
+
+.edu-book i:nth-child(1) {
+  transform: translate(-0.08em, -0.16em) rotate(-8deg);
+  background: var(--accent);
+}
+
+.edu-book i:nth-child(2) {
+  transform: translate(0.03em, 0) rotate(5deg);
+}
+
+.edu-book i:nth-child(3) {
+  transform: translate(-0.04em, 0.16em) rotate(-4deg);
+  background: rgba(255,255,255,0.86);
+}
+
+/* Education: degree cap/orbit beside background */
+.edu-cap {
+  width: 0.82em;
+  height: 0.82em;
+  margin-left: 0.06em;
+  margin-bottom: 0.06em;
+  border-radius: 999px;
+  font-size: 0.56em;
+  animation: eduCapOrbit 3s ease-in-out infinite;
+}
+
+/* Education: code chip */
+.edu-code {
+  min-width: 2.55em;
+  height: 1.05em;
+  padding: 0 0.5em;
+  margin-left: 0.08em;
+  margin-bottom: 0.04em;
+  border-radius: 999px;
+  color: var(--accent);
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 0.3em;
+  font-weight: 900;
+  animation: eduCodeBlink 2s ease-in-out infinite;
+}
+
+/* Recognition: quote belongs to Recommendations */
+.rec-quote {
+  width: 0.9em;
+  height: 0.9em;
+  margin-left: 0.04em;
+  margin-bottom: 0.08em;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  color: rgba(217,249,157,0.34);
+  font-size: 1.18em;
+  line-height: 0.7;
+  animation: recQuoteFloat 3s ease-in-out infinite;
+}
+
+/* Recognition: envelope belongs to letters */
+.rec-letter {
+  width: 1.05em;
+  height: 0.74em;
+  margin-left: 0.05em;
+  margin-bottom: 0.16em;
+  border-radius: 0.2em;
+  color: var(--accent);
+  font-size: 0.38em;
+  animation: recLetterSend 2.6s ease-in-out infinite;
+}
+
+/* Recognition: check belongs to appreciation */
+.rec-check {
+  width: 1.05em;
+  height: 1.05em;
+  margin-left: 0.06em;
+  margin-bottom: 0.04em;
+  border-radius: 999px;
+  color: var(--accent-2);
+  font-size: 0.54em;
+  animation: recCheckPulse 1.9s ease-in-out infinite;
+}
+
+/* Underline accent under important words */
+.background-word::after,
+.appreciation-word::after {
+  content: "";
+  position: absolute;
+  left: 0.04em;
+  right: 0.04em;
+  bottom: -0.08em;
+  height: 0.08em;
+  border-radius: 999px;
+  background: linear-gradient(90deg, currentColor, transparent);
+  opacity: 0.46;
+  animation: headingUnderlinePulse 2.4s ease-in-out infinite;
+}
+
+@keyframes eduBookFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(-4deg);
+  }
+  50% {
+    transform: translateY(-0.16em) rotate(5deg);
+  }
+}
+
+@keyframes eduCapOrbit {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-0.12em) rotate(10deg);
+  }
+}
+
+@keyframes eduCodeBlink {
+  0%, 100% {
+    opacity: 0.72;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-0.08em);
+  }
+}
+
+@keyframes recQuoteFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(-4deg);
+    opacity: 0.42;
+  }
+  50% {
+    transform: translateY(-0.16em) rotate(4deg);
+    opacity: 0.72;
+  }
+}
+
+@keyframes recLetterSend {
+  0%, 100% {
+    transform: translateX(0) rotate(0deg);
+  }
+  45% {
+    transform: translateX(0.16em) translateY(-0.08em) rotate(-8deg);
+  }
+  70% {
+    transform: translateX(-0.05em) rotate(4deg);
+  }
+}
+
+@keyframes recCheckPulse {
+  0%, 100% {
+    transform: scale(0.96);
+    box-shadow:
+      0 14px 36px rgba(0,0,0,0.22),
+      0 0 18px rgba(217,249,157,0.10);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow:
+      0 18px 44px rgba(0,0,0,0.26),
+      0 0 28px rgba(217,249,157,0.24);
+  }
+}
+
+@keyframes headingUnderlinePulse {
+  0%, 100% {
+    transform: scaleX(0.42);
+    opacity: 0.34;
+  }
+  50% {
+    transform: scaleX(1);
+    opacity: 0.72;
+  }
+}
+
+@media (max-width: 760px) {
+  .edu-sticker,
+  .rec-sticker {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .edu-sticker,
+  .rec-sticker,
+  .background-word::after,
+  .appreciation-word::after {
+    animation: none !important;
+  }
+}
+
+/* Cleaner Education heading stickers: close to text, education-themed */
+.education-title {
+  position: relative;
+  display: inline-flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 0.14em;
+  overflow: visible;
+}
+
+.education-title .edu-title-word {
+  position: relative;
+  display: inline-block;
+}
+
+.education-title .background-word {
+  color: var(--accent);
+}
+
+.education-title .background-word::after {
+  content: "";
+  position: absolute;
+  left: 0.04em;
+  right: 0.04em;
+  bottom: -0.08em;
+  height: 0.08em;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  opacity: 0.5;
+  animation: educationUnderlinePulse 2.4s ease-in-out infinite;
+}
+
+/* Shared inline sticker base */
+.education-title .edu-sticker {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 auto;
+  transform-origin: center;
+}
+
+/* Small stack of books beside Academic */
+.education-title .edu-books {
+  width: 0.64em;
+  height: 0.58em;
+  margin: 0 0.04em 0.13em 0.02em;
+  animation: eduBooksBob 2.4s ease-in-out infinite;
+}
+
+.education-title .edu-books i {
+  position: absolute;
+  width: 0.34em;
+  height: 0.11em;
+  border-radius: 0.035em;
+  box-shadow: 0 0 10px rgba(217,249,157,0.22);
+}
+
+.education-title .edu-books i:nth-child(1) {
+  background: var(--accent);
+  transform: translate(-0.04em, -0.15em) rotate(-5deg);
+}
+
+.education-title .edu-books i:nth-child(2) {
+  background: var(--accent-2);
+  transform: translate(0.05em, 0) rotate(4deg);
+}
+
+.education-title .edu-books i:nth-child(3) {
+  background: rgba(238,244,255,0.88);
+  transform: translate(-0.02em, 0.15em) rotate(-3deg);
+}
+
+/* Pencil beside background */
+.education-title .edu-pencil {
+  width: 0.84em;
+  height: 0.18em;
+  margin: 0 0.02em 0.21em 0.08em;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    #d9f99d 0 18%,
+    #8cc8ff 18% 78%,
+    rgba(238,244,255,0.92) 78% 100%
+  );
+  box-shadow: 0 0 16px rgba(140,200,255,0.24);
+  transform: rotate(-10deg);
+  animation: eduPencilWrite 2.8s ease-in-out infinite;
+}
+
+.education-title .edu-pencil::after {
+  content: "";
+  position: absolute;
+  right: -0.11em;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 0.14em solid rgba(238,244,255,0.92);
+  border-top: 0.08em solid transparent;
+  border-bottom: 0.08em solid transparent;
+}
+
+/* Small cap-like badge, close to title */
+.education-title .edu-cap {
+  width: 0.72em;
+  height: 0.72em;
+  margin-left: 0.02em;
+  margin-bottom: 0.05em;
+  border-radius: 999px;
+  border: 2px solid rgba(217,249,157,0.36);
+  background:
+    radial-gradient(circle at 34% 28%, rgba(217,249,157,0.16), transparent 42%),
+    rgba(255,255,255,0.035);
+  color: var(--accent-2);
+  font-size: 0.42em;
+  font-weight: 900;
+  box-shadow:
+    0 12px 28px rgba(0,0,0,0.22),
+    0 0 18px rgba(217,249,157,0.12),
+    inset 0 1px 0 rgba(255,255,255,0.10);
+  animation: eduCapNod 3s ease-in-out infinite;
+}
+
+/* Kill old far-floating icon system if it exists */
+.education-floating-icons,
+.recognition-floating-icons,
+.section-floating-icons {
+  display: none !important;
+}
+
+@keyframes eduBooksBob {
+  0%, 100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(-0.12em) rotate(4deg);
+  }
+}
+
+@keyframes eduPencilWrite {
+  0%, 100% {
+    transform: translateX(0) rotate(-10deg);
+  }
+  45% {
+    transform: translateX(0.12em) translateY(-0.03em) rotate(-6deg);
+  }
+  70% {
+    transform: translateX(-0.04em) rotate(-12deg);
+  }
+}
+
+@keyframes eduCapNod {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-0.1em) rotate(8deg);
+  }
+}
+
+@keyframes educationUnderlinePulse {
+  0%, 100% {
+    transform: scaleX(0.45);
+    opacity: 0.32;
+  }
+  50% {
+    transform: scaleX(1);
+    opacity: 0.72;
+  }
+}
+
+@media (max-width: 760px) {
+  .education-title .edu-sticker {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .education-title .edu-sticker,
+  .education-title .background-word::after {
+    animation: none !important;
+  }
+}
+
+/* Cleaner Recognition heading stickers: close to text and meaning-based */
+.recognition-title {
+  position: relative;
+  display: inline-flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 0.14em;
+  overflow: visible;
+}
+
+.recognition-title .rec-title-word,
+.recognition-title .rec-title-amp {
+  position: relative;
+  display: inline-block;
+}
+
+.recognition-title .appreciation-word {
+  color: var(--accent-2);
+}
+
+.recognition-title .appreciation-word::after {
+  content: "";
+  position: absolute;
+  left: 0.04em;
+  right: 0.04em;
+  bottom: -0.08em;
+  height: 0.08em;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent-2), transparent);
+  opacity: 0.5;
+  animation: recognitionUnderlinePulse 2.4s ease-in-out infinite;
+}
+
+/* Shared inline sticker base */
+.recognition-title .rec-sticker {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 auto;
+  transform-origin: center;
+}
+
+/* Quote attached to Recommendations */
+.recognition-title .rec-quote {
+  width: 0.74em;
+  height: 0.58em;
+  margin: 0 0.03em 0.2em 0.02em;
+  color: rgba(217,249,157,0.38);
+  font-size: 0.96em;
+  line-height: 0.7;
+  font-weight: 900;
+  animation: recQuoteBob 2.7s ease-in-out infinite;
+}
+
+/* Envelope attached to letters */
+.recognition-title .rec-envelope {
+  width: 0.9em;
+  height: 0.58em;
+  margin: 0 0.03em 0.22em 0.04em;
+  border-radius: 0.14em;
+  border: 2px solid rgba(140,200,255,0.62);
+  background:
+    linear-gradient(135deg, transparent 46%, rgba(140,200,255,0.48) 47% 53%, transparent 54%),
+    linear-gradient(45deg, transparent 46%, rgba(140,200,255,0.32) 47% 53%, transparent 54%),
+    rgba(140,200,255,0.055);
+  box-shadow:
+    0 12px 30px rgba(0,0,0,0.22),
+    0 0 18px rgba(140,200,255,0.14),
+    inset 0 1px 0 rgba(255,255,255,0.10);
+  animation: recEnvelopeSend 2.8s ease-in-out infinite;
+}
+
+/* Check attached to appreciation */
+.recognition-title .rec-check {
+  width: 0.72em;
+  height: 0.72em;
+  margin-left: 0.03em;
+  margin-bottom: 0.08em;
+  border-radius: 999px;
+  border: 2px solid rgba(217,249,157,0.38);
+  background:
+    radial-gradient(circle at 35% 28%, rgba(217,249,157,0.18), transparent 44%),
+    rgba(255,255,255,0.035);
+  color: var(--accent-2);
+  font-size: 0.44em;
+  font-weight: 900;
+  box-shadow:
+    0 12px 28px rgba(0,0,0,0.22),
+    0 0 18px rgba(217,249,157,0.12),
+    inset 0 1px 0 rgba(255,255,255,0.10);
+  animation: recCheckPulseClean 1.9s ease-in-out infinite;
+}
+
+/* Kill old random/far floating recognition icons if they exist */
+.recognition-floating-icons,
+.section-floating-icons {
+  display: none !important;
+}
+
+/* Optional: remove previous oversized old quote if CSS created it */
+.recommendation-card::before {
+  animation: quoteFloat 3.2s ease-in-out infinite;
+}
+
+@keyframes recQuoteBob {
+  0%, 100% {
+    transform: translateY(0) rotate(-4deg);
+    opacity: 0.45;
+  }
+  50% {
+    transform: translateY(-0.12em) rotate(4deg);
+    opacity: 0.8;
+  }
+}
+
+@keyframes recEnvelopeSend {
+  0%, 100% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+  }
+  45% {
+    transform: translateX(0.12em) translateY(-0.06em) rotate(-7deg);
+  }
+  70% {
+    transform: translateX(-0.04em) rotate(4deg);
+  }
+}
+
+@keyframes recCheckPulseClean {
+  0%, 100% {
+    transform: scale(0.96);
+    box-shadow:
+      0 12px 28px rgba(0,0,0,0.22),
+      0 0 16px rgba(217,249,157,0.10);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow:
+      0 16px 36px rgba(0,0,0,0.25),
+      0 0 26px rgba(217,249,157,0.24);
+  }
+}
+
+@keyframes recognitionUnderlinePulse {
+  0%, 100% {
+    transform: scaleX(0.45);
+    opacity: 0.32;
+  }
+  50% {
+    transform: scaleX(1);
+    opacity: 0.72;
+  }
+}
+
+@media (max-width: 760px) {
+  .recognition-title .rec-sticker {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .recognition-title .rec-sticker,
+  .recognition-title .appreciation-word::after {
+    animation: none !important;
   }
 }
