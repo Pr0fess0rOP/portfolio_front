@@ -10408,3 +10408,101 @@ body {
     animation: none !important;
   }
 }
+
+/* Project recent badge - bottom right, real HTML badge */
+.project-card-lab {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-status-badge {
+  position: absolute !important;
+  top: auto !important;
+  right: 16px !important;
+  bottom: 16px !important;
+  z-index: 20;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 6px 10px;
+  border-radius: 999px;
+
+  background: rgba(217, 249, 157, 0.10);
+  border: 1px solid rgba(217, 249, 157, 0.30);
+  color: var(--accent-2);
+
+  font-size: 0.62rem;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+
+  box-shadow:
+    0 10px 24px rgba(0,0,0,0.18),
+    inset 0 1px 0 rgba(255,255,255,0.10);
+  backdrop-filter: blur(8px);
+
+  cursor: help;
+}
+
+.project-card-lab:not(.project-new) .project-status-badge {
+  display: none;
+}
+
+.project-status-tooltip {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 10px);
+
+  width: 220px;
+  padding: 10px 12px;
+  border-radius: 14px;
+
+  background: rgba(15, 23, 42, 0.96);
+  border: 1px solid rgba(217,249,157,0.28);
+  color: var(--text);
+
+  font-size: 0.72rem;
+  font-weight: 800;
+  line-height: 1.35;
+  letter-spacing: 0;
+  text-transform: none;
+  text-align: left;
+
+  box-shadow:
+    0 16px 38px rgba(0,0,0,0.32),
+    0 0 18px rgba(217,249,157,0.10);
+
+  opacity: 0;
+  transform: translateY(4px) scale(0.96);
+  transform-origin: bottom right;
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.project-status-tooltip::before {
+  content: "";
+  position: absolute;
+  right: 22px;
+  bottom: -5px;
+
+  width: 10px;
+  height: 10px;
+  background: rgba(15, 23, 42, 0.96);
+  border-right: 1px solid rgba(217,249,157,0.28);
+  border-bottom: 1px solid rgba(217,249,157,0.28);
+  transform: rotate(45deg);
+}
+
+.project-status-badge:hover {
+  background: rgba(217,249,157,0.16);
+  border-color: rgba(217,249,157,0.46);
+  color: #ecfccb;
+}
+
+.project-status-badge:hover .project-status-tooltip {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
