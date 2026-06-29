@@ -44,20 +44,14 @@ year.textContent = new Date().getFullYear();
 })();
 
 // Simple portfolio visit counter
-// Portfolio visit counter
-// Portfolio visit counter
-// Portfolio visit counter
 (() => {
   const counter = document.querySelector("#visit-count");
   if (!counter) return;
 
-  const workspace = "page-views-portfolio";
-  const counterName = "portfolio-visit-counter";
-
-  fetch(`https://api.counterapi.dev/v2/${workspace}/${counterName}/up`)
+  fetch("https://portfolio-visit-counter.pathikcodes.workers.dev")
     .then((res) => res.json())
     .then((data) => {
-      console.log("CounterAPI response:", data);
+      console.log("Counter response:", data);
 
       const value =
         data?.data?.count ??
