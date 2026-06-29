@@ -10506,3 +10506,45 @@ body {
   opacity: 1;
   transform: translateY(0) scale(1);
 }
+
+.nav-links {
+  gap: clamp(14px, 1.6vw, 24px);
+}
+
+.nav-links a {
+  white-space: nowrap;
+}
+
+@media (max-width: 1040px) {
+  .nav-links {
+    gap: 14px;
+    font-size: 0.92rem;
+  }
+
+  .nav-cta {
+    padding: 9px 13px;
+  }
+}
+
+/* Fix empty space when project filters hide categories */
+.project-category.project-category-hidden {
+  display: none !important;
+}
+
+/* Make the remaining visible category move up immediately */
+.projects-lab-grid,
+.project-sections {
+  align-items: start;
+  gap: 28px;
+}
+
+/* Remove separators from hidden/filtered categories */
+.project-category.project-category-hidden::before,
+.project-category.project-category-hidden::after {
+  display: none !important;
+}
+
+/* Prevent filtered-out cards from leaving vertical space */
+.project-card-lab.project-card-filtered-out {
+  display: none !important;
+}
